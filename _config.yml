@@ -1,0 +1,7 @@
+title: Mantov Sports Analytics
+description: Sports analytics research and projects by Manuel Tovar
+baseurl: "" # leave empty
+url: "https://MantovBiz.github.io"
+theme: minima # or the theme you chose
+plugins:
+  - jekyll-feed
