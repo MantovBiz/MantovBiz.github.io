@@ -5,7 +5,7 @@ author: Manuel Tovar
 url: "https://MantovBiz.github.io"
 baseurl: ""
 
-remote_theme: "mmistakes/minimal-mistakes"  # <- this is the fix
+theme: minima
 
 header_pages:
   - index.md
@@ -15,4 +15,3 @@ header_pages:
 
 plugins:
   - jekyll-feed
-  - jekyll-include-cache
