@@ -1,8 +1,9 @@
 ---
 layout: post
-title: "NFL Defensive Personnel NFL Analysis"
+title: "NFL Defensive Personnel Analysis"
 date: 2026-03-06
-categories: research
+categories: [articles, research]
+tags: [NFL, Defense, analytics]
 ---
 
 # NFL Defensive Personnel NFL Analysis
