@@ -2,8 +2,9 @@
 layout: archive
 title: "Articles"
 permalink: /articles/
-author_profile: false
 ---
+
+# Articles
 
 Welcome to my sports analytics articles and research.  
 
