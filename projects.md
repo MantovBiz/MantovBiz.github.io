@@ -4,7 +4,6 @@ title: "Projects"
 permalink: /projects/
 ---
 
-# Projects
 
 ## NFL Running Back Analysis
 - Tools: R, ggplot2
