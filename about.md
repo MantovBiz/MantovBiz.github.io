@@ -3,11 +3,10 @@ layout: page
 title: "About Me"
 permalink: /about/
 ---
-# About Me
 
 Hi! I’m **Manuel Tovar**, a MIS & Business Analytics student at DePaul University.  
 
-I’m passionate about **sports analytics**, **data visualization**, and **research**. I enjoy analyzing NFL and NBA data, creating dashboards, and writing articles on sports trends.  
+I’m passionate about **analytics**, **data visualization**, and **research**. I enjoy analyzing data, creating dashboards, and writing articles on my findings and research.  
 
 ## Skills & Tools
 - **Data Analysis:** R, Python, SQL  
@@ -16,5 +15,5 @@ I’m passionate about **sports analytics**, **data visualization**, and **resea
 
 ## Interests
 - Sports analytics & predictive models  
-- Fantasy football & basketball research  
-- Writing insights and articles for sports trends
+- Music, Film, 
+- Writing insights and articles for my findings
