@@ -10,4 +10,4 @@ Welcome to my GitHub! I’m a MIS & Business Analytics student at DePaul Univers
 - ## Contact
 - LinkedIn: [Manuel Tovar](https://www.linkedin.com/in/mantovbiz/)
 - Email: mantovbusiness@gmail.com
-- Website: [Mantov Sports Analytics](https://MantovBiz.github.io)
+- Website: [Mantov's Portfolio](https://MantovBiz.github.io)
