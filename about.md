@@ -15,5 +15,5 @@ I’m passionate about **analytics**, **data visualization**, and **research**. 
 
 ## Interests
 - Sports analytics & predictive models  
-- Music, Film, 
+- Music, Film,  & Book 
 - Writing insights and articles for my findings
