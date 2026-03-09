@@ -1,17 +1,16 @@
 title: "Mantov's Portfolio"
 description: "Projects, Research & Articles"
 author: Manuel Tovar
-
 url: "https://MantovBiz.github.io"
 baseurl: ""
-
 theme: minima
-
 header_pages:
   - index.md
   - about.md
   - projects.md
   - articles.md
-
+  - opinion.md
+  - research.md
+  - search.html
 plugins:
   - jekyll-feed
