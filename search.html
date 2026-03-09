@@ -1,0 +1,288 @@
+---
+layout: default
+title: "Search"
+permalink: /search/
+---
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --ink: #1a1a1a;
+    --muted: #888;
+    --border: #e8e8e8;
+    --accent: #c0392b;
+    --bg: #fafaf8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .search-page {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    min-height: 100vh;
+    padding: 4rem 1.5rem;
+  }
+
+  .search-header {
+    max-width: 680px;
+    margin: 0 auto 3rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2rem;
+  }
+
+  .search-header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+
+  .search-header p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .search-container {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .search-input-wrap {
+    position: relative;
+    margin-bottom: 2.5rem;
+  }
+
+  .search-input-wrap svg {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    pointer-events: none;
+  }
+
+  #search-input {
+    width: 100%;
+    padding: 0.85rem 1rem 0.85rem 2.8rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    background: #fff;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  #search-input:focus {
+    border-color: var(--ink);
+  }
+
+  #search-input::placeholder {
+    color: #bbb;
+  }
+
+  #results-meta {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    min-height: 1.2em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  #search-results {
+    list-style: none;
+  }
+
+  #search-results li {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 0;
+    opacity: 0;
+    transform: translateY(6px);
+    animation: fadeUp 0.3s forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  #search-results li:nth-child(1) { animation-delay: 0.05s; }
+  #search-results li:nth-child(2) { animation-delay: 0.1s; }
+  #search-results li:nth-child(3) { animation-delay: 0.15s; }
+  #search-results li:nth-child(4) { animation-delay: 0.2s; }
+  #search-results li:nth-child(5) { animation-delay: 0.25s; }
+
+  .result-category {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .result-title a {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    transition: color 0.15s;
+  }
+
+  .result-title a:hover {
+    color: var(--accent);
+  }
+
+  .result-meta {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 0.35rem;
+    font-weight: 300;
+  }
+
+  .result-excerpt {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  mark {
+    background: #fff3b0;
+    color: inherit;
+    padding: 0 1px;
+    border-radius: 1px;
+  }
+
+  .no-results {
+    font-size: 0.95rem;
+    color: var(--muted);
+    padding: 2rem 0;
+    font-style: italic;
+  }
+</style>
+
+<div class="search-page">
+  <div class="search-header">
+    <h1>Search</h1>
+    <p>Search across all articles, research, and opinion pieces.</p>
+  </div>
+
+  <div class="search-container">
+    <div class="search-input-wrap">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" id="search-input" placeholder="Search articles…" autofocus autocomplete="off" />
+    </div>
+
+    <div id="results-meta"></div>
+    <ul id="search-results"></ul>
+  </div>
+</div>
+
+<!-- Search index generated from all posts -->
+<script>
+  // Inline post data — Jekyll renders this at build time
+  var posts = [
+    {% for post in site.posts %}
+    {
+      "title": {{ post.title | jsonify }},
+      "url": {{ post.url | jsonify }},
+      "date": {{ post.date | date: "%B %d, %Y" | jsonify }},
+      "categories": {{ post.categories | jsonify }},
+      "tags": {{ post.tags | jsonify }},
+      "excerpt": {{ post.excerpt | strip_html | truncatewords: 30 | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+<script>
+  // Build the Lunr index
+  var idx = lunr(function () {
+    this.ref('url');
+    this.field('title', { boost: 10 });
+    this.field('tags', { boost: 5 });
+    this.field('categories', { boost: 3 });
+    this.field('excerpt');
+
+    posts.forEach(function (post) {
+      this.add({
+        url: post.url,
+        title: post.title,
+        tags: (post.tags || []).join(' '),
+        categories: (post.categories || []).join(' '),
+        excerpt: post.excerpt
+      });
+    }, this);
+  });
+
+  var postMap = {};
+  posts.forEach(function(p) { postMap[p.url] = p; });
+
+  var input = document.getElementById('search-input');
+  var resultsList = document.getElementById('search-results');
+  var meta = document.getElementById('results-meta');
+
+  function highlight(text, query) {
+    if (!query || !text) return text;
+    var escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return text.replace(new RegExp('(' + escaped + ')', 'gi'), '<mark>$1</mark>');
+  }
+
+  function renderResults(query) {
+    resultsList.innerHTML = '';
+    meta.textContent = '';
+
+    if (!query || query.trim().length < 2) return;
+
+    var results = idx.search(query + '*');
+
+    if (results.length === 0) {
+      meta.textContent = 'No results found';
+      resultsList.innerHTML = '<li><p class="no-results">No articles match "' + query + '".</p></li>';
+      return;
+    }
+
+    meta.textContent = results.length + ' result' + (results.length !== 1 ? 's' : '') + ' for "' + query + '"';
+
+    results.forEach(function(r) {
+      var post = postMap[r.ref];
+      if (!post) return;
+
+      var cats = (post.categories || []).join(', ');
+      var li = document.createElement('li');
+      li.innerHTML =
+        (cats ? '<div class="result-category">' + cats + '</div>' : '') +
+        '<div class="result-title"><a href="' + post.url + '">' + highlight(post.title, query) + '</a></div>' +
+        '<div class="result-meta">' + post.date + (post.tags && post.tags.length ? ' &nbsp;·&nbsp; ' + post.tags.join(', ') : '') + '</div>' +
+        (post.excerpt ? '<div class="result-excerpt">' + highlight(post.excerpt, query) + '</div>' : '');
+      resultsList.appendChild(li);
+    });
+  }
+
+  input.addEventListener('input', function() {
+    renderResults(this.value.trim());
+  });
+
+  // Auto-run if URL has ?q=
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('q')) {
+    input.value = params.get('q');
+    renderResults(params.get('q'));
+  }
+</script>
