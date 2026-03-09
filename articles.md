@@ -11,7 +11,7 @@ permalink: /articles/
     --ink: #1a1a1a;
     --muted: #888;
     --border: #e8e8e8;
-    --accent-red: #c0392b;
+    --accent: #c0392b;
     --accent-blue: #2563a8;
     --bg: #fafaf8;
     --tag-bg: #f0f0ee;
@@ -24,7 +24,7 @@ permalink: /articles/
     color: var(--ink);
     background: var(--bg);
     min-height: 100vh;
-    padding: 4rem 1.5rem;
+    padding: 4rem 1.5rem 6rem;
   }
 
   .page-header {
@@ -42,11 +42,7 @@ permalink: /articles/
     margin-bottom: 0.5rem;
   }
 
-  .page-header p {
-    font-size: 0.9rem;
-    color: var(--muted);
-    font-weight: 300;
-  }
+  .page-header p { font-size: 0.9rem; color: var(--muted); font-weight: 300; }
 
   .search-wrap {
     max-width: 680px;
@@ -117,11 +113,7 @@ permalink: /articles/
     text-transform: uppercase;
   }
 
-  .posts-list {
-    max-width: 680px;
-    margin: 0 auto;
-    list-style: none;
-  }
+  .posts-list { max-width: 680px; margin: 0 auto; list-style: none; }
 
   .post-item {
     border-top: 1px solid var(--border);
@@ -135,14 +127,7 @@ permalink: /articles/
   }
 
   @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-  .post-item:nth-child(1) { animation-delay: 0.04s; }
-  .post-item:nth-child(2) { animation-delay: 0.08s; }
-  .post-item:nth-child(3) { animation-delay: 0.12s; }
-  .post-item:nth-child(4) { animation-delay: 0.16s; }
-  .post-item:nth-child(5) { animation-delay: 0.20s; }
   .post-item:last-child { border-bottom: 1px solid var(--border); }
-
-  .post-content { min-width: 0; }
 
   .post-meta-row {
     display: flex;
@@ -152,7 +137,7 @@ permalink: /articles/
     margin-bottom: 0.4rem;
   }
 
-  .post-category-badge {
+  .post-badge {
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -161,7 +146,7 @@ permalink: /articles/
     border-radius: 1px;
   }
 
-  .badge-opinion { background: #fdecea; color: var(--accent-red); }
+  .badge-opinion  { background: #fdecea; color: var(--accent); }
   .badge-research { background: #e8f0fb; color: var(--accent-blue); }
 
   .post-tag {
@@ -187,7 +172,7 @@ permalink: /articles/
     display: block;
   }
 
-  .post-title a:hover { color: var(--accent-red); }
+  .post-title a:hover { color: var(--accent); }
 
   .post-excerpt {
     font-size: 0.875rem;
@@ -240,7 +225,7 @@ var allPosts = [
 <div class="articles-page">
   <div class="page-header">
     <h1>Articles</h1>
-    <p>Research, analysis, and opinion on sports analytics.</p>
+    <p>Research, analysis, and opinion — on anything worth writing about.</p>
   </div>
 
   <div class="search-wrap">
@@ -279,8 +264,7 @@ var allPosts = [
     }, this);
   });
 
-  var currentTab = 'all';
-  var currentQuery = '';
+  var currentTab = 'all', currentQuery = '';
   var input = document.getElementById('search-input');
   var list  = document.getElementById('posts-list');
   var meta  = document.getElementById('results-meta');
@@ -334,9 +318,9 @@ var allPosts = [
       var isOpinion  = cats.indexOf('opinion') > -1;
       var isResearch = cats.indexOf('research') > -1;
       var badge = isOpinion
-        ? '<span class="post-category-badge badge-opinion">Opinion</span>'
+        ? '<span class="post-badge badge-opinion">Opinion</span>'
         : isResearch
-          ? '<span class="post-category-badge badge-research">Research</span>'
+          ? '<span class="post-badge badge-research">Research</span>'
           : '';
       var tags = (post.tags || []).map(function(t) {
         return '<span class="post-tag">' + t + '</span>';
