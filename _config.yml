@@ -9,8 +9,5 @@ header_pages:
   - about.md
   - projects.md
   - articles.md
-  - opinion.md
-  - research.md
-  - search.html
 plugins:
   - jekyll-feed
