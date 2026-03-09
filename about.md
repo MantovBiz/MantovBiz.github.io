@@ -23,13 +23,10 @@ permalink: /about/
     color: var(--ink);
     background: var(--bg);
     min-height: 100vh;
-    padding: 4rem 1.5rem;
+    padding: 4rem 1.5rem 6rem;
   }
 
-  .about-inner {
-    max-width: 680px;
-    margin: 0 auto;
-  }
+  .about-inner { max-width: 680px; margin: 0 auto; }
 
   .about-header {
     padding-bottom: 2rem;
@@ -37,7 +34,7 @@ permalink: /about/
     margin-bottom: 2.5rem;
   }
 
-  .about-label {
+  .page-label {
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
@@ -62,9 +59,7 @@ permalink: /about/
     line-height: 1.75;
   }
 
-  .about-section {
-    margin-bottom: 2.5rem;
-  }
+  .about-section { margin-bottom: 2.5rem; }
 
   .about-section h2 {
     font-family: 'DM Serif Display', serif;
@@ -72,7 +67,6 @@ permalink: /about/
     font-weight: 400;
     letter-spacing: -0.01em;
     margin-bottom: 1rem;
-    color: var(--ink);
   }
 
   .skills-grid {
@@ -118,7 +112,6 @@ permalink: /about/
     color: var(--ink);
     padding: 0.3rem 0.75rem;
     border-radius: 2px;
-    letter-spacing: 0.01em;
   }
 
   .cta-row {
@@ -130,7 +123,7 @@ permalink: /about/
     border-top: 1px solid var(--border);
   }
 
-  .cta-btn {
+  .btn {
     font-family: 'DM Sans', sans-serif;
     font-size: 0.82rem;
     font-weight: 400;
@@ -141,30 +134,19 @@ permalink: /about/
     letter-spacing: 0.02em;
   }
 
-  .cta-primary {
-    background: var(--ink);
-    color: #fff;
-    border: 1px solid var(--ink);
-  }
-
-  .cta-primary:hover { background: #333; }
-
-  .cta-secondary {
-    background: transparent;
-    color: var(--ink);
-    border: 1px solid var(--border);
-  }
-
-  .cta-secondary:hover { border-color: var(--ink); }
+  .btn-primary { background: var(--ink); color: #fff; border: 1px solid var(--ink); }
+  .btn-primary:hover { background: #333; }
+  .btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--border); }
+  .btn-secondary:hover { border-color: var(--ink); }
 </style>
 
 <div class="about-page">
   <div class="about-inner">
 
     <div class="about-header">
-      <div class="about-label">About</div>
+      <div class="page-label">About</div>
       <h1>Manuel Tovar</h1>
-      <p>MIS & Business Analytics student at DePaul University, passionate about analytics, data visualization, and research. I enjoy analyzing data, building dashboards, and writing about my findings.</p>
+      <p>MIS & Business Analytics student at DePaul University. I write about data, sports, film, and whatever else is worth thinking about — and build projects around the things I find interesting.</p>
     </div>
 
     <div class="about-section">
@@ -191,15 +173,17 @@ permalink: /about/
         <li>Sports analytics</li>
         <li>Predictive modeling</li>
         <li>Data visualization</li>
+        <li>Film & cinema</li>
         <li>Music</li>
-        <li>Film</li>
         <li>Books</li>
       </ul>
     </div>
 
     <div class="cta-row">
-      <a href="/articles/" class="cta-btn cta-primary">Read Articles</a>
-      <a href="/projects/" class="cta-btn cta-secondary">View Projects</a>
+      <a href="/articles/" class="btn btn-primary">Read Articles</a>
+      <a href="/projects/" class="btn btn-secondary">View Projects</a>
+      <a href="/contact/" class="btn btn-secondary">Get in touch →</a>
+      <a href="https://www.linkedin.com/in/mantovbiz/" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn →</a>
     </div>
 
   </div>
