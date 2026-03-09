@@ -23,13 +23,10 @@ permalink: /
     color: var(--ink);
     background: var(--bg);
     min-height: 100vh;
-    padding: 4rem 1.5rem;
+    padding: 4rem 1.5rem 6rem;
   }
 
-  .home-inner {
-    max-width: 680px;
-    margin: 0 auto;
-  }
+  .home-inner { max-width: 680px; margin: 0 auto; }
 
   /* Hero */
   .hero {
@@ -41,7 +38,7 @@ permalink: /
   .hero-label {
     font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     font-weight: 500;
     color: var(--accent);
     margin-bottom: 1rem;
@@ -54,13 +51,9 @@ permalink: /
     letter-spacing: -0.03em;
     line-height: 1.08;
     margin-bottom: 1.25rem;
-    color: var(--ink);
   }
 
-  .hero h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
 
   .hero p {
     font-size: 1rem;
@@ -71,11 +64,7 @@ permalink: /
     margin-bottom: 2rem;
   }
 
-  .hero-cta {
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-  }
+  .hero-cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 
   .btn {
     font-family: 'DM Sans', sans-serif;
@@ -88,23 +77,12 @@ permalink: /
     letter-spacing: 0.02em;
   }
 
-  .btn-primary {
-    background: var(--ink);
-    color: #fff;
-    border: 1px solid var(--ink);
-  }
-
+  .btn-primary { background: var(--ink); color: #fff; border: 1px solid var(--ink); }
   .btn-primary:hover { background: #333; }
-
-  .btn-secondary {
-    background: transparent;
-    color: var(--ink);
-    border: 1px solid var(--border);
-  }
-
+  .btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--border); }
   .btn-secondary:hover { border-color: var(--ink); }
 
-  /* Recent articles */
+  /* Recent posts */
   .section-head {
     display: flex;
     align-items: center;
@@ -130,10 +108,7 @@ permalink: /
 
   .section-more:hover { color: var(--ink); }
 
-  .post-list {
-    list-style: none;
-    margin-bottom: 3rem;
-  }
+  .post-list { list-style: none; margin-bottom: 3rem; }
 
   .post-item {
     border-top: 1px solid var(--border);
@@ -150,12 +125,10 @@ permalink: /
   .post-item:nth-child(1) { animation-delay: 0.08s; }
   .post-item:nth-child(2) { animation-delay: 0.14s; }
   .post-item:nth-child(3) { animation-delay: 0.20s; }
-
   @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-
   .post-item:last-child { border-bottom: 1px solid var(--border); }
 
-  .post-category-badge {
+  .post-badge {
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -212,7 +185,7 @@ permalink: /
     flex-wrap: wrap;
   }
 
-  .about-strip-text h2 {
+  .about-strip h2 {
     font-family: 'DM Serif Display', serif;
     font-size: 1.15rem;
     font-weight: 400;
@@ -220,7 +193,7 @@ permalink: /
     letter-spacing: -0.01em;
   }
 
-  .about-strip-text p {
+  .about-strip p {
     font-size: 0.875rem;
     color: var(--muted);
     font-weight: 300;
@@ -238,9 +211,9 @@ permalink: /
   <div class="home-inner">
 
     <div class="hero">
-      <div class="hero-label">Mantov Sports Analytics</div>
-      <h1>Research, data,<br>and <em>sports.</em></h1>
-      <p>Analytics, visualization, and writing on the numbers behind the game. MIS & Business Analytics student at DePaul University.</p>
+      <div class="hero-label">Mantov's Portfolio</div>
+      <h1>Writing, research,<br>and <em>curiosity.</em></h1>
+      <p>A space for analytics, projects, and opinions — from sports and data to film and culture. By Manuel Tovar, MIS & Business Analytics student at DePaul University.</p>
       <div class="hero-cta">
         <a href="/articles/" class="btn btn-primary">Read Articles</a>
         <a href="/projects/" class="btn btn-secondary">View Projects</a>
@@ -258,9 +231,9 @@ permalink: /
         <div>
           {% assign cats = post.categories %}
           {% if cats contains 'opinion' %}
-            <span class="post-category-badge badge-opinion">Opinion</span>
+            <span class="post-badge badge-opinion">Opinion</span>
           {% elsif cats contains 'research' %}
-            <span class="post-category-badge badge-research">Research</span>
+            <span class="post-badge badge-research">Research</span>
           {% endif %}
           <div class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></div>
           {% if post.excerpt %}
@@ -273,7 +246,7 @@ permalink: /
     </ul>
 
     <div class="about-strip">
-      <div class="about-strip-text">
+      <div>
         <h2>Manuel Tovar</h2>
         <p>MIS & Business Analytics · DePaul University<br>R, Python, SQL, Tableau</p>
       </div>
