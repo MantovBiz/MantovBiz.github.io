@@ -1,0 +1,241 @@
+---
+layout: default
+---
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --ink: #1a1a1a;
+    --muted: #888;
+    --border: #e8e8e8;
+    --accent: #c0392b;
+    --accent-blue: #2563a8;
+    --bg: #fafaf8;
+    --tag-bg: #f0f0ee;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .post-page {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    min-height: 100vh;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  .post-inner { max-width: 680px; margin: 0 auto; }
+
+  /* Back link */
+  .post-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    margin-bottom: 2.5rem;
+    transition: color 0.15s;
+  }
+
+  .post-back:hover { color: var(--ink); }
+
+  /* Header */
+  .post-header {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+  }
+
+  .post-meta-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .post-badge {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    padding: 0.15rem 0.5rem;
+    border-radius: 1px;
+  }
+
+  .badge-opinion  { background: #fdecea; color: var(--accent); }
+  .badge-research { background: #e8f0fb; color: var(--accent-blue); }
+
+  .post-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 500;
+    background: var(--tag-bg);
+    color: var(--muted);
+    padding: 0.15rem 0.45rem;
+    border-radius: 1px;
+  }
+
+  .post-header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.9rem, 5vw, 2.75rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+  }
+
+  .post-date {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* Body content */
+  .post-body {
+    font-size: 1rem;
+    line-height: 1.8;
+    font-weight: 300;
+    color: #333;
+  }
+
+  .post-body p { margin-bottom: 1.4rem; }
+
+  .post-body h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .post-body h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-top: 2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .post-body ul,
+  .post-body ol {
+    padding-left: 1.4rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .post-body li { margin-bottom: 0.4rem; }
+
+  .post-body a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: opacity 0.15s;
+  }
+
+  .post-body a:hover { opacity: 0.7; }
+
+  .post-body blockquote {
+    border-left: 2px solid var(--border);
+    padding-left: 1.25rem;
+    color: var(--muted);
+    font-style: italic;
+    margin: 1.75rem 0;
+  }
+
+  .post-body hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+  }
+
+  .post-body code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.875em;
+    background: #f0f0ee;
+    padding: 0.1em 0.35em;
+    border-radius: 2px;
+  }
+
+  .post-body pre {
+    background: #f5f5f3;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 1.25rem;
+    overflow-x: auto;
+    margin-bottom: 1.4rem;
+  }
+
+  .post-body pre code {
+    background: none;
+    padding: 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  /* Footer nav */
+  .post-footer {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .post-footer a {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.15s;
+  }
+
+  .post-footer a:hover { color: var(--ink); }
+</style>
+
+<div class="post-page">
+  <div class="post-inner">
+
+    <a href="/articles/" class="post-back">
+      ← All articles
+    </a>
+
+    <div class="post-header">
+      <div class="post-meta-row">
+        {% assign cats = page.categories %}
+        {% if cats contains 'opinion' %}
+          <span class="post-badge badge-opinion">Opinion</span>
+        {% elsif cats contains 'research' %}
+          <span class="post-badge badge-research">Research</span>
+        {% endif %}
+        {% for tag in page.tags %}
+          <span class="post-tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+
+      <h1>{{ page.title }}</h1>
+      <div class="post-date">{{ page.date | date: "%B %d, %Y" }}</div>
+    </div>
+
+    <div class="post-body">
+      {{ content }}
+    </div>
+
+    <div class="post-footer">
+      <a href="/articles/">← Back to articles</a>
+      <a href="/contact/">Get in touch</a>
+    </div>
+
+  </div>
+</div>
