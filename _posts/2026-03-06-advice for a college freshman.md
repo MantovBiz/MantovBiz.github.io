@@ -6,8 +6,17 @@ categories: [opinion]
 tags: [College]
 ---
 
-Your intro paragraph here...
+Here are my top 3 tips for a college freshman.
 
-## A heading if you want one
+## 1. You are going for an education but education isn't everything.
 
-More writing here...
+That might sound a bit confusing but let me explain. 
+
+## 2. Get Involved
+
+I promise you getting involved on campus will make your experience 10x better. 
+
+
+## 3. Have Fun
+
+You are only at college for about 4 years! It is a new chapter in your life! 
