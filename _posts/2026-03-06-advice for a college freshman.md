@@ -3,7 +3,7 @@ layout: post
 title: "Advice for a College Freshman"
 date: 2026-03-06
 categories: [opinion]
-tags: [College]
+tags: [College, Advice]
 ---
 
 Here are my top 3 tips for a college freshman.
