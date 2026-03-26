@@ -26,6 +26,12 @@ RG
 RT
 
 ### Regular Season Personnel
+Here is a table to better help understand the terminology as we get into discussing the different personnel groups and what the numbers represent.
 ![Personnel-Groupings-Chart](https://github.com/user-attachments/assets/43a6524f-ff83-4a97-9637-3f01afb9d3c7)
+
+
+
+
+
 
 
