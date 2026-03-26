@@ -24,3 +24,8 @@ LG
 C
 RG
 RT
+
+### Regular Season Personnel
+![Personnel-Groupings-Chart](https://github.com/user-attachments/assets/43a6524f-ff83-4a97-9637-3f01afb9d3c7)
+
+
