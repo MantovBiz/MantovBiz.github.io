@@ -29,8 +29,7 @@ RT
 Here is a table to better help understand the terminology as we get into discussing the different personnel groups and what the numbers represent.
 ![Personnel-Groupings-Chart](https://github.com/user-attachments/assets/43a6524f-ff83-4a97-9637-3f01afb9d3c7)
 
-
-
+<img width="1466" height="980" alt="chi_offense_personnel" src="https://github.com/user-attachments/assets/635935e0-6520-4195-8fa5-dde789fe9ca6" />
 
 
 
