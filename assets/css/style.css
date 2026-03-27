@@ -4,36 +4,64 @@
 /* ── 1. Pull in all of Minima's default styles first ── */
 @import "minima";
 
-/* ── 2. Override the wrapper max-width that Minima forces on every page ──
-   Minima sets .wrapper { max-width: 800px } (or up to 1200px in some versions).
-   We remove the cap so your fluid 3-column about page can fill the screen.
-   All other Minima pages (index, articles, projects) are unaffected — they
-   will still be readable because their own content naturally limits width.
-──────────────────────────────────────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════════════
+   MINIMA FULL-WIDTH OVERRIDE
+   These rules strip out every max-width, padding, and overflow that
+   Minima applies to the page body and content wrappers. Without all
+   of these together, the 3-column grid on the about page overflows
+   or collapses on laptop screens.
+══════════════════════════════════════════════════════════════════════ */
+
+/* Body and html — must not clip or scroll-lock the grid */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* The main wrapper Minima uses everywhere */
 .wrapper {
   max-width: 100% !important;
+  width: 100% !important;
   padding-right: 0 !important;
   padding-left: 0 !important;
   margin-right: 0 !important;
   margin-left: 0 !important;
 }
 
-/* ── 3. Also remove width caps on the site header and footer ──
-   Without this the nav bar stays narrow even when the page is wide.
-──────────────────────────────────────────────────────────────────────────── */
+/* Keep the header and footer padded so they don't look naked */
+.site-header,
+.site-footer {
+  padding-left: clamp(1rem, 3vw, 2.5rem) !important;
+  padding-right: clamp(1rem, 3vw, 2.5rem) !important;
+}
+
 .site-header .wrapper,
 .site-footer .wrapper {
   max-width: 100% !important;
-  padding-right: 1.5rem !important;
-  padding-left: 1.5rem !important;
+  padding: 0 !important;
 }
 
-/* ── 4. Let the page content area breathe ── */
+/* The <main> tag Minima wraps content in */
 .page-content {
   padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
 }
 
+/* The inner wrapper inside .page-content — this is the key one.
+   In Minima's default layout this div had max-width: 800px and
+   padding: 30px — removing it is what makes the about page fluid. */
 .page-content > .wrapper {
   max-width: 100% !important;
+  width: 100% !important;
   padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Minima also sometimes sets these on the post/page content div */
+.post-content,
+.home {
+  max-width: 100% !important;
 }
