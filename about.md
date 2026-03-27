@@ -12,10 +12,10 @@ permalink: /about/
     --muted: #888;
     --border: #e8e8e8;
     --accent: #c0392b;
+    --accent-blue: #2563a8;
     --bg: #fafaf8;
     --tag-bg: #f0f0ee;
     --card-bg: #ffffff;
-    --terminal-bg: #1a1a1a;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,7 +30,6 @@ permalink: /about/
 
   .about-inner { max-width: 960px; margin: 0 auto; }
 
-  /* ── Back link ────────────────────────────────────────────────────────────── */
   .about-back {
     display: inline-flex;
     align-items: center;
@@ -45,7 +44,6 @@ permalink: /about/
   }
   .about-back:hover { color: var(--ink); }
 
-  /* ── Section label ────────────────────────────────────────────────────────── */
   .section-label {
     font-size: 0.68rem;
     text-transform: uppercase;
@@ -57,170 +55,145 @@ permalink: /about/
     border-bottom: 1px solid var(--border);
   }
 
-  /* ── Terminal hero ────────────────────────────────────────────────────────── */
-  .terminal-hero {
-    background: var(--terminal-bg);
-    border-radius: 6px;
-    padding: 2rem 2rem 1.75rem;
-    margin-bottom: 3rem;
-    position: relative;
-    overflow: hidden;
-  }
+  .about-section { margin-bottom: 3rem; }
 
-  .terminal-titlebar {
+  /* ── Hero ─────────────────────────────────────────────────────────────────── */
+  .hero {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-    margin-bottom: 1.5rem;
+    gap: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
   }
 
-  .terminal-dot {
-    width: 10px;
-    height: 10px;
+  .avatar {
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
-  }
-
-  .dot-red    { background: #ff5f57; }
-  .dot-yellow { background: #ffbd2e; }
-  .dot-green  { background: #28ca41; }
-
-  .terminal-body {
-    font-family: 'Courier New', monospace;
-    font-size: 0.88rem;
-    line-height: 2;
-    color: #555;
-  }
-
-  .t-line {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
     display: flex;
-    gap: 1rem;
-    opacity: 0;
-    transform: translateY(4px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
-  .t-line.show { opacity: 1; transform: translateY(0); }
-
-  .t-prompt { color: var(--accent); user-select: none; }
-  .t-key    { color: #555; min-width: 90px; }
-  .t-arrow  { color: #333; }
-  .t-val    { color: #e8e8e4; }
-  .t-val.name-val {
+    align-items: center;
+    justify-content: center;
     font-family: 'DM Serif Display', serif;
-    font-size: 1.5rem;
-    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--accent);
+    flex-shrink: 0;
+    letter-spacing: -1px;
+  }
+
+  /*
+    To swap in a real photo later, replace the <div class="avatar"> with:
+    <img src="/assets/images/profile.jpg" class="avatar-photo" alt="Manuel Tovar">
+
+    And add this rule:
+    .avatar-photo { width:110px; height:110px; border-radius:50%; object-fit:cover; border:1px solid var(--border); flex-shrink:0; }
+  */
+
+  .hero-text { flex: 1; min-width: 200px; }
+
+  .page-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
     letter-spacing: -0.02em;
-    line-height: 1.2;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
   }
 
-  .t-cursor {
-    display: inline-block;
-    width: 8px;
-    height: 1em;
-    background: var(--accent);
-    vertical-align: middle;
-    margin-left: 2px;
-    animation: blink 1s step-end infinite;
+  .hero-bio {
+    font-size: 1rem;
+    color: #444;
+    font-weight: 300;
+    line-height: 1.75;
+    max-width: 540px;
   }
 
-  @keyframes blink { 50% { opacity: 0; } }
+  /* ── Why section ──────────────────────────────────────────────────────────── */
+  .why-body {
+    font-size: 1rem;
+    line-height: 1.8;
+    font-weight: 300;
+    color: #444;
+  }
 
-  /* ── Animated stats ───────────────────────────────────────────────────────── */
-  .stats-section { margin-bottom: 3rem; }
+  .why-body p { margin-bottom: 1.2rem; }
+  .why-body p:last-child { margin-bottom: 0; }
 
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1px;
-    background: var(--border);
+  .why-placeholder {
+    font-size: 0.875rem;
+    color: var(--muted);
+    font-style: italic;
+    padding: 1.25rem;
+    border: 1px dashed var(--border);
+    border-radius: 3px;
+    line-height: 1.7;
+  }
+
+  /* ── Tools grid ───────────────────────────────────────────────────────────── */
+  .tools-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .tool-card {
+    background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 4px;
-    overflow: hidden;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.15s;
   }
 
-  .stat-box {
-    background: var(--card-bg);
-    padding: 1.5rem 1.25rem;
+  .tool-card.visible { opacity: 1; transform: translateY(0); }
+  .tool-card:hover { border-color: #bbb; transform: translateY(-2px); }
+
+  .tool-logo {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .tool-name {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    color: var(--muted);
     text-align: center;
   }
 
-  .stat-number {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.5rem;
-    font-weight: 400;
-    color: var(--ink);
-    line-height: 1;
-    letter-spacing: -0.03em;
-  }
-
-  .stat-number sup {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1rem;
-    color: var(--accent);
-    vertical-align: super;
-  }
-
-  .stat-label {
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    margin-top: 0.4rem;
-    font-weight: 400;
-  }
-
-  /* ── Skills ───────────────────────────────────────────────────────────────── */
-  .skills-section { margin-bottom: 3rem; }
-
-  .skill-row {
+  /* ── Interests ────────────────────────────────────────────────────────────── */
+  .interests-wrap {
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     margin-bottom: 0.85rem;
   }
 
-  .skill-name {
-    font-size: 0.82rem;
-    color: var(--ink);
-    font-weight: 400;
-    width: 100px;
-    flex-shrink: 0;
-  }
-
-  .skill-track {
-    flex: 1;
-    height: 2px;
-    background: var(--border);
-    border-radius: 1px;
-    overflow: hidden;
-  }
-
-  .skill-fill {
-    height: 100%;
-    background: var(--ink);
-    border-radius: 1px;
-    width: 0;
-    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .skill-fill.accent { background: var(--accent); }
-
-  .skill-pct {
-    font-size: 0.72rem;
-    color: var(--muted);
-    width: 32px;
-    text-align: right;
-    font-weight: 300;
-  }
-
-  /* ── Interests ────────────────────────────────────────────────────────────── */
-  .interests-section { margin-bottom: 3rem; }
-
-  .interests-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-
   .interest-tag {
-    font-size: 0.78rem;
-    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.85rem;
     border: 1px solid var(--border);
     border-radius: 2px;
     background: var(--card-bg);
@@ -238,23 +211,21 @@ permalink: /about/
     border-color: var(--ink);
   }
 
-  .interest-tooltip {
+  .interest-tip {
     min-height: 1.4rem;
     font-size: 0.82rem;
     color: var(--accent);
     font-style: italic;
     font-weight: 300;
-    padding-top: 0.25rem;
-    transition: opacity 0.2s;
   }
 
   /* ── CTA ──────────────────────────────────────────────────────────────────── */
-  .cta-section {
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
+  .cta-row {
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
   }
 
   .btn {
@@ -268,28 +239,26 @@ permalink: /about/
     letter-spacing: 0.02em;
   }
 
-  .btn-primary { background: var(--ink); color: #fff; border: 1px solid var(--ink); }
-  .btn-primary:hover { background: #333; }
+  .btn-primary  { background: var(--ink); color: #fff; border: 1px solid var(--ink); }
+  .btn-primary:hover  { background: #333; }
   .btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--border); }
   .btn-secondary:hover { border-color: var(--ink); }
 
-  /* ── Fade in on scroll ────────────────────────────────────────────────────── */
+  /* ── Fade up on scroll ────────────────────────────────────────────────────── */
   .fade-up {
     opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.55s ease, transform 0.55s ease;
+    transform: translateY(14px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
-
   .fade-up.visible { opacity: 1; transform: translateY(0); }
 
   /* ── Mobile ───────────────────────────────────────────────────────────────── */
   @media (max-width: 600px) {
-    .about-page   { padding: 2rem 1rem 4rem; }
-    .terminal-hero { padding: 1.25rem; }
-    .terminal-body { font-size: 0.78rem; }
-    .t-val.name-val { font-size: 1.2rem; }
-    .stat-number  { font-size: 2rem; }
-    .skill-name   { width: 80px; font-size: 0.78rem; }
+    .about-page  { padding: 2rem 1rem 4rem; }
+    .hero        { gap: 1.5rem; }
+    .avatar      { width: 80px; height: 80px; font-size: 1.5rem; }
+    .why-body    { font-size: 0.95rem; }
+    .tool-card   { width: 85px; padding: 0.85rem 1rem; }
   }
 </style>
 
@@ -298,92 +267,89 @@ permalink: /about/
 
     <a href="/" class="about-back">← Home</a>
 
-    <!-- ── Terminal Hero ──────────────────────────────────────────────────── -->
-    <div class="terminal-hero" id="terminal-hero">
-      <div class="terminal-titlebar">
-        <div class="terminal-dot dot-red"></div>
-        <div class="terminal-dot dot-yellow"></div>
-        <div class="terminal-dot dot-green"></div>
+    <!-- ── Hero ───────────────────────────────────────────────────────────── -->
+    <div class="hero">
+      <div class="avatar">MT</div>
+      <div class="hero-text">
+        <div class="page-label">About</div>
+        <h1 class="hero-name">Manuel Tovar</h1>
+        <p class="hero-bio">MIS &amp; Business Analytics student at DePaul University. I write about data, sports, film, and whatever else is worth thinking about — and build projects around the things I find interesting.</p>
       </div>
-      <div class="terminal-body" id="terminal-body"></div>
     </div>
 
-    <!-- ── Animated Stats ────────────────────────────────────────────────── -->
-    <div class="stats-section fade-up" id="stats-section">
-      <div class="section-label">By the numbers</div>
-      <div class="stats-row">
-        <div class="stat-box">
-          <div class="stat-number" id="stat-projects">0<sup>+</sup></div>
-          <div class="stat-label">Projects built</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-number" id="stat-articles">0<sup>+</sup></div>
-          <div class="stat-label">Articles written</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-number" id="stat-tools">0<sup>+</sup></div>
-          <div class="stat-label">Tools mastered</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-number" id="stat-years">0<sup>yrs</sup></div>
-          <div class="stat-label">Years studying</div>
+    <!-- ── Why I study what I study ───────────────────────────────────────── -->
+    <div class="about-section fade-up" id="why-section">
+      <div class="section-label">Why I study what I study</div>
+      <div class="why-body">
+        <div class="why-placeholder">
+          Replace this placeholder with your own story — what drew you to MIS and Business Analytics,
+          the moment it clicked for you, and where you want to take it. Keep it personal and conversational,
+          the way you'd explain it to someone you just met.
         </div>
       </div>
     </div>
 
-    <!-- ── Skills ────────────────────────────────────────────────────────── -->
-    <div class="skills-section fade-up" id="skills-section">
-      <div class="section-label">Skills & tools</div>
-      <div id="skill-bars">
-        <div class="skill-row">
-          <div class="skill-name">R</div>
-          <div class="skill-track"><div class="skill-fill" data-pct="88"></div></div>
-          <div class="skill-pct">88%</div>
+    <!-- ── Tools & skills ─────────────────────────────────────────────────── -->
+    <div class="about-section fade-up" id="tools-section">
+      <div class="section-label">Tools &amp; skills</div>
+      <div class="tools-grid" id="tools-grid">
+
+        <div class="tool-card">
+          <img class="tool-logo"
+               src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg"
+               alt="Power BI" />
+          <span class="tool-name">Power BI</span>
         </div>
-        <div class="skill-row">
-          <div class="skill-name">Python</div>
-          <div class="skill-track"><div class="skill-fill" data-pct="75"></div></div>
-          <div class="skill-pct">75%</div>
+
+        <div class="tool-card">
+          <img class="tool-logo"
+               src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png"
+               alt="Tableau" />
+          <span class="tool-name">Tableau</span>
         </div>
-        <div class="skill-row">
-          <div class="skill-name">SQL</div>
-          <div class="skill-track"><div class="skill-fill" data-pct="70"></div></div>
-          <div class="skill-pct">70%</div>
+
+        <div class="tool-card">
+          <img class="tool-logo"
+               src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg"
+               alt="Excel" />
+          <span class="tool-name">Excel</span>
         </div>
-        <div class="skill-row">
-          <div class="skill-name">Tableau</div>
-          <div class="skill-track"><div class="skill-fill accent" data-pct="65"></div></div>
-          <div class="skill-pct">65%</div>
+
+        <div class="tool-card">
+          <img class="tool-logo"
+               src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg"
+               alt="R" />
+          <span class="tool-name">R</span>
         </div>
-        <div class="skill-row">
-          <div class="skill-name">ggplot2</div>
-          <div class="skill-track"><div class="skill-fill accent" data-pct="85"></div></div>
-          <div class="skill-pct">85%</div>
+
+        <div class="tool-card">
+          <img class="tool-logo"
+               src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png"
+               alt="SQL" />
+          <span class="tool-name">SQL</span>
         </div>
-        <div class="skill-row">
-          <div class="skill-name">Matplotlib</div>
-          <div class="skill-track"><div class="skill-fill" data-pct="68"></div></div>
-          <div class="skill-pct">68%</div>
-        </div>
+
       </div>
     </div>
 
-    <!-- ── Interests ─────────────────────────────────────────────────────── -->
-    <div class="interests-section fade-up" id="interests-section">
+    <!-- ── Interests ──────────────────────────────────────────────────────── -->
+    <div class="about-section fade-up" id="interests-section">
       <div class="section-label">Interests</div>
       <div class="interests-wrap">
-        <span class="interest-tag" data-tip="I use R and Python to find stories hidden inside sports data.">Sports analytics</span>
-        <span class="interest-tag" data-tip="ggplot2, Tableau, and D3 — making numbers actually mean something visually.">Data visualization</span>
-        <span class="interest-tag" data-tip="Building models that predict game outcomes and player performance.">Predictive modeling</span>
-        <span class="interest-tag" data-tip="Kubrick, Scorsese, and anything A24 puts out. Cinema as craft.">Film & cinema</span>
+        <span class="interest-tag" data-tip="Using R and Python to find stories hidden inside sports data.">Sports analytics</span>
+        <span class="interest-tag" data-tip="ggplot2, Tableau, Power BI — making numbers mean something visually.">Data visualization</span>
+        <span class="interest-tag" data-tip="Kubrick, Scorsese, and anything A24 puts out. Cinema as craft.">Film &amp; cinema</span>
         <span class="interest-tag" data-tip="Everything from jazz and soul to hip-hop. Always something playing.">Music</span>
         <span class="interest-tag" data-tip="Non-fiction mostly — data, business, and the occasional novel.">Books</span>
+        <span class="interest-tag" data-tip="From RPGs to strategy games — I love systems with depth.">Video games</span>
+        <span class="interest-tag" data-tip="Settlers of Catan to Wingspan — the best way to spend an evening.">Board games</span>
+        <span class="interest-tag" data-tip="Die-hard Bears and Cubs fan. Sports never stops being interesting.">Sports</span>
       </div>
-      <div class="interest-tooltip" id="interest-tip"></div>
+      <div class="interest-tip" id="interest-tip"></div>
     </div>
 
-    <!-- ── CTA ───────────────────────────────────────────────────────────── -->
-    <div class="cta-section fade-up" id="cta-section">
+    <!-- ── CTA ────────────────────────────────────────────────────────────── -->
+    <div class="cta-row fade-up" id="cta-section">
       <a href="/articles/" class="btn btn-primary">Read articles</a>
       <a href="/projects/" class="btn btn-secondary">View projects</a>
       <a href="/contact/" class="btn btn-secondary">Get in touch →</a>
@@ -394,71 +360,29 @@ permalink: /about/
 </div>
 
 <script>
-  // ── Terminal animation ────────────────────────────────────────────────────
-  const lines = [
-    { prompt: true, key: null,       val: 'whoami',                         cls: 'val' },
-    { prompt: false, key: 'name',    val: 'Manuel Tovar',                   cls: 'val name-val' },
-    { prompt: false, key: 'role',    val: 'MIS & Business Analytics @ DePaul University', cls: 'val' },
-    { prompt: false, key: 'location',val: 'Chicago, IL',                    cls: 'val' },
-    { prompt: false, key: 'stack',   val: 'R · Python · SQL · Tableau',     cls: 'val' },
-    { prompt: false, key: 'writing', val: 'sports analytics · data · film', cls: 'val' },
-    { prompt: false, key: 'status',  val: 'open to opportunities',          cls: 'val', cursor: true },
-  ];
+  // ── Fade up on scroll ──────────────────────────────────────────────────────
+  const fadeObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
 
-  const body = document.getElementById('terminal-body');
-
-  function buildLine(line) {
-    const div = document.createElement('div');
-    div.className = 't-line';
-    if (line.prompt) {
-      div.innerHTML = `<span class="t-prompt">$</span><span class="t-val">&nbsp;${line.val}</span>`;
-    } else {
-      const cursor = line.cursor ? '<span class="t-cursor"></span>' : '';
-      div.innerHTML = `<span class="t-key">${line.key}</span><span class="t-arrow">→</span><span class="${line.cls}">${line.val}${cursor}</span>`;
-    }
-    return div;
-  }
-
-  function runTerminal() {
-    lines.forEach((line, i) => {
-      const el = buildLine(line);
-      body.appendChild(el);
-      setTimeout(() => el.classList.add('show'), 300 + i * 220);
+  // ── Tool logos stagger in ──────────────────────────────────────────────────
+  const toolCards = document.querySelectorAll('.tool-card');
+  const toolObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      toolCards.forEach((card, i) => {
+        setTimeout(() => card.classList.add('visible'), i * 90);
+      });
+      toolObserver.disconnect();
     });
-  }
+  }, { threshold: 0.1 });
+  const toolSection = document.getElementById('tools-section');
+  if (toolSection) toolObserver.observe(toolSection);
 
-  // ── Stat counter ──────────────────────────────────────────────────────────
-  const statTargets = [
-    { id: 'stat-projects', val: 12, suffix: '<sup>+</sup>' },
-    { id: 'stat-articles', val: 8,  suffix: '<sup>+</sup>' },
-    { id: 'stat-tools',    val: 6,  suffix: '<sup>+</sup>' },
-    { id: 'stat-years',    val: 3,  suffix: '<sup>yrs</sup>' },
-  ];
-
-  function animateStats() {
-    statTargets.forEach(({ id, val, suffix }) => {
-      const el = document.getElementById(id);
-      let cur = 0;
-      const step = Math.max(1, Math.ceil(val / 40));
-      const iv = setInterval(() => {
-        cur = Math.min(cur + step, val);
-        el.innerHTML = cur + suffix;
-        if (cur >= val) clearInterval(iv);
-      }, 35);
-    });
-  }
-
-  // ── Skill bars ────────────────────────────────────────────────────────────
-  function animateBars() {
-    document.querySelectorAll('.skill-fill').forEach(bar => {
-      bar.style.width = bar.dataset.pct + '%';
-    });
-  }
-
-  // ── Interest tags ─────────────────────────────────────────────────────────
+  // ── Interest tag tooltips ──────────────────────────────────────────────────
   const tags = document.querySelectorAll('.interest-tag');
   const tip  = document.getElementById('interest-tip');
-
   tags.forEach(tag => {
     tag.addEventListener('mouseenter', () => {
       tags.forEach(t => t.classList.remove('active'));
@@ -469,31 +393,5 @@ permalink: /about/
       tag.classList.remove('active');
       tip.textContent = '';
     });
-  });
-
-  // ── Scroll observer ───────────────────────────────────────────────────────
-  let statsAnimated = false;
-  let barsAnimated  = false;
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('visible');
-      if (entry.target.id === 'stats-section' && !statsAnimated) {
-        statsAnimated = true;
-        setTimeout(animateStats, 200);
-      }
-      if (entry.target.id === 'skills-section' && !barsAnimated) {
-        barsAnimated = true;
-        setTimeout(animateBars, 200);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // ── Kick off terminal on load ─────────────────────────────────────────────
-  window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(runTerminal, 200);
   });
 </script>
