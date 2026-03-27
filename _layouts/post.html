@@ -13,6 +13,8 @@ layout: default
     --accent-blue: #2563a8;
     --bg: #fafaf8;
     --tag-bg: #f0f0ee;
+    --bears-navy: #0B1C3D;
+    --bears-orange: #E4873B;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,9 +27,10 @@ layout: default
     padding: 4rem 1.5rem 6rem;
   }
 
-  .post-inner { max-width: 680px; margin: 0 auto; }
+  /* ── Width ──────────────────────────────────────────────────────────────── */
+  .post-inner { max-width: 960px; margin: 0 auto; }
 
-  /* Back link */
+  /* ── Back link ──────────────────────────────────────────────────────────── */
   .post-back {
     display: inline-flex;
     align-items: center;
@@ -43,7 +46,7 @@ layout: default
 
   .post-back:hover { color: var(--ink); }
 
-  /* Header */
+  /* ── Header ─────────────────────────────────────────────────────────────── */
   .post-header {
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--border);
@@ -96,7 +99,7 @@ layout: default
     font-weight: 300;
   }
 
-  /* Body content */
+  /* ── Body content ───────────────────────────────────────────────────────── */
   .post-body {
     font-size: 1rem;
     line-height: 1.8;
@@ -181,7 +184,81 @@ layout: default
     line-height: 1.6;
   }
 
-  /* Footer nav */
+  /* ── Images ─────────────────────────────────────────────────────────────── */
+  .post-body img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.75rem auto;
+    border-radius: 3px;
+  }
+
+  /* ── Tables ─────────────────────────────────────────────────────────────── */
+  .post-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.4rem;
+    font-size: 0.9rem;
+  }
+
+  .post-body th {
+    text-align: left;
+    font-weight: 500;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 2px solid var(--border);
+    color: var(--ink);
+  }
+
+  .post-body td {
+    padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    color: #444;
+  }
+
+  .post-body tr:last-child td { border-bottom: none; }
+
+  /* ── Stat callout boxes ─────────────────────────────────────────────────── */
+  .stat-box {
+    background: var(--bears-navy);
+    color: #ffffff;
+    border-left: 4px solid var(--bears-orange);
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.75rem 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .stat-box strong {
+    color: var(--bears-orange);
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-box .stat-number {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--bears-orange);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  /* ── Data note boxes ────────────────────────────────────────────────────── */
+  .data-note {
+    background: #f8f4e3;
+    border-left: 4px solid #c9a84c;
+    border-radius: 0;
+    padding: 1rem 1.5rem;
+    margin: 1.75rem 0;
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  .data-note strong { color: #8a6a00; }
+
+  /* ── Footer nav ─────────────────────────────────────────────────────────── */
   .post-footer {
     margin-top: 3.5rem;
     padding-top: 2rem;
@@ -202,6 +279,15 @@ layout: default
   }
 
   .post-footer a:hover { color: var(--ink); }
+
+  /* ── Mobile ─────────────────────────────────────────────────────────────── */
+  @media (max-width: 600px) {
+    .post-page   { padding: 2rem 1rem 4rem; }
+    .post-body   { font-size: 0.95rem; }
+    .post-header h1 { font-size: 1.6rem; }
+    .stat-box    { padding: 1rem 1.1rem; }
+    .data-note   { padding: 0.85rem 1.1rem; }
+  }
 </style>
 
 <div class="post-page">
