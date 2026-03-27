@@ -1,13 +1,46 @@
 title: "Mantov's Portfolio"
 description: "Projects, Research & Articles"
-author: Manuel Tovar
+author:
+  name: "Manuel Tovar"
+  bio: "Projects, Research & Articles"
+
 url: "https://MantovBiz.github.io"
 baseurl: ""
-theme: minima
-header_pages:
-  - index.md
-  - about.md
-  - projects.md
-  - articles.md
+
+# Theme
+remote_theme: mmistakes/minimal-mistakes
+minimal_mistakes_skin: "dark"  # options: default, air, aqua, contrast, dark, dirt, neon, mint, plum, sunrise
+
+# Plugins
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
+  - jekyll-include-cache
+
+# Navigation
+navigation:
+  - title: "Home"
+    url: /
+  - title: "About"
+    url: /about/
+  - title: "Projects"
+    url: /projects/
+  - title: "Articles"
+    url: /articles/
+
+# Defaults — sets wide layout and enables reading time on all posts
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      classes: wide        # removes the sidebar, gives full width
+      read_time: true
+      show_date: true
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      classes: wide
