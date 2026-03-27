@@ -337,14 +337,14 @@ permalink: /about/
     <div class="about-section fade-up" id="interests-section">
       <div class="section-label">Interests</div>
       <div class="interests-wrap">
-        <span class="interest-tag" data-tip="Using R and Python to find stories hidden inside sports data.">Sports analytics</span>
-        <span class="interest-tag" data-tip="ggplot2, Tableau, Power BI — making numbers mean something visually.">Data visualization</span>
-        <span class="interest-tag" data-tip="Kubrick, Scorsese, and anything A24 puts out. Cinema as craft.">Film &amp; cinema</span>
-        <span class="interest-tag" data-tip="Everything from jazz and soul to hip-hop. Always something playing.">Music</span>
-        <span class="interest-tag" data-tip="Non-fiction mostly — data, business, and the occasional novel.">Books</span>
-        <span class="interest-tag" data-tip="From RPGs to strategy games — I love systems with depth.">Video games</span>
-        <span class="interest-tag" data-tip="Settlers of Catan to Wingspan — the best way to spend an evening.">Board games</span>
-        <span class="interest-tag" data-tip="Die-hard Bears and Cubs fan. Sports never stops being interesting.">Sports</span>
+        <span class="interest-tag" data-tip="This is the nerdy stuff that sometimes can be fun learning about the data. Not cleaning :(">Sports analytics</span>
+        <span class="interest-tag" data-tip="I love visuals because they can tell a lot with a little. A form of storytelling!">Data visualization</span>
+        <span class="interest-tag" data-tip="I love movies because of the emotions that they can make you feel. My favoire film is Speed Racer. My LeterBoxd is Mantov09">Film &amp; cinema</span>
+        <span class="interest-tag" data-tip="Bad Bunny, Kendrick Lamar, Dave are probably my top 3!.">Music</span>
+        <span class="interest-tag" data-tip="I love Sci-Fi, Greek Mythology. Some of my favorites include Percy Jackson, Project Hail Mary, Micheal Vey.">Books</span>
+        <span class="interest-tag" data-tip="I love single player video games. Some of my favs are The Last of Us, Dispatch, Spider-Man PS4">Video games</span>
+        <span class="interest-tag" data-tip="I don't think there are better moments than spending time with people you enjoy and playing a game together.">Board games</span>
+        <span class="interest-tag" data-tip="Manchester United supporter. As well as Cubs, Bears, Blackhawks">Sports</span>
       </div>
       <div class="interest-tip" id="interest-tip"></div>
     </div>
