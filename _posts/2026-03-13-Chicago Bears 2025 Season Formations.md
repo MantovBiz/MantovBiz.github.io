@@ -31,8 +31,8 @@ Here are some football terms that will be mentioned throughout the article.
 | Position | Players |
 |---|---|
 | QB | Caleb Williams, Tyson Bagent, Case Keenum |
-| RB | D'Andre Swift, Kyle Monangai |
-| WR | DJ Moore, Rome Odunze,  |
+| RB | D'Andre Swift, Kyle Monangai, Roschon Johnson |
+| WR | DJ Moore, Rome Odunze, Luther Burden III, Olamide Zaccheaus, Devin Duvernay  |
 | TE | Colston Loveland, Cole Kmet |
 
 ---
@@ -46,3 +46,7 @@ NFL offensive personnel is described using a two-digit shorthand based on the nu
 For example, **11 personnel** means 1 RB, 1 TE, and 3 WRs. **12 personnel** means 1 RB, 2 TEs, and 2 WRs, a heavier look often used in run-heavy situations or play-action.
 
 <img width="1466" height="980" alt="chi_offense_personnel" src="https://github.com/user-attachments/assets/635935e0-6520-4195-8fa5-dde789fe9ca6" />
+
+
+
+
