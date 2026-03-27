@@ -282,9 +282,10 @@ permalink: /about/
       <div class="section-label">Why I study what I study</div>
       <div class="why-body">
         <div class="why-placeholder">
-          Replace this placeholder with your own story — what drew you to MIS and Business Analytics,
-          the moment it clicked for you, and where you want to take it. Keep it personal and conversational,
-          the way you'd explain it to someone you just met.
+          Ever since I was a kid, I loved watching sports and seeing the stats behind the game. Soccer is my passion, and I love the game, so seeing the amount of possession, passes completed vs attempted, heatmaps, and many other visuals. It is all so interesting to me, which is why I wanted to learn more about it. 
+          This is why I decided to study Business Analytics, because it would give me the fundamentals of analyzing data. I also love stories, whether it is reading or watching, which is why I decided to get a sports communication minor. Pairing those together would help me get to where I want to be. 
+          Now here I am, writing whatever I find in my research or just want to talk about and share with others. Feel free to check out my projects and the articles that I have written. Thank you for taking the time to check out some of my work! 
+          
         </div>
       </div>
     </div>
