@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    {%- include header.html -%}
+
+    <!--
+      Minima's original default.html wraps {{ content }} in:
+        <main class="page-content" aria-label="Content">
+          <div class="wrapper">   ← THIS is what caps the width at 800px
+            {{ content }}
+          </div>
+        </main>
+
+      We remove the inner <div class="wrapper"> so your about page
+      (and any other full-width page) can fill the entire viewport.
+      The .page-content <main> tag is kept for accessibility / semantics.
+    -->
+    <main class="page-content" aria-label="Content">
+      {{ content }}
+    </main>
+
+    {%- include footer.html -%}
+
+  </body>
+
+</html>
