@@ -8,18 +8,24 @@
     {%- include header.html -%}
 
     <!--
-      Minima's original default.html wraps {{ content }} in:
+      WHAT MINIMA'S ORIGINAL DEFAULT.HTML DOES:
+
         <main class="page-content" aria-label="Content">
-          <div class="wrapper">   ← THIS is what caps the width at 800px
+          <div class="wrapper">          ← max-width: 800px + padding: 30px
             {{ content }}
           </div>
         </main>
 
-      We remove the inner <div class="wrapper"> so your about page
-      (and any other full-width page) can fill the entire viewport.
-      The .page-content <main> tag is kept for accessibility / semantics.
+      Both the .wrapper div AND the padding on .page-content are removed
+      here. The about page's .ab-shell div owns all its own padding and
+      layout, so it doesn't need Minima's wrapper at all.
+
+      Other pages (index, articles, projects) that DO rely on Minima's
+      centered layout should use layout: page or layout: post instead of
+      layout: default — those layouts keep their own wrappers untouched.
     -->
-    <main class="page-content" aria-label="Content">
+
+    <main class="page-content" aria-label="Content" style="padding:0;margin:0;width:100%;">
       {{ content }}
     </main>
 
