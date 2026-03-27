@@ -7,892 +7,834 @@ permalink: /about/
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
 
-  :root {
-    --ink: #1a1a1a;
-    --muted: #888;
-    --border: #e8e8e8;
-    --accent: #c0392b;
-    --accent-blue: #2563a8;
-    --bg: #fafaf8;
-    --card-bg: #ffffff;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  .about-page {
+  /* ── Hard reset the shell and everything inside it ── */
+  #ab {
+    all: initial;
+    display: block;
     font-family: 'DM Sans', sans-serif;
-    color: var(--ink);
-    background: var(--bg);
-    min-height: 100vh;
-    padding: clamp(1.5rem, 3vw, 3rem) clamp(1rem, 4vw, 3rem) 6rem;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: #fafaf8;
     width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 2.5rem 2rem 6rem;
   }
 
-  .about-back {
+  #ab * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ── Back link ── */
+  #ab .bk {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.3rem;
     font-size: 0.78rem;
-    color: var(--muted);
+    color: #888;
     text-decoration: none;
     font-weight: 300;
     letter-spacing: 0.02em;
-    margin-bottom: 2rem;
-    transition: color 0.15s;
+    margin-bottom: 1.75rem;
   }
-  .about-back:hover { color: var(--ink); }
+  #ab .bk:hover { color: #1a1a1a; }
 
-  /* ── 3-zone fluid grid ──────────────────────────────────────────────────
-     Left sidebar | Main content | Right panel
-     clamp() lets each column breathe on wide screens and shrink on small ones.
-  ─────────────────────────────────────────────────────────────────────── */
-  .about-grid {
-    display: grid;
-    grid-template-columns:
-      clamp(150px, 17vw, 250px)
-      1fr
-      clamp(170px, 19vw, 280px);
-    grid-template-areas: "sidebar main panel";
-    gap: clamp(1.5rem, 3vw, 3rem);
-    align-items: start;
+  /* ══════════════════════════════════════════════════════
+     FLEXBOX ROW — sidebar | main | panel
+     Flexbox is used instead of CSS Grid because it doesn't
+     rely on grid-template-areas and works correctly even
+     when the parent width isn't explicitly set by the theme.
+  ══════════════════════════════════════════════════════ */
+  #ab .row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
     width: 100%;
   }
 
-  /* ── Left sidebar ──────────────────────────────────────────────────────── */
-  .about-sidebar {
-    grid-area: sidebar;
+  /* ── LEFT SIDEBAR ── */
+  #ab .sb {
+    flex: 0 0 200px;
+    width: 200px;
     position: sticky;
-    top: 2rem;
+    top: 1.5rem;
+    align-self: flex-start;
   }
 
-  .avatar {
-    width: clamp(68px, 7vw, 92px);
-    height: clamp(68px, 7vw, 92px);
+  #ab .av {
+    width: 78px;
+    height: 78px;
     border-radius: 50%;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
+    background: #fff;
+    border: 1px solid #e8e8e8;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.2rem, 1.8vw, 1.6rem);
-    color: var(--accent);
-    margin-bottom: 1rem;
+    font-size: 1.35rem;
+    color: #c0392b;
+    margin-bottom: 0.8rem;
     letter-spacing: -1px;
-    transition: border-color 0.2s;
+    flex-shrink: 0;
   }
-  .avatar:hover { border-color: #bbb; }
 
-  .sidebar-name {
+  #ab .sb-name {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(1rem, 1.4vw, 1.25rem);
-    letter-spacing: -0.01em;
+    font-size: 1.1rem;
     line-height: 1.2;
-    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+    color: #1a1a1a;
+    display: block;
+    margin-bottom: 0.2rem;
   }
 
-  .sidebar-role {
-    font-size: 0.76rem;
-    color: var(--muted);
+  #ab .sb-role {
+    font-size: 0.74rem;
+    color: #888;
     font-weight: 300;
-    line-height: 1.65;
-    margin-bottom: 1.25rem;
+    line-height: 1.6;
+    display: block;
+    margin-bottom: 1rem;
   }
 
-  .sidebar-divider {
+  #ab .div {
     border: none;
-    border-top: 1px solid var(--border);
-    margin: 0.9rem 0;
+    border-top: 1px solid #e8e8e8;
+    margin: 0.8rem 0;
+    display: block;
   }
 
-  .sidebar-meta-label {
-    font-size: 0.6rem;
+  #ab .ml {
+    font-size: 0.57rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-weight: 500;
-    color: var(--muted);
-    margin-bottom: 0.18rem;
+    color: #aaa;
+    display: block;
+    margin-bottom: 0.14rem;
   }
 
-  .sidebar-meta-val {
-    font-size: 0.78rem;
-    color: var(--ink);
+  #ab .mv {
+    font-size: 0.75rem;
+    color: #1a1a1a;
     font-weight: 300;
-    margin-bottom: 0.8rem;
     display: flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.3rem;
+    margin-bottom: 0.65rem;
   }
 
-  .status-dot {
+  #ab .dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
     background: #27ae60;
     flex-shrink: 0;
-    animation: pulse-dot 2.5s ease-in-out infinite;
+    animation: pulse 2.5s ease-in-out infinite;
   }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-  @keyframes pulse-dot {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0.3; }
-  }
-
-  .sidebar-nav-label {
-    font-size: 0.6rem;
+  #ab .nl {
+    font-size: 0.57rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-weight: 500;
-    color: var(--muted);
-    margin-bottom: 0.45rem;
+    color: #aaa;
+    display: block;
+    margin-bottom: 0.4rem;
   }
 
-  .sidebar-nav { list-style: none; margin-bottom: 1rem; }
-
-  .sidebar-nav li a {
+  #ab .nav { list-style: none; margin-bottom: 0.8rem; }
+  #ab .nav li a {
     display: block;
-    font-size: 0.78rem;
-    color: var(--muted);
+    font-size: 0.75rem;
+    color: #888;
     text-decoration: none;
-    padding: 0.28rem 0;
-    border-bottom: 1px solid var(--border);
+    padding: 0.25rem 0;
+    border-bottom: 1px solid #e8e8e8;
     font-weight: 300;
     transition: color 0.15s, padding-left 0.15s;
   }
-  .sidebar-nav li:last-child a { border-bottom: none; }
-  .sidebar-nav li a:hover { color: var(--ink); padding-left: 0.3rem; }
+  #ab .nav li:last-child a { border-bottom: none; }
+  #ab .nav li a:hover { color: #1a1a1a; padding-left: 0.3rem; }
 
-  .sidebar-links { display: flex; flex-direction: column; gap: 0.4rem; }
-
-  .sidebar-link {
-    font-size: 0.75rem;
-    color: var(--accent-blue);
+  #ab .lks { display: flex; flex-direction: column; gap: 0.32rem; }
+  #ab .lk {
+    font-size: 0.73rem;
+    color: #2563a8;
     text-decoration: none;
-    transition: opacity 0.15s;
+    display: block;
   }
-  .sidebar-link:hover { opacity: 0.65; }
+  #ab .lk:hover { opacity: 0.65; }
 
-  /* ── Main content ──────────────────────────────────────────────────────── */
-  .about-main {
-    grid-area: main;
+  /* ── MAIN CONTENT ── */
+  #ab .mn {
+    flex: 1 1 0;
     min-width: 0;
   }
 
-  .page-eyebrow {
-    font-size: 0.66rem;
+  #ab .ey {
+    font-size: 0.62rem;
     text-transform: uppercase;
     letter-spacing: 0.13em;
     font-weight: 500;
-    color: var(--accent);
-    margin-bottom: 0.45rem;
+    color: #c0392b;
+    display: block;
+    margin-bottom: 0.38rem;
   }
 
-  .page-title {
+  #ab h1 {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+    font-size: clamp(1.75rem, 2.8vw, 2.6rem);
     letter-spacing: -0.02em;
     line-height: 1.08;
-    margin-bottom: 0.75rem;
+    color: #1a1a1a;
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+    display: block;
   }
 
-  .page-bio {
-    font-size: clamp(0.88rem, 1.1vw, 1rem);
+  #ab .bio {
+    font-size: 0.93rem;
     color: #555;
     font-weight: 300;
     line-height: 1.85;
+    display: block;
+    margin-bottom: 1.6rem;
+    padding-bottom: 1.6rem;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  /* Stat cards */
+  #ab .stats {
+    display: flex;
+    gap: 0.6rem;
     margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
   }
 
-  /* ── Stat cards ────────────────────────────────────────────────────────── */
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.7rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .stat-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
+  #ab .stat {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #e8e8e8;
     border-radius: 4px;
-    padding: 0.85rem 1rem;
+    padding: 0.75rem 0.85rem;
     opacity: 0;
     transform: translateY(8px);
     transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.15s;
   }
-  .stat-card.visible { opacity: 1; transform: translateY(0); }
-  .stat-card:hover { border-color: #bbb; }
+  #ab .stat.on { opacity: 1; transform: translateY(0); }
+  #ab .stat:hover { border-color: #bbb; }
 
-  .stat-number {
+  #ab .sn {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
     letter-spacing: -0.03em;
     line-height: 1;
-    margin-bottom: 0.2rem;
+    color: #1a1a1a;
+    display: block;
+    margin-bottom: 0.16rem;
   }
 
-  .stat-label {
-    font-size: 0.64rem;
+  #ab .sl {
+    font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-weight: 500;
-    color: var(--muted);
+    color: #888;
+    display: block;
   }
 
-  /* ── Section label ─────────────────────────────────────────────────────── */
-  .section-label {
-    font-size: 0.65rem;
+  /* Section label */
+  #ab .sc-lbl {
+    font-size: 0.61rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-weight: 500;
-    color: var(--muted);
-    margin-bottom: 1.1rem;
-    padding-bottom: 0.55rem;
-    border-bottom: 1px solid var(--border);
+    color: #888;
+    display: block;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid #e8e8e8;
   }
 
-  .about-section {
-    margin-bottom: 2.5rem;
+  /* Fade-up section */
+  #ab .sec {
+    margin-bottom: 2.1rem;
     opacity: 0;
     transform: translateY(14px);
     transition: opacity 0.5s ease, transform 0.5s ease;
+    display: block;
   }
-  .about-section.visible { opacity: 1; transform: translateY(0); }
+  #ab .sec.on { opacity: 1; transform: translateY(0); }
 
-  /* ── Why body ──────────────────────────────────────────────────────────── */
-  .why-body {
-    font-size: clamp(0.87rem, 1.05vw, 0.97rem);
+  /* Why body */
+  #ab .why p {
+    font-size: 0.92rem;
     line-height: 1.88;
     font-weight: 300;
     color: #444;
+    margin-bottom: 0.9rem;
+    display: block;
   }
-  .why-body p { margin-bottom: 1rem; }
-  .why-body p:last-child { margin-bottom: 0; }
+  #ab .why p:last-child { margin-bottom: 0; }
 
-  /* ── Currently strip ───────────────────────────────────────────────────── */
-  .now-strip {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.65rem;
-  }
-
-  .now-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 0.8rem 1rem;
+  /* Currently */
+  #ab .now {
     display: flex;
-    flex-direction: column;
-    gap: 0.18rem;
-    transition: border-color 0.15s, transform 0.15s;
+    flex-wrap: wrap;
+    gap: 0.6rem;
   }
-  .now-card:hover { border-color: #bbb; transform: translateY(-1px); }
 
-  .now-card-label {
-    font-size: 0.59rem;
+  #ab .nc {
+    flex: 1 1 calc(50% - 0.3rem);
+    min-width: 140px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    padding: 0.7rem 0.85rem;
+    transition: border-color 0.15s, transform 0.15s;
+    display: block;
+  }
+  #ab .nc:hover { border-color: #bbb; transform: translateY(-1px); }
+
+  #ab .nc-lbl {
+    font-size: 0.57rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-weight: 500;
-    color: var(--accent);
+    color: #c0392b;
+    display: block;
+    margin-bottom: 0.16rem;
   }
-
-  .now-card-title {
-    font-size: 0.86rem;
+  #ab .nc-title {
+    font-size: 0.84rem;
     font-weight: 400;
-    color: var(--ink);
-    line-height: 1.4;
+    color: #1a1a1a;
+    line-height: 1.35;
+    display: block;
   }
-
-  .now-card-sub {
-    font-size: 0.72rem;
-    color: var(--muted);
+  #ab .nc-sub {
+    font-size: 0.69rem;
+    color: #888;
     font-weight: 300;
+    display: block;
+    margin-top: 0.1rem;
   }
 
-  /* ── Tools grid ────────────────────────────────────────────────────────── */
-  .tools-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.65rem;
-  }
+  /* Tools */
+  #ab .tools { display: flex; flex-wrap: wrap; gap: 0.55rem; }
 
-  .tool-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
+  #ab .tool {
+    background: #fff;
+    border: 1px solid #e8e8e8;
     border-radius: 4px;
-    padding: 0.78rem 0.95rem;
+    padding: 0.68rem 0.8rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.45rem;
-    width: clamp(74px, 8.5vw, 92px);
+    gap: 0.4rem;
+    width: 82px;
     opacity: 0;
     transform: translateY(8px);
     transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.15s, box-shadow 0.15s;
   }
-  .tool-card.visible { opacity: 1; transform: translateY(0); }
-  .tool-card:hover { border-color: #bbb; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
-
-  .tool-logo { width: 28px; height: 28px; object-fit: contain; display: block; }
-
-  .tool-name {
-    font-size: 0.61rem;
+  #ab .tool.on { opacity: 1; transform: translateY(0); }
+  #ab .tool:hover { border-color: #bbb; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+  #ab .tool img { width: 26px; height: 26px; object-fit: contain; display: block; }
+  #ab .tool span {
+    font-size: 0.58rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-weight: 500;
-    color: var(--muted);
+    color: #888;
     text-align: center;
+    display: block;
   }
 
-  /* ── Interests ─────────────────────────────────────────────────────────── */
-  .interests-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.42rem;
-    margin-bottom: 0.8rem;
-  }
+  /* Interests */
+  #ab .tags { display: flex; flex-wrap: wrap; gap: 0.38rem; margin-bottom: 0.7rem; }
 
-  .interest-tag {
-    font-size: 0.75rem;
-    padding: 0.28rem 0.72rem;
-    border: 1px solid var(--border);
+  #ab .tag {
+    font-size: 0.73rem;
+    padding: 0.24rem 0.68rem;
+    border: 1px solid #e8e8e8;
     border-radius: 2px;
-    background: var(--card-bg);
-    color: var(--muted);
+    background: #fff;
+    color: #888;
     cursor: pointer;
-    transition: all 0.15s;
     font-weight: 300;
     user-select: none;
+    transition: all 0.15s;
+    display: inline-block;
   }
-  .interest-tag:hover, .interest-tag.active {
-    background: var(--ink);
-    color: #fff;
-    border-color: var(--ink);
-  }
+  #ab .tag:hover, #ab .tag.on { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
 
-  .interest-tip {
-    min-height: 1.4rem;
-    font-size: 0.79rem;
-    color: var(--accent);
+  #ab .tip {
+    font-size: 0.77rem;
+    color: #c0392b;
     font-style: italic;
     font-weight: 300;
+    min-height: 1.3rem;
+    display: block;
   }
 
-  /* ── CTA ───────────────────────────────────────────────────────────────── */
-  .cta-row {
+  /* CTA */
+  #ab .cta {
     display: flex;
-    gap: 0.65rem;
+    gap: 0.55rem;
     flex-wrap: wrap;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
+    padding-top: 1.6rem;
+    border-top: 1px solid #e8e8e8;
   }
 
-  .btn {
+  #ab a.btn {
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.77rem;
     font-weight: 400;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 0.46rem 0.9rem;
     border-radius: 2px;
     transition: all 0.15s;
     letter-spacing: 0.02em;
+    display: inline-block;
   }
-  .btn-primary  { background: var(--ink); color: #fff; border: 1px solid var(--ink); }
-  .btn-primary:hover  { background: #333; }
-  .btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--border); }
-  .btn-secondary:hover { border-color: var(--ink); }
+  #ab a.btn-p { background: #1a1a1a; color: #fff; border: 1px solid #1a1a1a; }
+  #ab a.btn-p:hover { background: #333; }
+  #ab a.btn-s { background: transparent; color: #1a1a1a; border: 1px solid #e8e8e8; }
+  #ab a.btn-s:hover { border-color: #1a1a1a; }
 
-  /* ── Right panel ───────────────────────────────────────────────────────── */
-  .about-panel {
-    grid-area: panel;
+  /* ── RIGHT PANEL ── */
+  #ab .pn {
+    flex: 0 0 220px;
+    width: 220px;
     position: sticky;
-    top: 2rem;
+    top: 1.5rem;
+    align-self: flex-start;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.85rem;
   }
 
-  .panel-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
+  #ab .pc {
+    background: #fff;
+    border: 1px solid #e8e8e8;
     border-radius: 4px;
-    padding: 1rem 1.1rem;
+    padding: 0.85rem 0.95rem;
+    display: block;
   }
 
-  .panel-card-label {
-    font-size: 0.6rem;
+  #ab .pc-lbl {
+    font-size: 0.57rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-weight: 500;
-    color: var(--muted);
-    margin-bottom: 0.85rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border);
+    color: #aaa;
+    display: block;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.42rem;
+    border-bottom: 1px solid #e8e8e8;
   }
 
-  /* Goals timeline */
-  .goal-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  /* Goals */
+  #ab .goals { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
 
-  .goal-item {
+  #ab .goal {
     display: flex;
     align-items: flex-start;
-    gap: 0.6rem;
-    font-size: 0.79rem;
+    gap: 0.5rem;
+    font-size: 0.76rem;
     font-weight: 300;
     color: #444;
     line-height: 1.5;
   }
 
-  .goal-dot {
+  #ab .gd {
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: var(--border);
     flex-shrink: 0;
-    margin-top: 0.38rem;
+    margin-top: 0.34rem;
+    display: block;
   }
-  .goal-dot.done { background: #27ae60; }
-  .goal-dot.now  { background: var(--accent); }
-  .goal-dot.next { background: var(--border); border: 1px solid #bbb; }
+  #ab .gd-done { background: #27ae60; }
+  #ab .gd-now  { background: #c0392b; }
+  #ab .gd-next { background: #e8e8e8; border: 1px solid #bbb; }
 
-  .goal-label {
-    font-size: 0.58rem;
+  #ab .glbl {
+    font-size: 0.55rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-weight: 500;
-    color: var(--muted);
-    margin-top: 0.05rem;
+    color: #aaa;
+    display: block;
+    margin-bottom: 0.04rem;
   }
 
   /* Favorites */
-  .fav-list { display: flex; flex-direction: column; gap: 0; }
-
-  .fav-row {
+  #ab .favs { display: flex; flex-direction: column; }
+  #ab .fav {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding: 0.45rem 0;
-    border-bottom: 1px solid var(--border);
+    padding: 0.38rem 0;
+    border-bottom: 1px solid #e8e8e8;
+    gap: 0.4rem;
   }
-  .fav-row:last-child { border-bottom: none; }
-
-  .fav-category {
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 500;
-    color: var(--muted);
-    flex-shrink: 0;
-  }
-
-  .fav-value {
-    font-size: 0.76rem;
-    font-weight: 300;
-    color: var(--ink);
-    text-align: right;
-    max-width: 58%;
-    line-height: 1.3;
-  }
+  #ab .fav:last-child { border-bottom: none; }
+  #ab .fcat { font-size: 0.57rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; color: #aaa; flex-shrink: 0; }
+  #ab .fval { font-size: 0.73rem; font-weight: 300; color: #1a1a1a; text-align: right; line-height: 1.3; }
 
   /* Fun facts */
-  .fun-fact-text {
-    font-size: 0.81rem;
+  #ab .ft {
+    font-size: 0.78rem;
     font-weight: 300;
     color: #444;
     line-height: 1.7;
-    min-height: 3.8rem;
-    transition: opacity 0.3s ease;
+    min-height: 3.4rem;
+    transition: opacity 0.3s;
+    display: block;
   }
 
-  .fun-fact-controls {
+  #ab .fc {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 0.8rem;
+    margin-top: 0.65rem;
   }
 
-  .fun-fact-dots { display: flex; gap: 4px; }
-
-  .fun-fact-dot {
-    width: 5px;
-    height: 5px;
+  #ab .fds { display: flex; gap: 4px; }
+  #ab .fd {
+    width: 5px; height: 5px;
     border-radius: 50%;
-    background: var(--border);
-    transition: background 0.2s;
+    background: #e8e8e8;
+    border: none;
     cursor: pointer;
+    padding: 0;
+    transition: background 0.2s;
   }
-  .fun-fact-dot.active { background: var(--ink); }
+  #ab .fd.on { background: #1a1a1a; }
 
-  .fun-fact-btn {
-    font-size: 0.68rem;
-    color: var(--muted);
+  #ab .fn {
+    font-size: 0.65rem;
+    color: #888;
     cursor: pointer;
     background: none;
     border: none;
     font-family: 'DM Sans', sans-serif;
     padding: 0;
-    transition: color 0.15s;
   }
-  .fun-fact-btn:hover { color: var(--ink); }
+  #ab .fn:hover { color: #1a1a1a; }
 
-  /* ── Tablet: right panel moves below, sidebar stays ─────────────────────
-     Breakpoint chosen so the 3-col layout doesn't get too cramped
-  ─────────────────────────────────────────────────────────────────────── */
-  @media (max-width: 900px) {
-    .about-grid {
-      grid-template-columns: clamp(140px, 21vw, 195px) 1fr;
-      grid-template-areas:
-        "sidebar main"
-        "panel   panel";
-      gap: clamp(1rem, 2.5vw, 1.75rem);
-    }
+  /* ══════════════════════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════════════════════ */
 
-    .about-panel {
+  /* Tablet: drop right panel below, keep sidebar */
+  @media (max-width: 960px) {
+    #ab .row { flex-wrap: wrap; }
+    #ab .sb  { flex: 0 0 180px; width: 180px; }
+    #ab .mn  { flex: 1 1 0; min-width: 0; }
+    #ab .pn  {
+      flex: 1 1 100%;
+      width: 100%;
       position: static;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 0.75rem;
-    }
-  }
-
-  /* ── Mobile: single column ──────────────────────────────────────────────── */
-  @media (max-width: 580px) {
-    .about-page { padding: 1.5rem 1rem 4rem; }
-
-    .about-grid {
-      grid-template-columns: 1fr;
-      grid-template-areas:
-        "sidebar"
-        "main"
-        "panel";
-      gap: 1.25rem;
-    }
-
-    /* Sidebar becomes a compact inline header strip */
-    .about-sidebar {
-      position: static;
-      display: flex;
+      flex-direction: row;
       flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    #ab .pc  { flex: 1 1 200px; }
+  }
+
+  /* Mobile: full single column */
+  @media (max-width: 600px) {
+    #ab { padding: 1.25rem 1rem 4rem; }
+
+    #ab .row { flex-direction: column; gap: 1.25rem; }
+
+    #ab .sb {
+      position: static;
+      width: 100%;
+      flex: none;
+      display: flex;
       align-items: center;
       gap: 0.85rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e8e8e8;
     }
 
-    .avatar { width: 58px; height: 58px; font-size: 1.1rem; margin-bottom: 0; }
-    .sidebar-name { font-size: 1rem; }
-    .sidebar-role { margin-bottom: 0; }
+    #ab .av { width: 54px; height: 54px; font-size: 1rem; margin-bottom: 0; }
+    #ab .sb-name { font-size: 0.95rem; }
+    #ab .sb-role { margin-bottom: 0; }
+    #ab .div, #ab .ml, #ab .mv, #ab .nl, #ab .nav, #ab .lks { display: none; }
 
-    /* Hide nav/meta/links — covered by CTA row at bottom */
-    .sidebar-divider,
-    .sidebar-meta-label,
-    .sidebar-meta-val,
-    .sidebar-nav-label,
-    .sidebar-nav,
-    .sidebar-links { display: none; }
+    #ab .mn { flex: none; width: 100%; }
 
-    .about-panel { position: static; }
-    .stats-row   { grid-template-columns: repeat(2, 1fr); }
-    .now-strip   { grid-template-columns: 1fr; }
-    .tool-card   { width: 74px; }
+    #ab .pn {
+      position: static;
+      width: 100%;
+      flex: none;
+      flex-direction: column;
+    }
+
+    #ab .stats { flex-wrap: wrap; }
+    #ab .stat  { flex: 1 1 calc(50% - 0.3rem); min-width: 100px; }
+    #ab .nc    { flex: 1 1 100%; }
   }
 </style>
 
-<div class="about-page">
+<div id="ab">
 
-  <a href="/" class="about-back">← Home</a>
+  <a href="/" class="bk">← Home</a>
 
-  <div class="about-grid">
+  <div class="row">
 
-    <!-- ── Left sidebar ────────────────────────────────────────────────── -->
-    <aside class="about-sidebar">
-      <div class="avatar">MT</div>
-      <div class="sidebar-name">Manuel Tovar</div>
-      <div class="sidebar-role">MIS &amp; Business Analytics<br>DePaul University</div>
+    <!-- LEFT SIDEBAR -->
+    <aside class="sb">
+      <div class="av">MT</div>
+      <span class="sb-name">Manuel Tovar</span>
+      <span class="sb-role">MIS &amp; Business Analytics<br>DePaul University</span>
 
-      <hr class="sidebar-divider">
+      <hr class="div">
 
-      <div class="sidebar-meta-label">Location</div>
-      <div class="sidebar-meta-val">Chicago, IL</div>
+      <span class="ml">Location</span>
+      <div class="mv">Chicago, IL</div>
 
-      <div class="sidebar-meta-label">Status</div>
-      <div class="sidebar-meta-val"><span class="status-dot"></span>Open to internships</div>
+      <span class="ml">Status</span>
+      <div class="mv"><span class="dot"></span>Open to internships</div>
 
-      <div class="sidebar-meta-label">Minor</div>
-      <div class="sidebar-meta-val">Sports Communication</div>
+      <span class="ml">Minor</span>
+      <div class="mv">Sports Communication</div>
 
-      <div class="sidebar-meta-label">Favorite club</div>
-      <div class="sidebar-meta-val">Manchester United</div>
+      <span class="ml">Favorite club</span>
+      <div class="mv">Manchester United</div>
 
-      <hr class="sidebar-divider">
+      <hr class="div">
 
-      <div class="sidebar-nav-label">On this page</div>
-      <ul class="sidebar-nav">
-        <li><a href="#why-section">Why I study this</a></li>
-        <li><a href="#now-section">Currently</a></li>
-        <li><a href="#tools-section">Tools &amp; skills</a></li>
-        <li><a href="#interests-section">Interests</a></li>
+      <span class="nl">On this page</span>
+      <ul class="nav">
+        <li><a href="#s-why">Why I study this</a></li>
+        <li><a href="#s-now">Currently</a></li>
+        <li><a href="#s-tools">Tools &amp; skills</a></li>
+        <li><a href="#s-int">Interests</a></li>
       </ul>
 
-      <hr class="sidebar-divider">
+      <hr class="div">
 
-      <div class="sidebar-links">
-        <a href="https://www.linkedin.com/in/mantovbiz/" target="_blank" rel="noopener" class="sidebar-link">LinkedIn →</a>
-        <a href="/projects/" class="sidebar-link">View projects →</a>
-        <a href="/articles/" class="sidebar-link">Read articles →</a>
-        <a href="/contact/" class="sidebar-link">Get in touch →</a>
+      <div class="lks">
+        <a href="https://www.linkedin.com/in/mantovbiz/" target="_blank" rel="noopener" class="lk">LinkedIn →</a>
+        <a href="/projects/" class="lk">View projects →</a>
+        <a href="/articles/" class="lk">Read articles →</a>
+        <a href="/contact/" class="lk">Get in touch →</a>
       </div>
     </aside>
 
-    <!-- ── Main content ─────────────────────────────────────────────────── -->
-    <main class="about-main">
+    <!-- MAIN CONTENT -->
+    <main class="mn">
 
-      <div class="page-eyebrow">About</div>
-      <h1 class="page-title">Manuel Tovar</h1>
-      <p class="page-bio">MIS &amp; Business Analytics student at DePaul University. I write about data, sports, film, and whatever else is worth thinking about — and build projects around the things I find interesting.</p>
+      <span class="ey">About</span>
+      <h1>Manuel Tovar</h1>
+      <span class="bio">MIS &amp; Business Analytics student at DePaul University. I write about data, sports, film, and whatever else is worth thinking about — and build projects around the things I find interesting.</span>
 
-      <div class="stats-row" id="stats-row">
-        <div class="stat-card"><div class="stat-number">5</div><div class="stat-label">Tools</div></div>
-        <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">Degrees</div></div>
-        <div class="stat-card"><div class="stat-number">8+</div><div class="stat-label">Interests</div></div>
-        <div class="stat-card"><div class="stat-number">∞</div><div class="stat-label">Curiosity</div></div>
+      <div class="stats" id="js-stats">
+        <div class="stat"><span class="sn">5</span><span class="sl">Tools</span></div>
+        <div class="stat"><span class="sn">2</span><span class="sl">Degrees</span></div>
+        <div class="stat"><span class="sn">8+</span><span class="sl">Interests</span></div>
+        <div class="stat"><span class="sn">∞</span><span class="sl">Curiosity</span></div>
       </div>
 
-      <div class="about-section" id="why-section">
-        <div class="section-label">Why I study what I study</div>
-        <div class="why-body">
+      <div class="sec" id="s-why">
+        <span class="sc-lbl">Why I study what I study</span>
+        <div class="why">
           <p>Ever since I was a kid, I loved watching sports and seeing the stats behind the game. Soccer is my passion — seeing the amount of possession, passes completed vs attempted, heatmaps, and many other visuals is all so interesting to me, which is why I wanted to learn more about it.</p>
           <p>This is why I decided to study Business Analytics, because it would give me the fundamentals of analyzing data. I also love stories, whether it is reading or watching, which is why I decided to get a Sports Communication minor. Pairing those together would help me get to where I want to be.</p>
           <p>Now here I am, writing whatever I find in my research or just want to talk about and share with others. Feel free to check out my projects and the articles that I have written. Thank you for taking the time to check out some of my work!</p>
         </div>
       </div>
 
-      <div class="about-section" id="now-section">
-        <div class="section-label">Currently</div>
-        <div class="now-strip">
-          <div class="now-card">
-            <div class="now-card-label">Reading</div>
-            <div class="now-card-title">Project Hail Mary</div>
-            <div class="now-card-sub">Andy Weir · Sci-Fi</div>
-          </div>
-          <div class="now-card">
-            <div class="now-card-label">Watching</div>
-            <div class="now-card-title">Speed Racer</div>
-            <div class="now-card-sub">All-time favorite rewatch</div>
-          </div>
-          <div class="now-card">
-            <div class="now-card-label">Listening to</div>
-            <div class="now-card-title">Bad Bunny</div>
-            <div class="now-card-sub">Nadie Sabe Lo Que Va a Pasar Mañana</div>
-          </div>
-          <div class="now-card">
-            <div class="now-card-label">Playing</div>
-            <div class="now-card-title">The Last of Us</div>
-            <div class="now-card-sub">PS4 · Single player</div>
-          </div>
+      <div class="sec" id="s-now">
+        <span class="sc-lbl">Currently</span>
+        <div class="now">
+          <div class="nc"><span class="nc-lbl">Reading</span><span class="nc-title">Project Hail Mary</span><span class="nc-sub">Andy Weir · Sci-Fi</span></div>
+          <div class="nc"><span class="nc-lbl">Watching</span><span class="nc-title">Speed Racer</span><span class="nc-sub">All-time favorite rewatch</span></div>
+          <div class="nc"><span class="nc-lbl">Listening to</span><span class="nc-title">Bad Bunny</span><span class="nc-sub">Nadie Sabe Lo Que Va a Pasar Mañana</span></div>
+          <div class="nc"><span class="nc-lbl">Playing</span><span class="nc-title">The Last of Us</span><span class="nc-sub">PS4 · Single player</span></div>
         </div>
       </div>
 
-      <div class="about-section" id="tools-section">
-        <div class="section-label">Tools &amp; skills</div>
-        <div class="tools-grid" id="tools-grid">
-          <div class="tool-card">
-            <img class="tool-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI" />
-            <span class="tool-name">Power BI</span>
-          </div>
-          <div class="tool-card">
-            <img class="tool-logo" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png" alt="Tableau" />
-            <span class="tool-name">Tableau</span>
-          </div>
-          <div class="tool-card">
-            <img class="tool-logo" src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" alt="Excel" />
-            <span class="tool-name">Excel</span>
-          </div>
-          <div class="tool-card">
-            <img class="tool-logo" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" alt="R" />
-            <span class="tool-name">R</span>
-          </div>
-          <div class="tool-card">
-            <img class="tool-logo" src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" alt="SQL" />
-            <span class="tool-name">SQL</span>
-          </div>
+      <div class="sec" id="s-tools">
+        <span class="sc-lbl">Tools &amp; skills</span>
+        <div class="tools" id="js-tools">
+          <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI"><span>Power BI</span></div>
+          <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png" alt="Tableau"><span>Tableau</span></div>
+          <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" alt="Excel"><span>Excel</span></div>
+          <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" alt="R"><span>R</span></div>
+          <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" alt="SQL"><span>SQL</span></div>
         </div>
       </div>
 
-      <div class="about-section" id="interests-section">
-        <div class="section-label">Interests</div>
-        <div class="interests-wrap">
-          <span class="interest-tag" data-tip="The nerdy stuff — analyzing data behind the game is almost as fun as watching it.">Sports analytics</span>
-          <span class="interest-tag" data-tip="Visuals tell a story with a little. Possession maps, heatmaps, pass networks — I love them all.">Data visualization</span>
-          <span class="interest-tag" data-tip="Movies move me. My favorite film is Speed Racer. Find me on Letterboxd: Mantov09">Film &amp; cinema</span>
-          <span class="interest-tag" data-tip="Bad Bunny, Kendrick Lamar, Dave — probably my top 3.">Music</span>
-          <span class="interest-tag" data-tip="Sci-Fi and Greek Mythology. Favorites: Percy Jackson, Project Hail Mary, Michael Vey.">Books</span>
-          <span class="interest-tag" data-tip="Single player is my lane. The Last of Us, Dispatch, Spider-Man PS4 are some of my favs.">Video games</span>
-          <span class="interest-tag" data-tip="Few things beat playing a game with people you enjoy spending time with.">Board games</span>
-          <span class="interest-tag" data-tip="Manchester United supporter. Also Cubs, Bears, Blackhawks.">Sports</span>
+      <div class="sec" id="s-int">
+        <span class="sc-lbl">Interests</span>
+        <div class="tags">
+          <span class="tag" data-tip="The nerdy stuff — analyzing data behind the game is almost as fun as watching it.">Sports analytics</span>
+          <span class="tag" data-tip="Visuals tell a story with a little. Possession maps, heatmaps, pass networks — I love them all.">Data visualization</span>
+          <span class="tag" data-tip="Movies move me. Favorite film: Speed Racer. Find me on Letterboxd: Mantov09">Film &amp; cinema</span>
+          <span class="tag" data-tip="Bad Bunny, Kendrick Lamar, Dave — probably my top 3.">Music</span>
+          <span class="tag" data-tip="Sci-Fi and Greek Mythology. Favorites: Percy Jackson, Project Hail Mary, Michael Vey.">Books</span>
+          <span class="tag" data-tip="Single player is my lane. The Last of Us, Dispatch, Spider-Man PS4.">Video games</span>
+          <span class="tag" data-tip="Few things beat playing a game with people you enjoy spending time with.">Board games</span>
+          <span class="tag" data-tip="Manchester United supporter. Also Cubs, Bears, Blackhawks.">Sports</span>
         </div>
-        <div class="interest-tip" id="interest-tip"></div>
+        <span class="tip" id="js-tip"></span>
       </div>
 
-      <div class="cta-row about-section" id="cta-section">
-        <a href="/articles/" class="btn btn-primary">Read articles</a>
-        <a href="/projects/" class="btn btn-secondary">View projects</a>
-        <a href="/contact/" class="btn btn-secondary">Get in touch →</a>
-        <a href="https://www.linkedin.com/in/mantovbiz/" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn →</a>
+      <div class="sec cta" id="s-cta">
+        <a href="/articles/" class="btn btn-p">Read articles</a>
+        <a href="/projects/" class="btn btn-s">View projects</a>
+        <a href="/contact/" class="btn btn-s">Get in touch →</a>
+        <a href="https://www.linkedin.com/in/mantovbiz/" target="_blank" rel="noopener" class="btn btn-s">LinkedIn →</a>
       </div>
 
     </main>
 
-    <!-- ── Right panel ───────────────────────────────────────────────────── -->
-    <aside class="about-panel">
+    <!-- RIGHT PANEL -->
+    <aside class="pn">
 
-      <div class="panel-card">
-        <div class="panel-card-label">Goals &amp; roadmap</div>
-        <ul class="goal-list">
-          <li class="goal-item">
-            <span class="goal-dot done"></span>
-            <div><div class="goal-label">Done</div>Declared Business Analytics + Sports Comm minor</div>
-          </li>
-          <li class="goal-item">
-            <span class="goal-dot done"></span>
-            <div><div class="goal-label">Done</div>Built this blog &amp; launched first projects</div>
-          </li>
-          <li class="goal-item">
-            <span class="goal-dot now"></span>
-            <div><div class="goal-label">Now</div>Deepening SQL, R, and data viz skills</div>
-          </li>
-          <li class="goal-item">
-            <span class="goal-dot next"></span>
-            <div><div class="goal-label">Next</div>Land a sports analytics or data internship</div>
-          </li>
-          <li class="goal-item">
-            <span class="goal-dot next"></span>
-            <div><div class="goal-label">Future</div>Work at the intersection of sports &amp; data storytelling</div>
-          </li>
+      <div class="pc">
+        <span class="pc-lbl">Goals &amp; roadmap</span>
+        <ul class="goals">
+          <li class="goal"><span class="gd gd-done"></span><div><span class="glbl">Done</span>Declared Business Analytics + Sports Comm minor</div></li>
+          <li class="goal"><span class="gd gd-done"></span><div><span class="glbl">Done</span>Built this blog &amp; launched first projects</div></li>
+          <li class="goal"><span class="gd gd-now"></span><div><span class="glbl">Now</span>Deepening SQL, R, and data viz skills</div></li>
+          <li class="goal"><span class="gd gd-next"></span><div><span class="glbl">Next</span>Land a sports analytics or data internship</div></li>
+          <li class="goal"><span class="gd gd-next"></span><div><span class="glbl">Future</span>Work at the intersection of sports &amp; data storytelling</div></li>
         </ul>
       </div>
 
-      <div class="panel-card">
-        <div class="panel-card-label">Quick favorites</div>
-        <div class="fav-list">
-          <div class="fav-row"><span class="fav-category">Film</span><span class="fav-value">Speed Racer</span></div>
-          <div class="fav-row"><span class="fav-category">Book</span><span class="fav-value">Project Hail Mary</span></div>
-          <div class="fav-row"><span class="fav-category">Artist</span><span class="fav-value">Bad Bunny</span></div>
-          <div class="fav-row"><span class="fav-category">Game</span><span class="fav-value">The Last of Us</span></div>
-          <div class="fav-row"><span class="fav-category">Club</span><span class="fav-value">Manchester United</span></div>
-          <div class="fav-row"><span class="fav-category">Letterboxd</span><span class="fav-value">Mantov09</span></div>
+      <div class="pc">
+        <span class="pc-lbl">Quick favorites</span>
+        <div class="favs">
+          <div class="fav"><span class="fcat">Film</span><span class="fval">Speed Racer</span></div>
+          <div class="fav"><span class="fcat">Book</span><span class="fval">Project Hail Mary</span></div>
+          <div class="fav"><span class="fcat">Artist</span><span class="fval">Bad Bunny</span></div>
+          <div class="fav"><span class="fcat">Game</span><span class="fval">The Last of Us</span></div>
+          <div class="fav"><span class="fcat">Club</span><span class="fval">Manchester United</span></div>
+          <div class="fav"><span class="fcat">Letterboxd</span><span class="fval">Mantov09</span></div>
         </div>
       </div>
 
-      <div class="panel-card">
-        <div class="panel-card-label">Fun facts</div>
-        <div class="fun-fact-text" id="fun-fact-text"></div>
-        <div class="fun-fact-controls">
-          <div class="fun-fact-dots" id="fun-fact-dots"></div>
-          <button class="fun-fact-btn" id="fun-fact-next">Next →</button>
+      <div class="pc">
+        <span class="pc-lbl">Fun facts</span>
+        <span class="ft" id="js-ft"></span>
+        <div class="fc">
+          <div class="fds" id="js-fds"></div>
+          <button class="fn" id="js-fn">Next →</button>
         </div>
       </div>
 
     </aside>
 
-  </div>
-</div>
+  </div><!-- /.row -->
+</div><!-- /#ab -->
 
 <script>
+(function() {
   /* Smooth scroll */
-  document.querySelectorAll('.sidebar-nav a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
+  document.querySelectorAll('#ab .nav a').forEach(function(a) {
+    a.addEventListener('click', function(e) {
       e.preventDefault();
-      const t = document.querySelector(link.getAttribute('href'));
+      var t = document.querySelector(a.getAttribute('href'));
       if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
-  /* Fade up sections */
-  const fadeObs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.about-section').forEach(el => fadeObs.observe(el));
+  /* Fade-up sections */
+  var fo = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('on'); });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('#ab .sec').forEach(function(el) { fo.observe(el); });
 
   /* Stat cards stagger */
-  const statCards = document.querySelectorAll('.stat-card');
-  const statObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      statCards.forEach((c, i) => setTimeout(() => c.classList.add('visible'), i * 80));
-      statObs.disconnect();
+  var sc = document.querySelectorAll('#ab .stat');
+  var so = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (!e.isIntersecting) return;
+      sc.forEach(function(c, i) { setTimeout(function() { c.classList.add('on'); }, i * 80); });
+      so.disconnect();
     });
   }, { threshold: 0.1 });
-  const statsRow = document.getElementById('stats-row');
-  if (statsRow) statObs.observe(statsRow);
+  var sr = document.getElementById('js-stats');
+  if (sr) so.observe(sr);
 
   /* Tool cards stagger */
-  const toolCards = document.querySelectorAll('.tool-card');
-  const toolObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      toolCards.forEach((c, i) => setTimeout(() => c.classList.add('visible'), i * 90));
-      toolObs.disconnect();
+  var tc = document.querySelectorAll('#ab .tool');
+  var to = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (!e.isIntersecting) return;
+      tc.forEach(function(c, i) { setTimeout(function() { c.classList.add('on'); }, i * 90); });
+      to.disconnect();
     });
   }, { threshold: 0.1 });
-  const toolSection = document.getElementById('tools-section');
-  if (toolSection) toolObs.observe(toolSection);
+  var tg = document.getElementById('js-tools');
+  if (tg) to.observe(tg);
 
-  /* Interest tag tooltips */
-  const tags = document.querySelectorAll('.interest-tag');
-  const tip  = document.getElementById('interest-tip');
-  tags.forEach(tag => {
-    tag.addEventListener('mouseenter', () => {
-      tags.forEach(t => t.classList.remove('active'));
-      tag.classList.add('active');
+  /* Interest tooltips */
+  var tags = document.querySelectorAll('#ab .tag');
+  var tip  = document.getElementById('js-tip');
+  tags.forEach(function(tag) {
+    tag.addEventListener('mouseenter', function() {
+      tags.forEach(function(t) { t.classList.remove('on'); });
+      tag.classList.add('on');
       tip.textContent = tag.dataset.tip;
     });
-    tag.addEventListener('mouseleave', () => {
-      tag.classList.remove('active');
+    tag.addEventListener('mouseleave', function() {
+      tag.classList.remove('on');
       tip.textContent = '';
     });
   });
 
-  /* Fun facts cycler */
-  const facts = [
+  /* Fun facts */
+  var facts = [
     "I can watch Speed Racer an unlimited number of times and still feel something every single time.",
     "I track every film I watch on Letterboxd. Find me at Mantov09.",
-    "Soccer data changed how I watch the game — I can't watch a match without mentally noting possession and pressing patterns.",
+    "Soccer data changed how I watch the game — I can't see a match without mentally noting possession and pressing patterns.",
     "Percy Jackson got me into Greek mythology before it was cool again.",
     "I genuinely believe The Last of Us has one of the best stories ever written, in any medium.",
     "Bad Bunny, Kendrick, and Dave is a playlist I could run on loop for a full week.",
     "I want to work where sports meets data storytelling — telling the story behind the numbers."
   ];
+  var fi = 0;
+  var ft = document.getElementById('js-ft');
+  var fds = document.getElementById('js-fds');
+  var fn = document.getElementById('js-fn');
 
-  let factIndex = 0;
-  const factText = document.getElementById('fun-fact-text');
-  const factDots = document.getElementById('fun-fact-dots');
-  const factNext = document.getElementById('fun-fact-next');
-
-  function buildDots() {
-    factDots.innerHTML = '';
-    facts.forEach((_, i) => {
-      const d = document.createElement('span');
-      d.className = 'fun-fact-dot' + (i === factIndex ? ' active' : '');
-      d.addEventListener('click', () => showFact(i));
-      factDots.appendChild(d);
+  function dots() {
+    fds.innerHTML = '';
+    facts.forEach(function(_, i) {
+      var d = document.createElement('button');
+      d.className = 'fd' + (i === fi ? ' on' : '');
+      d.addEventListener('click', function() { show(i); });
+      fds.appendChild(d);
     });
   }
 
-  function showFact(idx) {
-    factText.style.opacity = '0';
-    setTimeout(() => {
-      factIndex = (idx + facts.length) % facts.length;
-      factText.textContent = facts[factIndex];
-      factText.style.opacity = '1';
-      buildDots();
+  function show(idx) {
+    ft.style.opacity = '0';
+    setTimeout(function() {
+      fi = (idx + facts.length) % facts.length;
+      ft.textContent = facts[fi];
+      ft.style.opacity = '1';
+      dots();
     }, 250);
   }
 
-  factText.textContent = facts[0];
-  buildDots();
-  factNext.addEventListener('click', () => showFact(factIndex + 1));
-  setInterval(() => showFact(factIndex + 1), 6000);
+  ft.textContent = facts[0];
+  dots();
+  fn.addEventListener('click', function() { show(fi + 1); });
+  setInterval(function() { show(fi + 1); }, 6000);
+})();
 </script>
