@@ -283,12 +283,15 @@ var allPosts = [
     render();
   });
 
-  function highlight(text, query) {
-    if (!query || !text) return text;
-    var esc = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    return text.replace(new RegExp('(' + esc + ')', 'gi'), '<mark>$1</mark>');
-  }
-
+function highlight(text, query) {
+  if (!query || !text) return text;
+  // Escape HTML special chars in the query before using it
+  var safeQuery = query.replace(/[&<>"']/g, function(c) {
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+  var esc = safeQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return text.replace(new RegExp('(' + esc + ')', 'gi'), '<mark>$1</mark>');
+}
   function render() {
     list.innerHTML = '';
     meta.textContent = '';
