@@ -27,6 +27,7 @@ permalink: /about/
     margin: 0 auto;
   }
 
+  /* ── BACK ── */
   #ab .bk {
     display: inline-flex;
     align-items: center;
@@ -36,82 +37,88 @@ permalink: /about/
     text-decoration: none;
     font-weight: 300;
     letter-spacing: 0.02em;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
   #ab .bk:hover { color: #1a1a1a; }
 
-  /* ── HEADER ── */
-  #ab .hd {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
+  /* ── HERO ── */
+  #ab .hero {
+    display: grid;
+    grid-template-columns: 1fr 88px;
+    gap: 1.5rem;
+    align-items: start;
+    padding-bottom: 2rem;
     border-bottom: 1px solid #e8e8e8;
+    margin-bottom: 2rem;
   }
 
-  #ab .av {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: #fff;
-    border: 1px solid #e8e8e8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.1rem;
+  #ab .hero-left { display: flex; flex-direction: column; }
+
+  #ab .hero-label {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 500;
     color: #c0392b;
-    flex-shrink: 0;
+    margin-bottom: 0.5rem;
   }
 
-  #ab .hd-txt { flex: 1; min-width: 0; }
-
-  #ab .hd-name {
+  #ab .hero-name {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.4rem;
-    line-height: 1.15;
+    font-size: clamp(1.7rem, 5vw, 2.2rem);
+    line-height: 1.1;
     color: #1a1a1a;
-    display: block;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.4rem;
   }
 
-  #ab .hd-role {
-    font-size: 0.78rem;
+  #ab .hero-role {
+    font-size: 0.82rem;
     color: #888;
     font-weight: 300;
-    display: block;
-    margin-top: 0.1rem;
+    margin-bottom: 1rem;
   }
 
-  /* ── META ROW ── */
-  #ab .meta {
+  #ab .hero-bio {
+    font-size: 0.9rem;
+    color: #444;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* ── PHOTO ── */
+  #ab .hero-photo {
+    width: 88px;
+    height: 88px;
+    border-radius: 4px;
+    object-fit: cover;
+    border: 1px solid #e8e8e8;
+    display: block;
+    background: #f0f0ee;
+  }
+
+  /* ── META PILLS ── */
+  #ab .meta-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem 2rem;
-    margin-bottom: 1.75rem;
+    gap: 0.4rem;
+    margin-bottom: 2rem;
   }
 
-  #ab .meta-item { display: flex; flex-direction: column; }
-
-  #ab .ml {
-    font-size: 0.56rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-weight: 500;
-    color: #bbb;
-    margin-bottom: 0.1rem;
-  }
-
-  #ab .mv {
-    font-size: 0.8rem;
-    color: #1a1a1a;
-    font-weight: 300;
-    display: flex;
+  #ab .meta-pill {
+    display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: #555;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 2px;
+    padding: 0.3rem 0.7rem;
   }
 
-  #ab .dot {
+  #ab .meta-pill .dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
@@ -121,18 +128,6 @@ permalink: /about/
   }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-  /* ── BIO ── */
-  #ab .bio {
-    font-size: 0.92rem;
-    color: #555;
-    font-weight: 300;
-    line-height: 1.85;
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #e8e8e8;
-    display: block;
-  }
-
   /* ── SECTION ── */
   #ab .sec {
     margin-bottom: 2rem;
@@ -140,63 +135,57 @@ permalink: /about/
     border-bottom: 1px solid #e8e8e8;
     opacity: 0;
     transform: translateY(10px);
-    transition: opacity 0.45s ease, transform 0.45s ease;
-    display: block;
+    transition: opacity 0.4s ease, transform 0.4s ease;
   }
   #ab .sec.on { opacity: 1; transform: translateY(0); }
-  #ab .sec:last-child { border-bottom: none; }
+  #ab .sec:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 
   #ab .sc-lbl {
     font-size: 0.6rem;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.13em;
     font-weight: 500;
-    color: #888;
+    color: #aaa;
     display: block;
-    margin-bottom: 0.85rem;
+    margin-bottom: 1rem;
   }
 
   /* ── WHY ── */
   #ab .why p {
-    font-size: 0.91rem;
-    line-height: 1.88;
+    font-size: 0.9rem;
+    line-height: 1.85;
     font-weight: 300;
     color: #444;
-    margin-bottom: 0.8rem;
-    display: block;
+    margin-bottom: 0.75rem;
   }
   #ab .why p:last-child { margin-bottom: 0; }
 
   /* ── TOOLS ── */
-  #ab .tools { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  #ab .tools { display: flex; flex-wrap: wrap; gap: 0.45rem; }
 
   #ab .tool {
     background: #fff;
     border: 1px solid #e8e8e8;
-    border-radius: 4px;
-    padding: 0.6rem 0.75rem;
+    border-radius: 3px;
+    padding: 0.55rem 0.75rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.45rem;
     opacity: 0;
-    transform: translateY(6px);
-    transition: opacity 0.35s ease, transform 0.35s ease, border-color 0.15s, box-shadow 0.15s;
+    transform: translateY(5px);
+    transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.15s, box-shadow 0.15s;
   }
   #ab .tool.on { opacity: 1; transform: translateY(0); }
-  #ab .tool:hover { border-color: #bbb; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
-  #ab .tool img { width: 20px; height: 20px; object-fit: contain; display: block; }
-  #ab .tool span {
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: #555;
-  }
+  #ab .tool:hover { border-color: #bbb; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  #ab .tool img { width: 18px; height: 18px; object-fit: contain; display: block; }
+  #ab .tool span { font-size: 0.75rem; font-weight: 400; color: #555; }
 
   /* ── INTERESTS ── */
-  #ab .tags { display: flex; flex-wrap: wrap; gap: 0.38rem; margin-bottom: 0.6rem; }
+  #ab .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.65rem; }
 
   #ab .tag {
     font-size: 0.73rem;
-    padding: 0.24rem 0.68rem;
+    padding: 0.25rem 0.65rem;
     border: 1px solid #e8e8e8;
     border-radius: 2px;
     background: #fff;
@@ -217,49 +206,46 @@ permalink: /about/
     display: block;
   }
 
-  /* ── FAVORITES ── */
+  /* ── FAVORITES — two-column clean grid ── */
   #ab .favs {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 0;
   }
 
   #ab .fav {
+    padding: 0.65rem 0.75rem 0.65rem 0;
+    border-bottom: 1px solid #f0f0ee;
     display: flex;
     flex-direction: column;
-    padding: 0.6rem 0;
-    border-bottom: 1px solid #f0f0ee;
-    padding-right: 1rem;
+    gap: 0.1rem;
   }
 
+  #ab .fav:nth-child(even) { padding-left: 0.75rem; border-left: 1px solid #f0f0ee; }
+
   #ab .fcat {
-    font-size: 0.56rem;
+    font-size: 0.55rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.11em;
     font-weight: 500;
-    color: #bbb;
-    margin-bottom: 0.1rem;
+    color: #ccc;
   }
 
   #ab .fval {
-    font-size: 0.82rem;
-    font-weight: 300;
+    font-size: 0.85rem;
+    font-weight: 400;
     color: #1a1a1a;
   }
 
   /* ── LINKS ── */
-  #ab .lks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
+  #ab .lks { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
   #ab a.btn {
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.77rem;
+    font-size: 0.78rem;
     font-weight: 400;
     text-decoration: none;
-    padding: 0.46rem 0.9rem;
+    padding: 0.5rem 1rem;
     border-radius: 2px;
     transition: all 0.15s;
     letter-spacing: 0.02em;
@@ -269,6 +255,14 @@ permalink: /about/
   #ab a.btn-p:hover { background: #333; }
   #ab a.btn-s { background: transparent; color: #1a1a1a; border: 1px solid #e8e8e8; }
   #ab a.btn-s:hover { border-color: #1a1a1a; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 500px) {
+    #ab .hero { grid-template-columns: 1fr; }
+    #ab .hero-photo { width: 72px; height: 72px; order: -1; }
+    #ab .favs { grid-template-columns: 1fr; }
+    #ab .fav:nth-child(even) { padding-left: 0; border-left: none; }
+  }
 </style>
 
 <div id="ab">
@@ -276,44 +270,50 @@ permalink: /about/
 
     <a href="/" class="bk">← Home</a>
 
-    <!-- HEADER -->
-    <div class="hd">
-      <div class="av">MT</div>
-      <div class="hd-txt">
-        <span class="hd-name">Manuel Tovar</span>
-        <span class="hd-role">MIS &amp; Business Analytics · DePaul University</span>
+    <!-- HERO: name + bio left, photo right -->
+    <div class="hero">
+      <div class="hero-left">
+        <span class="hero-label">About</span>
+        <span class="hero-name">Manuel Tovar</span>
+        <span class="hero-role">MIS &amp; Business Analytics · DePaul University</span>
+        <p class="hero-bio">
+          I study data because I've always wanted to understand the story behind the numbers —
+          starting with soccer stats as a kid, now building analytics projects across sports,
+          business, and culture. I pair that with a Sports Communication minor because data
+          without storytelling is just noise.
+        </p>
       </div>
+      <!--
+        Replace the src below with your actual image path, e.g.:
+        src="/assets/images/headshot.jpg"
+      -->
+      <img
+        class="hero-photo"
+        src="/assets/images/headshot.jpg"
+        alt="Manuel Tovar"
+        loading="lazy"
+        width="88"
+        height="88"
+      />
     </div>
 
-    <!-- META -->
-    <div class="meta">
-      <div class="meta-item">
-        <span class="ml">Location</span>
-        <span class="mv">Chicago, IL</span>
-      </div>
-      <div class="meta-item">
-        <span class="ml">Status</span>
-        <span class="mv"><span class="dot"></span>Open to internships</span>
-      </div>
-      <div class="meta-item">
-        <span class="ml">Minor</span>
-        <span class="mv">Sports Communication</span>
-      </div>
-      <div class="meta-item">
-        <span class="ml">Favorite club</span>
-        <span class="mv">Manchester United</span>
-      </div>
+    <!-- META PILLS: quick-scan facts -->
+    <div class="meta-row">
+      <span class="meta-pill">📍 Chicago, IL</span>
+      <span class="meta-pill"><span class="dot"></span>Open to internships</span>
+      <span class="meta-pill">⚽ Manchester United</span>
+      <span class="meta-pill">Minor: Sports Communication</span>
     </div>
-
-    <!-- BIO -->
-    <span class="bio">MIS &amp; Business Analytics student at DePaul University. I write about data, sports, film, and whatever else is worth thinking about — and build projects around the things I find interesting.</span>
 
     <!-- WHY -->
     <div class="sec" id="s-why">
       <span class="sc-lbl">Why I study what I study</span>
       <div class="why">
-        <p>Ever since I was a kid, I loved watching sports and seeing the stats behind the game. Soccer is my passion — seeing possession data, heatmaps, and pass networks captivated me early. That curiosity is what pushed me toward Business Analytics.</p>
-        <p>I also love stories — reading, watching, telling them. That's why I paired my analytics degree with a Sports Communication minor. Data and storytelling together is exactly where I want to be.</p>
+        <p>Ever since I was a kid, I loved watching sports and seeing the stats behind the game.
+        Possession data, heatmaps, pass networks — the visuals that tell the story captivated me early.
+        That curiosity is what pushed me toward Business Analytics.</p>
+        <p>I also love stories — reading, watching, telling them. Data and storytelling together
+        is exactly where I want to be.</p>
       </div>
     </div>
 
@@ -341,12 +341,16 @@ permalink: /about/
           <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" alt="SQL">
           <span>SQL</span>
         </div>
+        <div class="tool">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python">
+          <span>Python</span>
+        </div>
       </div>
     </div>
 
     <!-- INTERESTS -->
     <div class="sec" id="s-int">
-      <span class="sc-lbl">Interests</span>
+      <span class="sc-lbl">Interests — hover to learn more</span>
       <div class="tags">
         <span class="tag" data-tip="Analyzing data behind the game is almost as fun as watching it.">Sports analytics</span>
         <span class="tag" data-tip="Possession maps, heatmaps, pass networks — visuals that tell the story.">Data visualization</span>
@@ -374,12 +378,11 @@ permalink: /about/
     </div>
 
     <!-- CTA -->
-    <div class="sec" id="s-cta" style="border-bottom:none; padding-bottom:0;">
+    <div class="sec" id="s-cta">
       <div class="lks">
         <a href="/articles/" class="btn btn-p">Read articles</a>
         <a href="/projects/" class="btn btn-s">View projects</a>
-        <a href="/contact/" class="btn btn-s">Get in touch →</a>
-        <a href="https://www.linkedin.com/in/mantovbiz/" target="_blank" rel="noopener" class="btn btn-s">LinkedIn →</a>
+        <a href="https://www.linkedin.com/in/mantovbiz/" target="_blank" rel="noopener noreferrer" class="btn btn-s">LinkedIn →</a>
       </div>
     </div>
 
@@ -388,32 +391,35 @@ permalink: /about/
 
 <script>
 (function() {
-  /* Fade-up sections */
+  /* ── Fade-up sections on scroll ── */
   var fo = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('on'); });
   }, { threshold: 0.07 });
   document.querySelectorAll('#ab .sec').forEach(function(el) { fo.observe(el); });
 
-  /* Tool cards stagger */
+  /* ── Tool cards stagger ── */
   var tc = document.querySelectorAll('#ab .tool');
   var to = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
       if (!e.isIntersecting) return;
-      tc.forEach(function(c, i) { setTimeout(function() { c.classList.add('on'); }, i * 80); });
+      tc.forEach(function(c, i) { setTimeout(function() { c.classList.add('on'); }, i * 70); });
       to.disconnect();
     });
   }, { threshold: 0.1 });
   var tg = document.getElementById('js-tools');
   if (tg) to.observe(tg);
 
-  /* Interest tooltips */
+  /* ── Interest tag tooltips ──
+     Tooltip text comes from data-tip attributes set in HTML only —
+     never from user input — so there is no XSS surface here. ── */
   var tags = document.querySelectorAll('#ab .tag');
   var tip  = document.getElementById('js-tip');
   tags.forEach(function(tag) {
     tag.addEventListener('mouseenter', function() {
       tags.forEach(function(t) { t.classList.remove('on'); });
       tag.classList.add('on');
-      tip.textContent = tag.dataset.tip;
+      /* textContent only — never innerHTML — safe against any injection */
+      tip.textContent = tag.dataset.tip || '';
     });
     tag.addEventListener('mouseleave', function() {
       tag.classList.remove('on');
