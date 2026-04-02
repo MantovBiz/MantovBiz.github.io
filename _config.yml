@@ -1,8 +1,10 @@
 title: "Mantov's Portfolio"
-description: "Projects, Research & Articles"
+description: "Projects, Research & Articles by Manuel Tovar — MIS & Business Analytics at DePaul University."
 author: Manuel Tovar
 url: "https://MantovBiz.github.io"
 baseurl: ""
+lang: en
+timezone: America/Chicago
 
 # Theme
 theme: minima
@@ -17,11 +19,19 @@ header_pages:
 # Plugins
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+
+# Clean URLs: posts become /research/chicago-bears-2025/ instead of /2026/03/13/title.html
+permalink: /:categories/:title/
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
-
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+  auto_ids: true        # gives every heading an id — required for TOC anchor links
+
+# Feed
+feed:
+  path: feed.xml
