@@ -27,11 +27,20 @@ layout: default
     padding: 4rem 1.5rem 6rem;
   }
 
-  /* ── Width ──────────────────────────────────────────────────────────────── */
-  .post-inner { max-width: 960px; margin: 0 auto; }
+  /* ── Layout: sidebar TOC + content ─────────────────────────────────────── */
+  .post-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    grid-template-rows: auto auto 1fr auto;
+    column-gap: 3.5rem;
+    align-items: start;
+  }
 
-  /* ── Back link ──────────────────────────────────────────────────────────── */
+  /* Back link spans full width */
   .post-back {
+    grid-column: 1 / -1;
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
@@ -43,64 +52,68 @@ layout: default
     margin-bottom: 2.5rem;
     transition: color 0.15s;
   }
-
   .post-back:hover { color: var(--ink); }
 
-  /* ── Header ─────────────────────────────────────────────────────────────── */
+  /* Header spans full width */
   .post-header {
+    grid-column: 1 / -1;
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--border);
     margin-bottom: 2.5rem;
   }
 
-  .post-meta-row {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-bottom: 1rem;
+  /* ── TOC sidebar ────────────────────────────────────────────────────────── */
+  .toc-sidebar {
+    grid-column: 2;
+    grid-row: 3;
+    position: sticky;
+    top: 2rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1.1rem 1.25rem;
   }
 
-  .post-badge {
-    font-size: 0.65rem;
+  .toc-label {
+    font-size: 0.6rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.14em;
     font-weight: 500;
-    padding: 0.15rem 0.5rem;
-    border-radius: 1px;
-  }
-
-  .badge-opinion  { background: #fdecea; color: var(--accent); }
-  .badge-research { background: #e8f0fb; color: var(--accent-blue); }
-
-  .post-tag {
-    font-size: 0.65rem;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    font-weight: 500;
-    background: var(--tag-bg);
     color: var(--muted);
-    padding: 0.15rem 0.45rem;
-    border-radius: 1px;
-  }
-
-  .post-header h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.9rem, 5vw, 2.75rem);
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
     margin-bottom: 0.75rem;
+    display: block;
   }
 
-  .post-date {
+  #toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #toc-list li { margin-bottom: 0; }
+
+  #toc-list a {
+    display: block;
     font-size: 0.78rem;
-    color: var(--muted);
+    color: #666;
+    text-decoration: none;
     font-weight: 300;
+    padding: 0.28rem 0;
+    border-left: 2px solid transparent;
+    padding-left: 0.6rem;
+    transition: color 0.15s, border-color 0.15s;
+    line-height: 1.4;
   }
 
-  /* ── Body content ───────────────────────────────────────────────────────── */
+  #toc-list a:hover { color: var(--ink); border-left-color: var(--border); }
+  #toc-list a.toc-active { color: var(--accent); border-left-color: var(--accent); font-weight: 400; }
+
+  #toc-list li.toc-h3 a { padding-left: 1.3rem; font-size: 0.73rem; }
+
+  /* ── Main body ──────────────────────────────────────────────────────────── */
   .post-body {
+    grid-column: 1;
+    grid-row: 3;
     font-size: 1rem;
     line-height: 1.8;
     font-weight: 300;
@@ -118,6 +131,7 @@ layout: default
     margin-top: 2.5rem;
     margin-bottom: 0.75rem;
     line-height: 1.2;
+    scroll-margin-top: 1.5rem;
   }
 
   .post-body h3 {
@@ -127,14 +141,10 @@ layout: default
     color: var(--ink);
     margin-top: 2rem;
     margin-bottom: 0.6rem;
+    scroll-margin-top: 1.5rem;
   }
 
-  .post-body ul,
-  .post-body ol {
-    padding-left: 1.4rem;
-    margin-bottom: 1.4rem;
-  }
-
+  .post-body ul, .post-body ol { padding-left: 1.4rem; margin-bottom: 1.4rem; }
   .post-body li { margin-bottom: 0.4rem; }
 
   .post-body a {
@@ -143,7 +153,6 @@ layout: default
     text-underline-offset: 2px;
     transition: opacity 0.15s;
   }
-
   .post-body a:hover { opacity: 0.7; }
 
   .post-body blockquote {
@@ -154,11 +163,7 @@ layout: default
     margin: 1.75rem 0;
   }
 
-  .post-body hr {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 2.5rem 0;
-  }
+  .post-body hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 
   .post-body code {
     font-family: 'Courier New', monospace;
@@ -177,14 +182,8 @@ layout: default
     margin-bottom: 1.4rem;
   }
 
-  .post-body pre code {
-    background: none;
-    padding: 0;
-    font-size: 0.875rem;
-    line-height: 1.6;
-  }
+  .post-body pre code { background: none; padding: 0; font-size: 0.875rem; line-height: 1.6; }
 
-  /* ── Images ─────────────────────────────────────────────────────────────── */
   .post-body img {
     width: 100%;
     height: auto;
@@ -193,34 +192,15 @@ layout: default
     border-radius: 3px;
   }
 
-  /* ── Tables ─────────────────────────────────────────────────────────────── */
-  .post-body table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1.4rem;
-    font-size: 0.9rem;
-  }
-
-  .post-body th {
-    text-align: left;
-    font-weight: 500;
-    padding: 0.6rem 0.75rem;
-    border-bottom: 2px solid var(--border);
-    color: var(--ink);
-  }
-
-  .post-body td {
-    padding: 0.55rem 0.75rem;
-    border-bottom: 1px solid var(--border);
-    color: #444;
-  }
-
+  .post-body table { width: 100%; border-collapse: collapse; margin-bottom: 1.4rem; font-size: 0.9rem; }
+  .post-body th { text-align: left; font-weight: 500; padding: 0.6rem 0.75rem; border-bottom: 2px solid var(--border); color: var(--ink); }
+  .post-body td { padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--border); color: #444; }
   .post-body tr:last-child td { border-bottom: none; }
 
-  /* ── Stat callout boxes ─────────────────────────────────────────────────── */
+  /* ── Callout boxes ──────────────────────────────────────────────────────── */
   .stat-box {
     background: var(--bears-navy);
-    color: #ffffff;
+    color: #fff;
     border-left: 4px solid var(--bears-orange);
     border-radius: 4px;
     padding: 1.2rem 1.5rem;
@@ -228,38 +208,35 @@ layout: default
     font-size: 0.95rem;
     line-height: 1.6;
   }
+  .stat-box strong { color: var(--bears-orange); display: block; font-size: 1rem; margin-bottom: 0.3rem; }
+  .stat-box .stat-number { font-size: 2rem; font-weight: 500; color: var(--bears-orange); display: block; margin-bottom: 0.25rem; }
 
-  .stat-box strong {
-    color: var(--bears-orange);
-    display: block;
-    font-size: 1rem;
-    margin-bottom: 0.3rem;
-  }
-
-  .stat-box .stat-number {
-    font-size: 2rem;
-    font-weight: 500;
-    color: var(--bears-orange);
-    display: block;
-    margin-bottom: 0.25rem;
-  }
-
-  /* ── Data note boxes ────────────────────────────────────────────────────── */
   .data-note {
     background: #f8f4e3;
     border-left: 4px solid #c9a84c;
-    border-radius: 0;
     padding: 1rem 1.5rem;
     margin: 1.75rem 0;
     font-size: 0.9rem;
     color: #444;
     line-height: 1.6;
   }
-
   .data-note strong { color: #8a6a00; }
 
-  /* ── Footer nav ─────────────────────────────────────────────────────────── */
+  /* ── Post meta ──────────────────────────────────────────────────────────── */
+  .post-meta-row { display: flex; align-items: center; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+
+  .post-badge { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; padding: 0.15rem 0.5rem; border-radius: 1px; }
+  .badge-opinion  { background: #fdecea; color: var(--accent); }
+  .badge-research { background: #e8f0fb; color: var(--accent-blue); }
+
+  .post-tag { font-size: 0.65rem; letter-spacing: 0.07em; text-transform: uppercase; font-weight: 500; background: var(--tag-bg); color: var(--muted); padding: 0.15rem 0.45rem; border-radius: 1px; }
+
+  .post-header h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.9rem, 5vw, 2.75rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 0.75rem; }
+  .post-date { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
+
+  /* ── Footer ─────────────────────────────────────────────────────────────── */
   .post-footer {
+    grid-column: 1 / -1;
     margin-top: 3.5rem;
     padding-top: 2rem;
     border-top: 1px solid var(--border);
@@ -269,33 +246,31 @@ layout: default
     flex-wrap: wrap;
     gap: 1rem;
   }
-
-  .post-footer a {
-    font-size: 0.8rem;
-    color: var(--muted);
-    text-decoration: none;
-    font-weight: 300;
-    transition: color 0.15s;
-  }
-
+  .post-footer a { font-size: 0.8rem; color: var(--muted); text-decoration: none; font-weight: 300; transition: color 0.15s; }
   .post-footer a:hover { color: var(--ink); }
 
-  /* ── Mobile ─────────────────────────────────────────────────────────────── */
-  @media (max-width: 600px) {
-    .post-page   { padding: 2rem 1rem 4rem; }
-    .post-body   { font-size: 0.95rem; }
+  /* ── Mobile: TOC moves to top, collapses ────────────────────────────────── */
+  @media (max-width: 720px) {
+    .post-inner { grid-template-columns: 1fr; }
+
+    .toc-sidebar {
+      grid-column: 1;
+      grid-row: auto;
+      position: static;
+      margin-bottom: 2rem;
+    }
+
+    .post-body { grid-column: 1; grid-row: auto; }
+    .post-page { padding: 2rem 1rem 4rem; }
+    .post-body { font-size: 0.95rem; }
     .post-header h1 { font-size: 1.6rem; }
-    .stat-box    { padding: 1rem 1.1rem; }
-    .data-note   { padding: 0.85rem 1.1rem; }
   }
 </style>
 
 <div class="post-page">
   <div class="post-inner">
 
-    <a href="/articles/" class="post-back">
-      ← All articles
-    </a>
+    <a href="/articles/" class="post-back">← All articles</a>
 
     <div class="post-header">
       <div class="post-meta-row">
@@ -309,12 +284,17 @@ layout: default
           <span class="post-tag">{{ tag }}</span>
         {% endfor %}
       </div>
-
       <h1>{{ page.title }}</h1>
       <div class="post-date">{{ page.date | date: "%B %d, %Y" }}</div>
     </div>
 
-    <div class="post-body">
+    <!-- TOC — built from headings by JS, hidden if post has no headings -->
+    <nav class="toc-sidebar" id="toc-sidebar" aria-label="Table of contents" style="display:none;">
+      <span class="toc-label">On this page</span>
+      <ul id="toc-list"></ul>
+    </nav>
+
+    <div class="post-body" id="post-body">
       {{ content }}
     </div>
 
@@ -325,3 +305,65 @@ layout: default
 
   </div>
 </div>
+
+<script>
+(function () {
+  var body    = document.getElementById('post-body');
+  var sidebar = document.getElementById('toc-sidebar');
+  var tocList = document.getElementById('toc-list');
+
+  if (!body || !sidebar || !tocList) return;
+
+  /* ── Build TOC from h2 and h3 headings ── */
+  var headings = body.querySelectorAll('h2, h3');
+  if (headings.length < 2) return; /* not worth showing for < 2 headings */
+
+  sidebar.style.display = 'block';
+
+  headings.forEach(function (h) {
+    /* Ensure every heading has an id (kramdown auto_ids handles this,
+       but we add a fallback in case) */
+    if (!h.id) {
+      h.id = h.textContent
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '');
+    }
+
+    var li = document.createElement('li');
+    li.className = h.tagName === 'H3' ? 'toc-h3' : 'toc-h2';
+
+    var a = document.createElement('a');
+    /* Use textContent only — never innerHTML — so no script injection is possible */
+    a.textContent = h.textContent;
+    a.href = '#' + h.id;
+
+    li.appendChild(a);
+    tocList.appendChild(li);
+  });
+
+  /* ── Highlight active section on scroll ── */
+  var links = tocList.querySelectorAll('a');
+
+  function onScroll() {
+    var scrollY = window.scrollY + 80;
+    var active  = null;
+
+    headings.forEach(function (h) {
+      if (h.offsetTop <= scrollY) active = h.id;
+    });
+
+    links.forEach(function (a) {
+      if (active && a.getAttribute('href') === '#' + active) {
+        a.classList.add('toc-active');
+      } else {
+        a.classList.remove('toc-active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
