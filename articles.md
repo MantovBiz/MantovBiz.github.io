@@ -211,12 +211,12 @@ permalink: /articles/
 var allPosts = [
   {% for post in site.posts %}
   {
-    "title": {{ post.title | jsonify }},
-    "url": {{ post.url | jsonify }},
-    "date": {{ post.date | date: "%b %d, %Y" | jsonify }},
+    "title":      {{ post.title      | jsonify }},
+    "url":        {{ post.url        | jsonify }},
+    "date":       {{ post.date | date: "%b %d, %Y" | jsonify }},
     "categories": {{ post.categories | jsonify }},
-    "tags": {{ post.tags | jsonify }},
-    "excerpt": {{ post.excerpt | strip_html | truncatewords: 28 | jsonify }}
+    "tags":       {{ post.tags       | jsonify }},
+    "excerpt":    {{ post.excerpt | strip_html | truncatewords: 28 | jsonify }}
   }{% unless forloop.last %},{% endunless %}
   {% endfor %}
 ];
@@ -232,7 +232,15 @@ var allPosts = [
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
     </svg>
-    <input type="text" id="search-input" placeholder="Search articles…" autocomplete="off" />
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Search articles…"
+      autocomplete="off"
+      spellcheck="false"
+      maxlength="120"
+      aria-label="Search articles"
+    />
   </div>
 
   <div class="tabs">
@@ -247,101 +255,181 @@ var allPosts = [
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
 <script>
+(function () {
+  /* ── Build Lunr index ─────────────────────────────────────────────────── */
   var idx = lunr(function () {
     this.ref('url');
-    this.field('title', { boost: 10 });
-    this.field('tags', { boost: 5 });
-    this.field('categories', { boost: 3 });
+    this.field('title',      { boost: 10 });
+    this.field('tags',       { boost: 5  });
+    this.field('categories', { boost: 3  });
     this.field('excerpt');
-    allPosts.forEach(function(p) {
+    allPosts.forEach(function (p) {
       this.add({
-        url: p.url,
-        title: p.title,
-        tags: (p.tags || []).join(' '),
+        url:        p.url,
+        title:      p.title,
+        tags:       (p.tags       || []).join(' '),
         categories: (p.categories || []).join(' '),
-        excerpt: p.excerpt
+        excerpt:    p.excerpt
       });
     }, this);
   });
 
-  var currentTab = 'all', currentQuery = '';
+  /* ── Safe highlight using DOM nodes — never innerHTML from user input ── */
+  function highlightNode(el, terms) {
+    if (!el || !terms.length) return;
+    if (!el.dataset.orig) el.dataset.orig = el.textContent;
+
+    var text = el.dataset.orig;
+    /* Sanitize each term: letters, numbers, spaces only */
+    var safeParts = terms.map(function (t) {
+      return t.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+    }).filter(Boolean);
+
+    if (!safeParts.length) {
+      el.textContent = text;
+      return;
+    }
+
+    var re = new RegExp('(' + safeParts.join('|') + ')', 'gi');
+    while (el.firstChild) el.removeChild(el.firstChild);
+
+    text.split(re).forEach(function (chunk) {
+      if (re.test(chunk)) {
+        var mark = document.createElement('mark');
+        mark.textContent = chunk;
+        el.appendChild(mark);
+        re.lastIndex = 0;
+      } else {
+        el.appendChild(document.createTextNode(chunk));
+      }
+    });
+  }
+
+  var currentTab   = 'all';
+  var currentQuery = '';
   var input = document.getElementById('search-input');
   var list  = document.getElementById('posts-list');
   var meta  = document.getElementById('results-meta');
 
-  document.querySelectorAll('.tab-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
       currentTab = btn.dataset.tab;
       render();
     });
   });
 
-  input.addEventListener('input', function() {
+  input.addEventListener('input', function () {
     currentQuery = this.value.trim();
     render();
   });
 
-function highlight(text, query) {
-  if (!query || !text) return text;
-  // Escape HTML special chars in the query before using it
-  var safeQuery = query.replace(/[&<>"']/g, function(c) {
-    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
-  });
-  var esc = safeQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return text.replace(new RegExp('(' + esc + ')', 'gi'), '<mark>$1</mark>');
-}
   function render() {
     list.innerHTML = '';
     meta.textContent = '';
 
     var filtered = allPosts.slice();
 
+    /* Tab filter */
     if (currentTab !== 'all') {
-      filtered = filtered.filter(function(p) {
+      filtered = filtered.filter(function (p) {
         return (p.categories || []).indexOf(currentTab) > -1;
       });
     }
 
+    /* Lunr search */
+    var terms = [];
     if (currentQuery.length >= 2) {
-      var results = idx.search(currentQuery + '*');
-      var urls = results.map(function(r) { return r.ref; });
-      filtered = filtered.filter(function(p) { return urls.indexOf(p.url) > -1; });
-      meta.textContent = filtered.length + ' result' + (filtered.length !== 1 ? 's' : '') + ' for "' + currentQuery + '"';
+      try {
+        var results = idx.search(currentQuery + '*');
+        var urls    = results.map(function (r) { return r.ref; });
+        filtered    = filtered.filter(function (p) { return urls.indexOf(p.url) > -1; });
+        /* Extract sanitized terms for highlighting */
+        terms = currentQuery.split(/\s+/).filter(Boolean);
+      } catch (e) {
+        /* Lunr throws on some special characters — silently ignore */
+        filtered = [];
+      }
+      meta.textContent =
+        filtered.length + ' result' + (filtered.length !== 1 ? 's' : '') +
+        ' for "' + currentQuery + '"';
     }
 
     if (filtered.length === 0) {
-      list.innerHTML = '<li><p class="empty-state">No articles found' + (currentQuery ? ' for "' + currentQuery + '"' : '') + '.</p></li>';
+      var li = document.createElement('li');
+      var p  = document.createElement('p');
+      p.className   = 'empty-state';
+      p.textContent = currentQuery
+        ? 'No articles found for "' + currentQuery + '".'
+        : 'No articles found.';
+      li.appendChild(p);
+      list.appendChild(li);
       return;
     }
 
-    filtered.forEach(function(post, i) {
-      var cats = post.categories || [];
-      var isOpinion  = cats.indexOf('opinion') > -1;
+    filtered.forEach(function (post, i) {
+      var cats       = post.categories || [];
+      var isOpinion  = cats.indexOf('opinion')  > -1;
       var isResearch = cats.indexOf('research') > -1;
-      var badge = isOpinion
-        ? '<span class="post-badge badge-opinion">Opinion</span>'
-        : isResearch
-          ? '<span class="post-badge badge-research">Research</span>'
-          : '';
-      var tags = (post.tags || []).map(function(t) {
-        return '<span class="post-tag">' + t + '</span>';
-      }).join('');
 
       var li = document.createElement('li');
       li.className = 'post-item';
       li.style.animationDelay = (i * 0.05) + 's';
-      li.innerHTML =
-        '<div class="post-content">' +
-          '<div class="post-meta-row">' + badge + tags + '</div>' +
-          '<div class="post-title"><a href="' + post.url + '">' + highlight(post.title, currentQuery) + '</a></div>' +
-          (post.excerpt ? '<p class="post-excerpt">' + highlight(post.excerpt, currentQuery) + '</p>' : '') +
-        '</div>' +
-        '<div class="post-date">' + post.date + '</div>';
+
+      /* ── Left column ── */
+      var left = document.createElement('div');
+      left.className = 'post-content';
+
+      /* Badge */
+      var metaRow = document.createElement('div');
+      metaRow.className = 'post-meta-row';
+      if (isOpinion || isResearch) {
+        var badge = document.createElement('span');
+        badge.className = 'post-badge ' + (isOpinion ? 'badge-opinion' : 'badge-research');
+        badge.textContent = isOpinion ? 'Opinion' : 'Research';
+        metaRow.appendChild(badge);
+      }
+      /* Tags */
+      (post.tags || []).forEach(function (t) {
+        var tag = document.createElement('span');
+        tag.className   = 'post-tag';
+        tag.textContent = t;
+        metaRow.appendChild(tag);
+      });
+      left.appendChild(metaRow);
+
+      /* Title */
+      var titleDiv = document.createElement('div');
+      titleDiv.className = 'post-title';
+      var a = document.createElement('a');
+      a.href        = post.url;
+      a.textContent = post.title;
+      titleDiv.appendChild(a);
+      left.appendChild(titleDiv);
+
+      /* Excerpt */
+      if (post.excerpt) {
+        var exc = document.createElement('p');
+        exc.className   = 'post-excerpt';
+        exc.textContent = post.excerpt;
+        left.appendChild(exc);
+        highlightNode(exc, terms);
+      }
+
+      highlightNode(a, terms);
+
+      /* ── Right column: date ── */
+      var right = document.createElement('div');
+      right.className   = 'post-date';
+      right.textContent = post.date;
+
+      li.appendChild(left);
+      li.appendChild(right);
       list.appendChild(li);
     });
   }
 
   render();
+})();
 </script>
