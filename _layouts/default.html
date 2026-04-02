@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
-
   {%- include head.html -%}
-
+  {% seo %}
   <body>
-
     {%- include header.html -%}
-
     <main class="page-content" aria-label="Content" style="padding:0;margin:0;width:100%;">
       {{ content }}
     </main>
-
     {%- include footer.html -%}
-
   </body>
-
 </html>
