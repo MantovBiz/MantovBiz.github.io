@@ -31,7 +31,7 @@ permalink: /projects/
   .page-header {
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--border);
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
 
   .page-label {
@@ -53,6 +53,68 @@ permalink: /projects/
 
   .page-header p { font-size: 0.9rem; color: var(--muted); font-weight: 300; }
 
+  /* ── Search bar ──────────────────────────────────────────────────────────── */
+  .search-wrap {
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+
+  .search-wrap svg {
+    position: absolute;
+    left: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    pointer-events: none;
+  }
+
+  #proj-search {
+    width: 100%;
+    padding: 0.75rem 2.8rem 0.75rem 2.6rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    background: #fff;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+    /* Prevent browser autocomplete from injecting unexpected values */
+    autocomplete: off;
+  }
+
+  #proj-search:focus { border-color: var(--ink); }
+  #proj-search::placeholder { color: #bbb; }
+
+  /* Clear button */
+  #proj-clear {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--muted);
+    padding: 0.2rem;
+    display: none;
+    line-height: 1;
+    transition: color 0.15s;
+  }
+  #proj-clear:hover { color: var(--ink); }
+
+  #proj-meta {
+    font-size: 0.74rem;
+    color: var(--muted);
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    min-height: 1.1em;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── Project list ──────────────────────────────────────────────────────── */
   .project-list { list-style: none; }
 
   .project-item {
@@ -62,18 +124,11 @@ permalink: /projects/
     grid-template-columns: 1fr auto;
     gap: 1rem;
     align-items: start;
-    opacity: 0;
-    transform: translateY(6px);
-    animation: fadeUp 0.3s forwards;
   }
 
-  .project-item:nth-child(1) { animation-delay: 0.05s; }
-  .project-item:nth-child(2) { animation-delay: 0.10s; }
-  .project-item:nth-child(3) { animation-delay: 0.15s; }
-  .project-item:nth-child(4) { animation-delay: 0.20s; }
-
-  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
   .project-item:last-child { border-bottom: 1px solid var(--border); }
+
+  .project-item[hidden] { display: none; }
 
   .project-content { min-width: 0; }
 
@@ -134,8 +189,21 @@ permalink: /projects/
     gap: 0.3rem;
     letter-spacing: 0.01em;
   }
-
   .project-link:hover { border-color: var(--ink); color: var(--ink); }
+
+  /* ── Highlight matched text ──────────────────────────────────────────────── */
+  mark { background: #fff3b0; color: inherit; padding: 0 1px; border-radius: 1px; }
+
+  /* ── Empty state ─────────────────────────────────────────────────────────── */
+  #proj-empty {
+    padding: 2.5rem 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 300;
+    border-top: 1px solid var(--border);
+    display: none;
+  }
 
   @media (max-width: 480px) {
     .project-item { grid-template-columns: 1fr; }
@@ -152,9 +220,34 @@ permalink: /projects/
       <p>Data analysis, visualization, and sports analytics projects.</p>
     </div>
 
-    <ul class="project-list">
+    <!-- Safe search: plain text filter, no eval, no innerHTML from input -->
+    <div class="search-wrap">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input
+        type="text"
+        id="proj-search"
+        placeholder="Search projects…"
+        autocomplete="off"
+        spellcheck="false"
+        maxlength="100"
+        aria-label="Search projects"
+      />
+      <button id="proj-clear" aria-label="Clear search">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div id="proj-meta"></div>
 
-      <li class="project-item">
+    <ul class="project-list" id="proj-list">
+
+      <li class="project-item"
+          data-title="Chicago Bears Personnel Coverage Analysis 2025"
+          data-tools="R nflfastR nflreadr gt tidyverse"
+          data-desc="Breakdown of the Bears offensive personnel groupings defensive coverage types man vs zone usage and defensive formations across the 2025 season split by regular season and playoffs">
         <div class="project-content">
           <div class="project-tools">
             <span class="tool-tag">R</span>
@@ -163,7 +256,7 @@ permalink: /projects/
             <span class="tool-tag">gt</span>
             <span class="tool-tag">tidyverse</span>
           </div>
-          <div class="project-title">Chicago Bears Personnel & Coverage Analysis (2025)</div>
+          <div class="project-title">Chicago Bears Personnel &amp; Coverage Analysis (2025)</div>
           <p class="project-desc">Breakdown of the Bears' offensive personnel groupings, defensive coverage types, man vs zone usage, and defensive formations across the 2025 season — split by regular season and playoffs. Tables built with gt and data sourced via nflverse.</p>
         </div>
         <div class="project-links">
@@ -182,7 +275,10 @@ permalink: /projects/
         </div>
       </li>
 
-      <li class="project-item">
+      <li class="project-item"
+          data-title="NFL Running Back Analysis"
+          data-tools="R ggplot2"
+          data-desc="Analyzed usage trends for NFL running backs over the last four seasons examining carry distribution efficiency and role shifts across teams and schemes">
         <div class="project-content">
           <div class="project-tools">
             <span class="tool-tag">R</span>
@@ -199,7 +295,10 @@ permalink: /projects/
         </div>
       </li>
 
-      <li class="project-item">
+      <li class="project-item"
+          data-title="NBA Salary Efficiency"
+          data-tools="Python Pandas"
+          data-desc="Evaluated team payroll efficiency across NBA teams comparing salary spend against on-court production to identify over and underperforming contracts">
         <div class="project-content">
           <div class="project-tools">
             <span class="tool-tag">Python</span>
@@ -218,5 +317,113 @@ permalink: /projects/
 
     </ul>
 
+    <p id="proj-empty">No projects match your search.</p>
+
   </div>
 </div>
+
+<script>
+(function () {
+  var input   = document.getElementById('proj-search');
+  var clearBtn = document.getElementById('proj-clear');
+  var metaEl  = document.getElementById('proj-meta');
+  var emptyEl = document.getElementById('proj-empty');
+  var items   = Array.prototype.slice.call(
+    document.querySelectorAll('#proj-list .project-item')
+  );
+
+  /* Pre-compute searchable text per item from data attributes only —
+     never from user input, so there is no injection surface. */
+  var searchData = items.map(function (li) {
+    return (
+      (li.dataset.title  || '') + ' ' +
+      (li.dataset.tools  || '') + ' ' +
+      (li.dataset.desc   || '')
+    ).toLowerCase();
+  });
+
+  function sanitizeQuery(raw) {
+    /* Strip everything that isn't letters, numbers, spaces, or hyphens.
+       This prevents any CSS/HTML/JS injection from ever reaching the DOM. */
+    return raw.replace(/[^a-zA-Z0-9 \-]/g, '').trim().toLowerCase();
+  }
+
+  function setHighlight(titleEl, descEl, terms) {
+    /* We use textContent to read and a Text node to write — never innerHTML
+       from user input. Highlights are added safely via DOM manipulation. */
+    if (!terms.length) {
+      titleEl.childNodes[0] && (titleEl.textContent = titleEl.dataset.orig || titleEl.textContent);
+      descEl  && (descEl.textContent  = descEl.dataset.orig  || descEl.textContent);
+      return;
+    }
+
+    [titleEl, descEl].forEach(function (el) {
+      if (!el) return;
+      if (!el.dataset.orig) el.dataset.orig = el.textContent;
+      var text = el.dataset.orig;
+      /* Build a safe regex from sanitized terms */
+      var pattern = terms.map(function (t) {
+        return t.replace(/[-]/g, '\\-');
+      }).join('|');
+      var re = new RegExp('(' + pattern + ')', 'gi');
+
+      /* Clear and rebuild with <mark> nodes — no innerHTML from user input */
+      while (el.firstChild) el.removeChild(el.firstChild);
+      text.split(re).forEach(function (chunk) {
+        if (re.test(chunk)) {
+          var mark = document.createElement('mark');
+          mark.textContent = chunk;
+          el.appendChild(mark);
+          re.lastIndex = 0;
+        } else {
+          el.appendChild(document.createTextNode(chunk));
+        }
+      });
+    });
+  }
+
+  function render() {
+    var raw   = input.value;
+    var query = sanitizeQuery(raw);
+    var terms = query ? query.split(/\s+/).filter(Boolean) : [];
+
+    clearBtn.style.display = raw.length ? 'block' : 'none';
+
+    var visible = 0;
+
+    items.forEach(function (li, i) {
+      var titleEl = li.querySelector('.project-title');
+      var descEl  = li.querySelector('.project-desc');
+      var match   = !terms.length || terms.every(function (t) {
+        return searchData[i].indexOf(t) > -1;
+      });
+
+      if (match) {
+        li.removeAttribute('hidden');
+        setHighlight(titleEl, descEl, terms);
+        visible++;
+      } else {
+        li.setAttribute('hidden', '');
+      }
+    });
+
+    emptyEl.style.display = visible === 0 ? 'block' : 'none';
+
+    if (terms.length) {
+      metaEl.textContent = visible + ' project' + (visible !== 1 ? 's' : '') + ' found';
+    } else {
+      metaEl.textContent = '';
+    }
+  }
+
+  input.addEventListener('input', render);
+
+  clearBtn.addEventListener('click', function () {
+    input.value = '';
+    render();
+    input.focus();
+  });
+
+  render();
+})();
+</script>
