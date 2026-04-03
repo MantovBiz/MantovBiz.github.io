@@ -1,0 +1,29 @@
+<!-- ═══════════════════════════════════════════════════════════
+     CUSTOM FOOTER
+     Overrides Minima's footer.html.
+     Brand + tagline left · nav links right · copyright bar bottom
+     ═══════════════════════════════════════════════════════════ -->
+
+<footer class="site-footer-custom">
+  <div class="footer-inner">
+
+    <div class="footer-left">
+      <a href="/" class="footer-brand">Mantov</a>
+      <p class="footer-tagline">Writing, research, and curiosity.</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/articles/">Articles</a>
+      <a href="/projects/">Projects</a>
+      <a href="/about/">About</a>
+      <a href="https://www.linkedin.com/in/mantovbiz/"
+         target="_blank"
+         rel="noopener noreferrer">LinkedIn ↗</a>
+    </nav>
+
+  </div>
+
+  <div class="footer-rule">
+    <span>© {{ site.time | date: '%Y' }} Manuel Tovar</span>
+  </div>
+</footer>
