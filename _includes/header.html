@@ -1,0 +1,101 @@
+<!-- ═══════════════════════════════════════════════════════════
+     CUSTOM NAVIGATION
+     Overrides Minima's header.html entirely.
+     Sticky bar · brand in serif · desktop links · mobile drawer
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- Load fonts here so they're available before first paint -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<header class="site-nav" id="site-nav">
+  <div class="nav-inner">
+
+    <!-- Brand — serif logotype links to home -->
+    <a href="/" class="nav-brand" aria-label="Mantov — Home">
+      <span class="nav-logo">Mantov</span>
+    </a>
+
+    <!-- Desktop navigation links -->
+    <nav aria-label="Main navigation">
+      <ul class="nav-links" id="nav-links" role="list">
+        <li>
+          <a href="/articles/"
+             class="nav-link{% if page.url == '/articles/' or page.categories %} active{% endif %}">
+            Articles
+          </a>
+        </li>
+        <li>
+          <a href="/projects/"
+             class="nav-link{% if page.url == '/projects/' %} active{% endif %}">
+            Projects
+          </a>
+        </li>
+        <li>
+          <a href="/about/"
+             class="nav-link{% if page.url == '/about/' %} active{% endif %}">
+            About
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Hamburger — visible only on mobile (CSS controls display) -->
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="nav-links"
+    >
+      <!-- Three-bar icon -->
+      <svg id="icon-ham" width="20" height="14" viewBox="0 0 20 14"
+           fill="currentColor" aria-hidden="true">
+        <rect y="0"    width="20" height="1.6" rx="0.8"/>
+        <rect y="6.2"  width="20" height="1.6" rx="0.8"/>
+        <rect y="12.4" width="20" height="1.6" rx="0.8"/>
+      </svg>
+      <!-- Close (×) icon — shown when menu is open -->
+      <svg id="icon-x" width="16" height="16" viewBox="0 0 16 16"
+           fill="none" aria-hidden="true" style="display:none">
+        <path d="M2 2 L14 14 M14 2 L2 14"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+  </div>
+</header>
+
+<script>
+(function () {
+  var btn   = document.getElementById('nav-toggle');
+  var links = document.getElementById('nav-links');
+  var nav   = document.getElementById('site-nav');
+  var ham   = document.getElementById('icon-ham');
+  var x     = document.getElementById('icon-x');
+  if (!btn || !links) return;
+
+  btn.addEventListener('click', function () {
+    var open = links.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label',    open ? 'Close menu' : 'Open menu');
+    if (ham) ham.style.display = open ? 'none' : '';
+    if (x)   x.style.display   = open ? ''     : 'none';
+  });
+
+  links.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      links.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label',    'Open menu');
+      if (ham) ham.style.display = '';
+      if (x)   x.style.display   = 'none';
+    });
+  });
+
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 8);
+  }, { passive: true });
+})();
+</script>
