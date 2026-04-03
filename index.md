@@ -366,9 +366,6 @@ permalink: /
       <div class="proj-grid">
         <a href="https://github.com/MantovBiz/NFL-fast-R-Data-Visualizations-and-Breakdowns/tree/main/Chicago-Bears/2025"
            target="_blank" rel="noopener" class="proj-mini">
-      </div>
-    </div>
-  </section>
 
   <section class="home-section" aria-label="About">
     <div class="home-inner">
