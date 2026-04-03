@@ -93,13 +93,6 @@ permalink: /about/
       <img class="hero-photo" src="/assets/images/headshot.jpg" alt="Manuel Tovar" loading="lazy" width="88" height="88"/>
     </div>
 
-    <div class="meta-row">
-      <span class="meta-pill">📍 Chicago, IL</span>
-      <span class="meta-pill"><span class="dot"></span>Open to internships</span>
-      <span class="meta-pill">⚽ Manchester United</span>
-      <span class="meta-pill">Minor: Sports Communication</span>
-    </div>
-
     <div class="sec" id="s-why">
       <span class="sc-lbl">Why I study what I study</span>
       <div class="why">
@@ -133,18 +126,6 @@ permalink: /about/
         <span class="tag" data-tip="Manchester United. Also Cubs, Bears, Blackhawks.">Sports</span>
       </div>
       <span class="tip" id="js-tip"></span>
-    </div>
-
-    <div class="sec" id="s-favs">
-      <span class="sc-lbl">Quick favorites</span>
-      <div class="favs">
-        <div class="fav"><span class="fcat">Film</span><span class="fval">Speed Racer</span></div>
-        <div class="fav"><span class="fcat">Book</span><span class="fval">Project Hail Mary</span></div>
-        <div class="fav"><span class="fcat">Artist</span><span class="fval">Bad Bunny</span></div>
-        <div class="fav"><span class="fcat">Game</span><span class="fval">The Last of Us</span></div>
-        <div class="fav"><span class="fcat">Club</span><span class="fval">Manchester United</span></div>
-        <div class="fav"><span class="fcat">Letterboxd</span><span class="fval">Mantov09</span></div>
-      </div>
     </div>
 
     <div class="sec" id="s-cta">
