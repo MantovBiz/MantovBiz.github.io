@@ -3,226 +3,29 @@ layout: default
 ---
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
-
   :root {
-    --ink: #1a1a1a;
-    --muted: #888;
-    --border: #e8e8e8;
-    --accent: #c0392b;
-    --accent-blue: #2563a8;
-    --bg: #fafaf8;
-    --tag-bg: #f0f0ee;
-    --bears-navy: #0B1C3D;
-    --bears-orange: #E4873B;
+    --ink: #1a1a1a; --muted: #888; --border: #e8e8e8;
+    --accent: #c0392b; --accent-blue: #2563a8;
+    --bg: #fafaf8; --tag-bg: #f0f0ee;
+    --bears-navy: #0B1C3D; --bears-orange: #E4873B;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  .post-page {
-    font-family: 'DM Sans', sans-serif;
-    color: var(--ink);
-    background: var(--bg);
-    min-height: 100vh;
-    padding: 4rem 1.5rem 6rem;
+  #reading-progress {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+    background: var(--accent); z-index: 101;
+    transition: width 0.05s linear; border-radius: 0 2px 2px 0;
   }
 
-  /* ── Layout: sidebar TOC + content ─────────────────────────────────────── */
-  .post-inner {
-    max-width: 1060px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 220px;
-    grid-template-rows: auto auto 1fr auto;
-    column-gap: 3.5rem;
-    align-items: start;
-  }
+  .post-page { font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--bg); min-height: 100vh; padding: 4rem 1.5rem 6rem; }
 
-  /* Back link spans full width */
-  .post-back {
-    grid-column: 1 / -1;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    font-size: 0.78rem;
-    color: var(--muted);
-    text-decoration: none;
-    font-weight: 300;
-    letter-spacing: 0.02em;
-    margin-bottom: 2.5rem;
-    transition: color 0.15s;
-  }
+  .post-inner { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: 1fr 220px; grid-template-rows: auto auto 1fr auto; column-gap: 3.5rem; align-items: start; }
+
+  .post-back { grid-column: 1 / -1; display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.78rem; color: var(--muted); text-decoration: none; font-weight: 300; letter-spacing: 0.02em; margin-bottom: 2.5rem; transition: color 0.15s; }
   .post-back:hover { color: var(--ink); }
 
-  /* Header spans full width */
-  .post-header {
-    grid-column: 1 / -1;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 2.5rem;
-  }
+  .post-header { grid-column: 1 / -1; padding-bottom: 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; }
 
-  /* ── TOC sidebar ────────────────────────────────────────────────────────── */
-  .toc-sidebar {
-    grid-column: 2;
-    grid-row: 3;
-    position: sticky;
-    top: 2rem;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 1.1rem 1.25rem;
-  }
-
-  .toc-label {
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-weight: 500;
-    color: var(--muted);
-    margin-bottom: 0.75rem;
-    display: block;
-  }
-
-  #toc-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  #toc-list li { margin-bottom: 0; }
-
-  #toc-list a {
-    display: block;
-    font-size: 0.78rem;
-    color: #666;
-    text-decoration: none;
-    font-weight: 300;
-    padding: 0.28rem 0;
-    border-left: 2px solid transparent;
-    padding-left: 0.6rem;
-    transition: color 0.15s, border-color 0.15s;
-    line-height: 1.4;
-  }
-
-  #toc-list a:hover { color: var(--ink); border-left-color: var(--border); }
-  #toc-list a.toc-active { color: var(--accent); border-left-color: var(--accent); font-weight: 400; }
-
-  #toc-list li.toc-h3 a { padding-left: 1.3rem; font-size: 0.73rem; }
-
-  /* ── Main body ──────────────────────────────────────────────────────────── */
-  .post-body {
-    grid-column: 1;
-    grid-row: 3;
-    font-size: 1rem;
-    line-height: 1.8;
-    font-weight: 300;
-    color: #333;
-  }
-
-  .post-body p { margin-bottom: 1.4rem; }
-
-  .post-body h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-    margin-top: 2.5rem;
-    margin-bottom: 0.75rem;
-    line-height: 1.2;
-    scroll-margin-top: 1.5rem;
-  }
-
-  .post-body h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.15rem;
-    font-weight: 400;
-    color: var(--ink);
-    margin-top: 2rem;
-    margin-bottom: 0.6rem;
-    scroll-margin-top: 1.5rem;
-  }
-
-  .post-body ul, .post-body ol { padding-left: 1.4rem; margin-bottom: 1.4rem; }
-  .post-body li { margin-bottom: 0.4rem; }
-
-  .post-body a {
-    color: var(--accent);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    transition: opacity 0.15s;
-  }
-  .post-body a:hover { opacity: 0.7; }
-
-  .post-body blockquote {
-    border-left: 2px solid var(--border);
-    padding-left: 1.25rem;
-    color: var(--muted);
-    font-style: italic;
-    margin: 1.75rem 0;
-  }
-
-  .post-body hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
-
-  .post-body code {
-    font-family: 'Courier New', monospace;
-    font-size: 0.875em;
-    background: #f0f0ee;
-    padding: 0.1em 0.35em;
-    border-radius: 2px;
-  }
-
-  .post-body pre {
-    background: #f5f5f3;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    padding: 1.25rem;
-    overflow-x: auto;
-    margin-bottom: 1.4rem;
-  }
-
-  .post-body pre code { background: none; padding: 0; font-size: 0.875rem; line-height: 1.6; }
-
-  .post-body img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 1.75rem auto;
-    border-radius: 3px;
-  }
-
-  .post-body table { width: 100%; border-collapse: collapse; margin-bottom: 1.4rem; font-size: 0.9rem; }
-  .post-body th { text-align: left; font-weight: 500; padding: 0.6rem 0.75rem; border-bottom: 2px solid var(--border); color: var(--ink); }
-  .post-body td { padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--border); color: #444; }
-  .post-body tr:last-child td { border-bottom: none; }
-
-  /* ── Callout boxes ──────────────────────────────────────────────────────── */
-  .stat-box {
-    background: var(--bears-navy);
-    color: #fff;
-    border-left: 4px solid var(--bears-orange);
-    border-radius: 4px;
-    padding: 1.2rem 1.5rem;
-    margin: 1.75rem 0;
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-  .stat-box strong { color: var(--bears-orange); display: block; font-size: 1rem; margin-bottom: 0.3rem; }
-  .stat-box .stat-number { font-size: 2rem; font-weight: 500; color: var(--bears-orange); display: block; margin-bottom: 0.25rem; }
-
-  .data-note {
-    background: #f8f4e3;
-    border-left: 4px solid #c9a84c;
-    padding: 1rem 1.5rem;
-    margin: 1.75rem 0;
-    font-size: 0.9rem;
-    color: #444;
-    line-height: 1.6;
-  }
-  .data-note strong { color: #8a6a00; }
-
-  /* ── Post meta ──────────────────────────────────────────────────────────── */
   .post-meta-row { display: flex; align-items: center; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
 
   .post-badge { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; padding: 0.15rem 0.5rem; border-radius: 1px; }
@@ -231,41 +34,65 @@ layout: default
 
   .post-tag { font-size: 0.65rem; letter-spacing: 0.07em; text-transform: uppercase; font-weight: 500; background: var(--tag-bg); color: var(--muted); padding: 0.15rem 0.45rem; border-radius: 1px; }
 
-  .post-header h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.9rem, 5vw, 2.75rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 0.75rem; }
+  .post-header h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.9rem,5vw,2.75rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 0.75rem; }
+
+  .post-header-meta { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
   .post-date { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
+  .post-read-time { font-size: 0.78rem; color: var(--muted); font-weight: 300; display: flex; align-items: center; gap: 0.3rem; }
+  .post-read-time::before { content: '·'; color: var(--border); }
 
-  /* ── Footer ─────────────────────────────────────────────────────────────── */
-  .post-footer {
-    grid-column: 1 / -1;
-    margin-top: 3.5rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  .post-footer a { font-size: 0.8rem; color: var(--muted); text-decoration: none; font-weight: 300; transition: color 0.15s; }
-  .post-footer a:hover { color: var(--ink); }
+  .toc-sidebar { grid-column: 2; grid-row: 3; position: sticky; top: calc(56px + 1.5rem); background: #fff; border: 1px solid var(--border); border-radius: 3px; padding: 1.1rem 1.25rem; }
+  .toc-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; color: var(--muted); margin-bottom: 0.75rem; display: block; }
+  #toc-list { list-style: none; padding: 0; margin: 0; }
+  #toc-list li { margin-bottom: 0; }
+  #toc-list a { display: block; font-size: 0.78rem; color: #666; text-decoration: none; font-weight: 300; padding: 0.28rem 0; border-left: 2px solid transparent; padding-left: 0.6rem; transition: color 0.15s, border-color 0.15s; line-height: 1.4; }
+  #toc-list a:hover { color: var(--ink); border-left-color: var(--border); }
+  #toc-list a.toc-active { color: var(--accent); border-left-color: var(--accent); font-weight: 400; }
+  #toc-list li.toc-h3 a { padding-left: 1.3rem; font-size: 0.73rem; }
 
-  /* ── Mobile: TOC moves to top, collapses ────────────────────────────────── */
+  .post-body { grid-column: 1; grid-row: 3; font-size: 1rem; line-height: 1.85; font-weight: 300; color: #333; }
+  .post-body p { margin-bottom: 1.4rem; }
+  .post-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; font-weight: 400; letter-spacing: -0.01em; color: var(--ink); margin-top: 2.5rem; margin-bottom: 0.75rem; line-height: 1.2; scroll-margin-top: calc(56px + 1.5rem); }
+  .post-body h3 { font-family: 'DM Serif Display', serif; font-size: 1.15rem; font-weight: 400; color: var(--ink); margin-top: 2rem; margin-bottom: 0.6rem; scroll-margin-top: calc(56px + 1.5rem); }
+  .post-body ul, .post-body ol { padding-left: 1.4rem; margin-bottom: 1.4rem; }
+  .post-body li { margin-bottom: 0.4rem; }
+  .post-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; transition: opacity 0.15s; }
+  .post-body a:hover { opacity: 0.7; }
+  .post-body blockquote { border-left: 3px solid var(--accent); padding: 0.75rem 0 0.75rem 1.5rem; color: #555; font-style: italic; font-size: 1.05rem; line-height: 1.7; margin: 2rem 0; background: #fff9f9; border-radius: 0 2px 2px 0; }
+  .post-body hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+  .post-body code { font-family: 'Courier New', monospace; font-size: 0.875em; background: #f0f0ee; padding: 0.1em 0.35em; border-radius: 2px; }
+  .post-body pre { background: #f5f5f3; border: 1px solid var(--border); border-radius: 3px; padding: 1.25rem; overflow-x: auto; margin-bottom: 1.4rem; }
+  .post-body pre code { background: none; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+  .post-body img { width: 100%; height: auto; display: block; margin: 1.75rem auto; border-radius: 3px; }
+  .post-body table { width: 100%; border-collapse: collapse; margin-bottom: 1.4rem; font-size: 0.9rem; }
+  .post-body th { text-align: left; font-weight: 500; padding: 0.6rem 0.75rem; border-bottom: 2px solid var(--border); color: var(--ink); }
+  .post-body td { padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--border); color: #444; }
+  .post-body tr:last-child td { border-bottom: none; }
+
+  .stat-box { background: var(--bears-navy); color: #fff; border-left: 4px solid var(--bears-orange); border-radius: 4px; padding: 1.2rem 1.5rem; margin: 1.75rem 0; font-size: 0.95rem; line-height: 1.6; }
+  .stat-box strong { color: var(--bears-orange); display: block; font-size: 1rem; margin-bottom: 0.3rem; }
+  .stat-box .stat-number { font-size: 2rem; font-weight: 500; color: var(--bears-orange); display: block; margin-bottom: 0.25rem; }
+  .data-note { background: #f8f4e3; border-left: 4px solid #c9a84c; padding: 1rem 1.5rem; margin: 1.75rem 0; font-size: 0.9rem; color: #444; line-height: 1.6; }
+  .data-note strong { color: #8a6a00; }
+
+  .post-footer { grid-column: 1 / -1; margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+  .post-author { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+  .post-author-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; color: var(--muted); }
+  .post-author-name { font-family: 'DM Serif Display', serif; font-size: 0.95rem; font-weight: 400; color: var(--ink); letter-spacing: -0.01em; }
+  .post-footer-nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .post-footer-nav a { font-size: 0.8rem; color: var(--muted); text-decoration: none; font-weight: 300; transition: color 0.15s; }
+  .post-footer-nav a:hover { color: var(--ink); }
+
   @media (max-width: 720px) {
     .post-inner { grid-template-columns: 1fr; }
-
-    .toc-sidebar {
-      grid-column: 1;
-      grid-row: auto;
-      position: static;
-      margin-bottom: 2rem;
-    }
-
-    .post-body { grid-column: 1; grid-row: auto; }
+    .toc-sidebar { grid-column: 1; grid-row: auto; position: static; margin-bottom: 2rem; top: auto; }
+    .post-body { grid-column: 1; grid-row: auto; font-size: 0.95rem; }
     .post-page { padding: 2rem 1rem 4rem; }
-    .post-body { font-size: 0.95rem; }
     .post-header h1 { font-size: 1.6rem; }
   }
 </style>
+
+<div id="reading-progress" aria-hidden="true"></div>
 
 <div class="post-page">
   <div class="post-inner">
@@ -285,10 +112,16 @@ layout: default
         {% endfor %}
       </div>
       <h1>{{ page.title }}</h1>
-      <div class="post-date">{{ page.date | date: "%B %d, %Y" }}</div>
+      <div class="post-header-meta">
+        <span class="post-date">{{ page.date | date: "%B %d, %Y" }}</span>
+        <span class="post-read-time">
+          {% assign wc = content | number_of_words %}
+          {% assign rt = wc | divided_by: 200 %}
+          {% if rt < 1 %}1{% else %}{{ rt }}{% endif %} min read
+        </span>
+      </div>
     </div>
 
-    <!-- TOC — built from headings by JS, hidden if post has no headings -->
     <nav class="toc-sidebar" id="toc-sidebar" aria-label="Table of contents" style="display:none;">
       <span class="toc-label">On this page</span>
       <ul id="toc-list"></ul>
@@ -298,71 +131,59 @@ layout: default
       {{ content }}
     </div>
 
-    <div class="post-footer">
-      <a href="/articles/">← Back to articles</a>
-      <a href="/contact/">Get in touch</a>
-    </div>
+    <footer class="post-footer">
+      <div class="post-author">
+        <span class="post-author-label">Written by</span>
+        <span class="post-author-name">Manuel Tovar</span>
+      </div>
+      <div class="post-footer-nav">
+        <a href="/articles/">← Back to articles</a>
+        <a href="/about/">About the author</a>
+      </div>
+    </footer>
 
   </div>
 </div>
 
 <script>
 (function () {
-  var body    = document.getElementById('post-body');
+  var bar  = document.getElementById('reading-progress');
+  var body = document.getElementById('post-body');
+  if (bar && body) {
+    function updateProgress() {
+      var pct = Math.min(100, Math.max(0, ((window.scrollY - body.offsetTop) / body.offsetHeight) * 100));
+      bar.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
+
   var sidebar = document.getElementById('toc-sidebar');
   var tocList = document.getElementById('toc-list');
-
   if (!body || !sidebar || !tocList) return;
-
-  /* ── Build TOC from h2 and h3 headings ── */
   var headings = body.querySelectorAll('h2, h3');
-  if (headings.length < 2) return; /* not worth showing for < 2 headings */
-
+  if (headings.length < 2) return;
   sidebar.style.display = 'block';
 
   headings.forEach(function (h) {
-    /* Ensure every heading has an id (kramdown auto_ids handles this,
-       but we add a fallback in case) */
-    if (!h.id) {
-      h.id = h.textContent
-        .trim()
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/^-|-$/g, '');
-    }
-
+    if (!h.id) { h.id = h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
     var li = document.createElement('li');
     li.className = h.tagName === 'H3' ? 'toc-h3' : 'toc-h2';
-
     var a = document.createElement('a');
-    /* Use textContent only — never innerHTML — so no script injection is possible */
     a.textContent = h.textContent;
     a.href = '#' + h.id;
-
     li.appendChild(a);
     tocList.appendChild(li);
   });
 
-  /* ── Highlight active section on scroll ── */
   var links = tocList.querySelectorAll('a');
-
   function onScroll() {
-    var scrollY = window.scrollY + 80;
-    var active  = null;
-
-    headings.forEach(function (h) {
-      if (h.offsetTop <= scrollY) active = h.id;
-    });
-
+    var scrollY = window.scrollY + 80, active = null;
+    headings.forEach(function (h) { if (h.offsetTop <= scrollY) active = h.id; });
     links.forEach(function (a) {
-      if (active && a.getAttribute('href') === '#' + active) {
-        a.classList.add('toc-active');
-      } else {
-        a.classList.remove('toc-active');
-      }
+      a.classList.toggle('toc-active', active && a.getAttribute('href') === '#' + active);
     });
   }
-
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 })();
