@@ -304,12 +304,10 @@ permalink: /
 
   <section class="hero" aria-label="Introduction">
     <div class="home-inner">
-      <div class="hero-eyebrow">Portfolio — Stories worth telling</div>
+      <div class="hero-eyebrow">Portfolio</div>
       <h1>Writing, research,<br>and <em>curiosity.</em></h1>
       <p class="hero-sub">
-        A space for analytics, projects, and opinions — from sports and data
-        to film and culture. By Manuel Tovar, MIS &amp; Business Analytics
-        student at DePaul University.
+        My space to 
       </p>
       <div class="hero-cta">
         <a href="/articles/" class="btn btn-primary">Read Articles</a>
@@ -368,13 +366,6 @@ permalink: /
       <div class="proj-grid">
         <a href="https://github.com/MantovBiz/NFL-fast-R-Data-Visualizations-and-Breakdowns/tree/main/Chicago-Bears/2025"
            target="_blank" rel="noopener" class="proj-mini">
-          <div class="proj-tools">R · nflfastR · gt · tidyverse</div>
-          <div class="proj-mini-title">Chicago Bears Personnel &amp; Coverage Analysis (2025)</div>
-        </a>
-        <a href="https://github.com/MantovBiz" target="_blank" rel="noopener" class="proj-mini">
-          <div class="proj-tools">R · ggplot2</div>
-          <div class="proj-mini-title">NFL Running Back Analysis</div>
-        </a>
       </div>
     </div>
   </section>
