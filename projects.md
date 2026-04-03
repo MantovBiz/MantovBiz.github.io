@@ -64,7 +64,7 @@ permalink: /projects/
     <div class="page-header">
       <div class="page-eyebrow">Work</div>
       <h1>Projects</h1>
-      <p>Data analysis, visualization, and sports analytics — where the numbers tell a story.</p>
+      <p>Any work I do can be found here with links to documentation!</p>
     </div>
 
     <div class="search-wrap">
