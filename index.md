@@ -305,9 +305,9 @@ permalink: /
   <section class="hero" aria-label="Introduction">
     <div class="home-inner">
       <div class="hero-eyebrow">Portfolio</div>
-      <h1>Writing, research,<br>and <em>curiosity.</em></h1>
+      <h1>Analytics, innovation,<br>and <em>design.</em></h1>
       <p class="hero-sub">
-        Welcome to my website! Here you will find my articles, projects and more information about me!
+        Exploring the intersection of analytics, innovation, and design.
       </p>
       <div class="hero-cta">
         <a href="/articles/" class="btn btn-primary">Read Articles</a>
@@ -330,54 +330,3 @@ permalink: /
             <div class="post-meta-row">
               {% assign cats = post.categories %}
               {% if cats contains 'opinion' %}
-                <span class="post-badge badge-opinion">Opinion</span>
-              {% elsif cats contains 'research' %}
-                <span class="post-badge badge-research">Research</span>
-              {% endif %}
-              {% for tag in post.tags %}
-                <span class="post-tag">{{ tag }}</span>
-              {% endfor %}
-            </div>
-            <div class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></div>
-            {% if post.excerpt %}
-            <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 22 }}</p>
-            {% endif %}
-            <div class="post-footer-row">
-              <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
-              <span class="post-read-time">
-                {% assign wc = post.content | number_of_words %}
-                {% assign rt = wc | divided_by: 200 %}
-                {% if rt < 1 %}1{% else %}{{ rt }}{% endif %} min read
-              </span>
-            </div>
-          </div>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </section>
-
-  <section class="home-section" aria-label="Recent projects">
-    <div class="home-inner">
-      <div class="section-head">
-        <span class="section-label">Recent Work</span>
-        <a href="/projects/" class="section-more">View all →</a>
-      </div>
-      <div class="proj-grid">
-        <a href="https://github.com/MantovBiz/NFL-fast-R-Data-Visualizations-and-Breakdowns/tree/main/Chicago-Bears/2025"
-           target="_blank" rel="noopener" class="proj-mini">
-
-  <section class="home-section" aria-label="About">
-    <div class="home-inner">
-      <div class="about-strip">
-        <div>
-          <h2>Manuel Tovar</h2>
-          <p>MIS &amp; Business Analytics · DePaul University<br>
-             I study data because I've always wanted to understand the story behind the numbers.</p>
-        </div>
-        <a href="/about/" class="btn btn-secondary">About me →</a>
-      </div>
-    </div>
-  </section>
-
-</div>
