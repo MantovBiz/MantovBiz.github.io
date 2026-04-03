@@ -487,4 +487,9 @@ permalink: /about/
     tag.addEventListener('mouseenter', function(){
       tags.forEach(function(t){ t.classList.remove('on'); });
       tag.classList.add('on');
-      tip.textCon
+      tip.textContent = tag.dataset.tip || '';
+    });
+    tag.addEventListener('mouseleave', function(){ tag.classList.remove('on'); tip.textContent=''; });
+  });
+})();
+</script>
