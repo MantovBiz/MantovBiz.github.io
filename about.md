@@ -7,69 +7,397 @@ permalink: /about/
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
 
-  #ab, #ab * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #fafaf8;
+    --text: #1a1a1a;
+    --muted: #666;
+    --light: #e8e8e8;
+    --lighter: #f3f3f1;
+    --accent: #c0392b;
+  }
 
-  #ab { all: initial; display: block; font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.6; color: #1a1a1a; background: #fafaf8; width: 100%; min-height: 100vh; padding: 2.5rem 1.25rem 5rem; }
-  #ab .wrap { max-width: 640px; margin: 0 auto; }
+  #ab,
+  #ab * {
+    box-sizing: border-box;
+  }
 
-  #ab .bk { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; color: #888; text-decoration: none; font-weight: 300; letter-spacing: 0.02em; margin-bottom: 2.5rem; transition: color 0.15s; }
-  #ab .bk:hover { color: #1a1a1a; }
+  #ab {
+    all: initial;
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    width: 100%;
+    min-height: 100vh;
+    padding: clamp(1.25rem, 3vw, 2.5rem) clamp(1rem, 3vw, 1.5rem) 5rem;
+  }
 
-  #ab .hero { display: grid; grid-template-columns: 1fr 88px; gap: 1.5rem; align-items: start; padding-bottom: 2rem; border-bottom: 1px solid #e8e8e8; margin-bottom: 2rem; }
-  #ab .hero-left { display: flex; flex-direction: column; }
+  #ab .wrap {
+    width: min(100%, 980px);
+    margin: 0 auto;
+  }
 
-  #ab .hero-label { display: flex; align-items: center; gap: 0.55rem; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; color: #c0392b; margin-bottom: 0.5rem; }
-  #ab .hero-label::before { content: ''; display: inline-block; width: 18px; height: 1.5px; background: #c0392b; flex-shrink: 0; }
+  #ab .bk {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    color: #888;
+    text-decoration: none;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    margin-bottom: 2rem;
+    transition: color 0.15s ease;
+  }
 
-  #ab .hero-name { font-family: 'DM Serif Display', serif; font-size: clamp(1.7rem,5vw,2.2rem); line-height: 1.1; color: #1a1a1a; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
-  #ab .hero-role { font-size: 0.82rem; color: #888; font-weight: 300; margin-bottom: 1rem; }
-  #ab .hero-bio { font-size: 0.9rem; color: #444; font-weight: 300; line-height: 1.85; }
+  #ab .bk:hover {
+    color: var(--text);
+  }
 
-  #ab .hero-photo { width: 88px; height: 88px; border-radius: 4px; object-fit: cover; border: 1px solid #e8e8e8; display: block; background: #f0f0ee; }
+  #ab .hero {
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    gap: 1.5rem;
+    align-items: start;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--light);
+    margin-bottom: 2rem;
+  }
 
-  #ab .meta-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 2rem; }
-  #ab .meta-pill { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.75rem; font-weight: 300; color: #555; background: #fff; border: 1px solid #e8e8e8; border-radius: 2px; padding: 0.3rem 0.7rem; }
-  #ab .meta-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: #27ae60; flex-shrink: 0; animation: pulse 2.5s ease-in-out infinite; }
-  @keyframes pulse { 0%,100%{ opacity:1 } 50%{ opacity:0.3 } }
+  #ab .hero-left {
+    display: flex;
+    flex-direction: column;
+  }
 
-  #ab .sec { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e8e8e8; opacity: 0; transform: translateY(10px); transition: opacity 0.4s ease, transform 0.4s ease; }
-  #ab .sec.on { opacity: 1; transform: translateY(0); }
-  #ab .sec:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  #ab .sc-lbl { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.13em; font-weight: 500; color: #aaa; display: block; margin-bottom: 1rem; }
+  #ab .hero-label {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
 
-  #ab .why p { font-size: 0.9rem; line-height: 1.85; font-weight: 300; color: #444; margin-bottom: 0.75rem; }
-  #ab .why p:last-child { margin-bottom: 0; }
+  #ab .hero-label::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
 
-  #ab .tools { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-  #ab .tool { background: #fff; border: 1px solid #e8e8e8; border-radius: 3px; padding: 0.55rem 0.75rem; display: flex; align-items: center; gap: 0.45rem; opacity: 0; transform: translateY(5px); transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.15s, box-shadow 0.15s; }
-  #ab .tool.on { opacity: 1; transform: translateY(0); }
-  #ab .tool:hover { border-color: #bbb; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-  #ab .tool img { width: 18px; height: 18px; object-fit: contain; display: block; }
-  #ab .tool span { font-size: 0.75rem; font-weight: 400; color: #555; }
+  #ab .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.35rem;
+  }
 
-  #ab .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.65rem; }
-  #ab .tag { font-size: 0.73rem; padding: 0.25rem 0.65rem; border: 1px solid #e8e8e8; border-radius: 2px; background: #fff; color: #888; cursor: pointer; font-weight: 300; user-select: none; transition: all 0.15s; }
-  #ab .tag:hover, #ab .tag.on { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
-  #ab .tip { font-size: 0.76rem; color: #c0392b; font-style: italic; font-weight: 300; min-height: 1.2rem; display: block; }
+  #ab .hero-role {
+    font-size: 0.84rem;
+    color: #888;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
 
-  #ab .favs { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-  #ab .fav { padding: 0.65rem 0.75rem 0.65rem 0; border-bottom: 1px solid #f0f0ee; display: flex; flex-direction: column; gap: 0.1rem; }
-  #ab .fav:nth-child(even) { padding-left: 0.75rem; border-left: 1px solid #f0f0ee; }
-  #ab .fcat { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.11em; font-weight: 500; color: #ccc; }
-  #ab .fval { font-size: 0.85rem; font-weight: 400; color: #1a1a1a; }
+  #ab .hero-bio {
+    font-size: 0.96rem;
+    color: #444;
+    font-weight: 300;
+    line-height: 1.85;
+    max-width: 62ch;
+  }
 
-  #ab .lks { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  #ab a.btn { font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 400; text-decoration: none; padding: 0.5rem 1rem; border-radius: 2px; transition: all 0.15s; letter-spacing: 0.02em; display: inline-block; }
-  #ab a.btn-p { background: #1a1a1a; color: #fff; border: 1px solid #1a1a1a; }
-  #ab a.btn-p:hover { background: #333; }
-  #ab a.btn-s { background: transparent; color: #1a1a1a; border: 1px solid #e8e8e8; }
-  #ab a.btn-s:hover { border-color: #1a1a1a; }
+  #ab .hero-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid var(--light);
+    display: block;
+    background: #f0f0ee;
+  }
+
+  #ab .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 2rem;
+  }
+
+  #ab .meta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: #555;
+    background: #fff;
+    border: 1px solid var(--light);
+    border-radius: 3px;
+    padding: 0.35rem 0.75rem;
+  }
+
+  #ab .meta-pill .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #27ae60;
+    flex-shrink: 0;
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  #ab .sec {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--light);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  #ab .sec.on {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #ab .sec:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  #ab .sc-lbl {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-weight: 500;
+    color: #aaa;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  #ab .why p {
+    font-size: 0.96rem;
+    line-height: 1.85;
+    font-weight: 300;
+    color: #444;
+    margin-bottom: 0.85rem;
+    max-width: 70ch;
+  }
+
+  #ab .why p:last-child {
+    margin-bottom: 0;
+  }
+
+  #ab .tools {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.6rem;
+  }
+
+  #ab .tool {
+    background: #fff;
+    border: 1px solid var(--light);
+    border-radius: 4px;
+    padding: 0.7rem 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.15s, box-shadow 0.15s;
+  }
+
+  #ab .tool.on {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #ab .tool:hover {
+    border-color: #bbb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  #ab .tool img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+  }
+
+  #ab .tool span {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: #555;
+  }
+
+  #ab .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+  }
+
+  #ab .tag {
+    font-size: 0.74rem;
+    padding: 0.28rem 0.68rem;
+    border: 1px solid var(--light);
+    border-radius: 3px;
+    background: #fff;
+    color: #888;
+    cursor: pointer;
+    font-weight: 300;
+    user-select: none;
+    transition: all 0.15s ease;
+  }
+
+  #ab .tag:hover,
+  #ab .tag.on {
+    background: var(--text);
+    color: #fff;
+    border-color: var(--text);
+  }
+
+  #ab .tip {
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-style: italic;
+    font-weight: 300;
+    min-height: 1.2rem;
+    display: block;
+  }
+
+  #ab .favs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  #ab .fav {
+    padding: 0.7rem 0.8rem 0.7rem 0;
+    border-bottom: 1px solid #f0f0ee;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  #ab .fav:nth-child(even) {
+    padding-left: 0.8rem;
+    border-left: 1px solid #f0f0ee;
+  }
+
+  #ab .fcat {
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    font-weight: 500;
+    color: #ccc;
+  }
+
+  #ab .fval {
+    font-size: 0.86rem;
+    font-weight: 400;
+    color: var(--text);
+  }
+
+  #ab .lks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  #ab a.btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 0.55rem 1rem;
+    border-radius: 3px;
+    transition: all 0.15s ease;
+    letter-spacing: 0.02em;
+    display: inline-block;
+  }
+
+  #ab a.btn-p {
+    background: var(--text);
+    color: #fff;
+    border: 1px solid var(--text);
+  }
+
+  #ab a.btn-p:hover {
+    background: #333;
+  }
+
+  #ab a.btn-s {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--light);
+  }
+
+  #ab a.btn-s:hover {
+    border-color: var(--text);
+  }
+
+  @media (max-width: 700px) {
+    #ab .hero {
+      grid-template-columns: 1fr;
+    }
+
+    #ab .hero-photo {
+      width: 88px;
+      height: 88px;
+      order: -1;
+    }
+
+    #ab .favs {
+      grid-template-columns: 1fr;
+    }
+
+    #ab .fav:nth-child(even) {
+      padding-left: 0;
+      border-left: none;
+    }
+  }
 
   @media (max-width: 500px) {
-    #ab .hero { grid-template-columns: 1fr; }
-    #ab .hero-photo { width: 72px; height: 72px; order: -1; }
-    #ab .favs { grid-template-columns: 1fr; }
-    #ab .fav:nth-child(even) { padding-left: 0; border-left: none; }
+    #ab {
+      padding-top: 1rem;
+    }
+
+    #ab .hero {
+      gap: 1rem;
+    }
+
+    #ab .hero-name {
+      font-size: 2rem;
+    }
+
+    #ab .tools {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    #ab a.btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    #ab .lks {
+      flex-direction: column;
+    }
   }
 </style>
 
@@ -83,14 +411,10 @@ permalink: /about/
         <span class="hero-name">Manuel Tovar</span>
         <span class="hero-role">MIS &amp; Business Analytics · DePaul University</span>
         <p class="hero-bio">
-          I study data because I've always wanted to understand the story
-          behind the numbers — starting with soccer stats as a kid, now
-          building analytics projects across sports, business, and culture.
-          I pair that with a Sports Communication minor because data without
-          storytelling is just noise.
+          I study data because I've always wanted to understand the story behind the numbers — starting with soccer stats as a kid, now building analytics projects across sports, business, and culture. I pair that with a Sports Communication minor because data without storytelling is just noise.
         </p>
       </div>
-      <img class="hero-photo" src="/assets/images/headshot.jpg" alt="Manuel Tovar" loading="lazy" width="88" height="88"/>
+      <img class="hero-photo" src="/assets/images/headshot.jpg" alt="Manuel Tovar" loading="lazy" width="120" height="120"/>
     </div>
 
     <div class="sec" id="s-why">
@@ -104,12 +428,12 @@ permalink: /about/
     <div class="sec" id="s-tools">
       <span class="sc-lbl">Tools &amp; skills</span>
       <div class="tools" id="js-tools">
-        <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI" width="18" height="18"><span>Power BI</span></div>
-        <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png" alt="Tableau" width="18" height="18"><span>Tableau</span></div>
-        <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" alt="Excel" width="18" height="18"><span>Excel</span></div>
-        <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" alt="R" width="18" height="18"><span>R</span></div>
-        <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" alt="SQL" width="18" height="18"><span>SQL</span></div>
-        <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" width="18" height="18"><span>Python</span></div>
+        <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI"><span>Power BI</span></div>
+        <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png" alt="Tableau"><span>Tableau</span></div>
+        <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" alt="Excel"><span>Excel</span></div>
+        <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" alt="R"><span>R</span></div>
+        <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" alt="SQL"><span>SQL</span></div>
+        <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python"><span>Python</span></div>
       </div>
     </div>
 
@@ -163,9 +487,4 @@ permalink: /about/
     tag.addEventListener('mouseenter', function(){
       tags.forEach(function(t){ t.classList.remove('on'); });
       tag.classList.add('on');
-      tip.textContent = tag.dataset.tip || '';
-    });
-    tag.addEventListener('mouseleave', function(){ tag.classList.remove('on'); tip.textContent=''; });
-  });
-})();
-</script>
+      tip.textCon
