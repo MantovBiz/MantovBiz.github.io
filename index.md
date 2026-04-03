@@ -307,7 +307,7 @@ permalink: /
       <div class="hero-eyebrow">Portfolio</div>
       <h1>Writing, research,<br>and <em>curiosity.</em></h1>
       <p class="hero-sub">
-        Welcome to my website! Here you will find m articles, projects and more information about me!
+        Welcome to my website! Here you will find my articles, projects and more information about me!
       </p>
       <div class="hero-cta">
         <a href="/articles/" class="btn btn-primary">Read Articles</a>
