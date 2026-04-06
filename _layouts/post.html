@@ -177,13 +177,33 @@ layout: default
   });
 
   var links = tocList.querySelectorAll('a');
+
+  function scrollTocToActive(activeLink) {
+    var linkTop    = activeLink.offsetTop;
+    var linkBottom = linkTop + activeLink.offsetHeight;
+    var tocTop     = tocList.scrollTop;
+    var tocBottom  = tocTop + tocList.clientHeight;
+    var padding    = 32; // px breathing room above/below
+
+    if (linkTop - padding < tocTop) {
+      // link is above visible area — scroll up
+      tocList.scrollTo({ top: linkTop - padding, behavior: 'smooth' });
+    } else if (linkBottom + padding > tocBottom) {
+      // link is below visible area — scroll down
+      tocList.scrollTo({ top: linkBottom + padding - tocList.clientHeight, behavior: 'smooth' });
+    }
+  }
+
   function onScroll() {
     var scrollY = window.scrollY + 80, active = null;
     headings.forEach(function (h) { if (h.offsetTop <= scrollY) active = h.id; });
     links.forEach(function (a) {
-      a.classList.toggle('toc-active', active && a.getAttribute('href') === '#' + active);
+      var isActive = active && a.getAttribute('href') === '#' + active;
+      a.classList.toggle('toc-active', isActive);
+      if (isActive) scrollTocToActive(a);
     });
   }
+
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 })();
