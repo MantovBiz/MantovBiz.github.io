@@ -41,14 +41,15 @@ layout: default
   .post-read-time { font-size: 0.78rem; color: var(--muted); font-weight: 300; display: flex; align-items: center; gap: 0.3rem; }
   .post-read-time::before { content: '·'; color: var(--border); }
 
-  .toc-sidebar {grid-column: 2; grid-row: 3 / 5; position: sticky; top: 2rem; background: #fff; border: 1px solid var(--border); border-radius: 3px; padding: 1.1rem 1.25rem; }
-  .toc-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; color: var(--muted); margin-bottom: 0.75rem; display: block; }
-  #toc-list { list-style: none; padding: 0; margin: 0; }
-  #toc-list li { margin-bottom: 0; }
-  #toc-list a { display: block; font-size: 0.78rem; color: #666; text-decoration: none; font-weight: 300; padding: 0.28rem 0; border-left: 2px solid transparent; padding-left: 0.6rem; transition: color 0.15s, border-color 0.15s; line-height: 1.4; }
-  #toc-list a:hover { color: var(--ink); border-left-color: var(--border); }
-  #toc-list a.toc-active { color: var(--accent); border-left-color: var(--accent); font-weight: 400; }
-  #toc-list li.toc-h3 a { padding-left: 1.3rem; font-size: 0.73rem; }
+ .toc-sidebar { grid-column: 2; grid-row: 3 / 5; position: sticky; top: calc(56px + 1.5rem); background: #fff; border: 1px solid var(--border); border-radius: 3px; padding: 1.1rem 1.25rem; max-height: calc(100vh - 56px - 3rem); display: flex; flex-direction: column; }
+.toc-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; color: var(--muted); margin-bottom: 0.75rem; display: block; flex-shrink: 0; }
+#toc-list { list-style: none; padding: 0; margin: 0; overflow-y: auto; flex: 1; scrollbar-width: none; }
+#toc-list::-webkit-scrollbar { display: none; }
+#toc-list li { margin-bottom: 0; }
+#toc-list a { display: block; font-size: 0.78rem; color: #666; text-decoration: none; font-weight: 300; padding: 0.28rem 0; border-left: 2px solid transparent; padding-left: 0.6rem; transition: color 0.15s, border-color 0.15s; line-height: 1.4; }
+#toc-list a:hover { color: var(--ink); border-left-color: var(--border); }
+#toc-list a.toc-active { color: var(--accent); border-left-color: var(--accent); font-weight: 400; }
+#toc-list li.toc-h3 a { padding-left: 1.3rem; font-size: 0.73rem; }
 
   .post-body { grid-column: 1; grid-row: 3; font-size: 1rem; line-height: 1.85; font-weight: 300; color: #333; }
   .post-body p { margin-bottom: 1.4rem; }
