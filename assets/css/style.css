@@ -20,7 +20,7 @@
 }
 
 html, body {
-  overflow-x: hidden;
+  overflow-x: clip; /* clip doesn't create a scroll container — sticky works */
   width: 100%;
   margin:  0 !important;
   padding: 0 !important;
