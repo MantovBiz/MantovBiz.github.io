@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: "Advice for a College Freshman"
