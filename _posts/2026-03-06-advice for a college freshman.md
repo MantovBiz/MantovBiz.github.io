@@ -1,4 +1,4 @@
-![shpe-logo](https://github.com/user-attachments/assets/edf1fbfe-70e7-4ba6-b728-1cbd7ec5fd23)
+
 ---
 layout: post
 title: "Advice for a College Freshman"
