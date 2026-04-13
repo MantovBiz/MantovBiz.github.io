@@ -22,9 +22,11 @@ That might sound a bit confusing, but let me explain. You are obviously going to
 
 I promise you that getting involved on campus will make your experience 10x better. Everyone I visited, that is what the current students said. Find two different types of clubs at your school. A social and a professional one. 
 
-Let me tell you about some of my experiences at school. Freshman year I was afraid of going to an Association of Latin Professionals of America club meeting because I walked by the room and saw many students in suits. I backed off and did not end up going. This was a similar theme because I felt underdressed or underprepared. 
+Let me tell you about some of my experiences at school. Freshman year I was afraid of going to an Association of Latin Professionals of America club meeting because I walked by the room and saw many students in suits. I backed off and did not end up going. This was a similar theme because I felt underdressed or underprepared. Over time, I eventually had the courage to go and then met some friends within these clubs. 
 
-Sophomore year, I got really involved by attending various events throughout the year. Got to build upon the relationships that I started freshman year. Got to meet more people who were leaders in their respective clubs. One of the clubs was the Society of Hispanic Engineers (SHPE). Once the second half of the year kicked in, they would 
+Sophomore year, I got really involved by attending various events throughout the year. Got to build upon the relationships that I started freshman year. Got to meet more people who were leaders in their respective clubs. One of the clubs was the Society of Hispanic Engineers (SHPE). Once the second half of the year kicked in, they would announce upcoming elections to transition leadership. SHPE had applications, and I decided to apply since I knew the president from another club and wanted a leadership role. I ended up getting the External Affairs role, and that was exciting!
+
+Junior year, I am now on two executive boards (SHPE & FGD). I am a part of two amazing teams who try and help their fellow peers. Balacning professional and social events. THe goal is build a community and have the students befriend one another. 
 
 ## 3. Have Fun
 
