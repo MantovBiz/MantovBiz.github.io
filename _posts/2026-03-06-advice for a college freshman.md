@@ -16,14 +16,15 @@ That might sound a bit confusing, but let me explain. You are obviously going to
 
 
 ## 2. Get Involved
-<img width="500" height="300" alt="ALFPA Logo" src="https://github.com/user-attachments/assets/fe13b231-6a76-4e94-82b0-9f62a7d72551" />
+<img width="500" height="300" alt="ALFPA Logo" src="https://github.com/user-attachments/assets/fe13b231-6a76-4e94-82b0-9f62a7d72551"/>
+
 ![shpe-logo](https://github.com/user-attachments/assets/4e52fc9a-95c7-4318-85da-386f4f2bbc9d)
 
 I promise you that getting involved on campus will make your experience 10x better. Everyone I visited, that is what the current students said. Find two different types of clubs at your school. A social and a professional one. 
 
 Let me tell you about some of my experiences at school. Freshman year I was afraid of going to an Association of Latin Professionals of America club meeting because I walked by the room and saw many students in suits. I backed off and did not end up going. This was a similar theme because I felt underdressed or underprepared. 
 
-Sophmore year I got really involved but attending various events thoughout the year. Got to build upon the relatinships that I started freshman year.
+Sophomore year, I got really involved by attending various events throughout the year. Got to build upon the relationships that I started freshman year. Got to meet more people who were leaders in their respective clubs. One of the clubs was the Society of Hispanic Engineers (SHPE). Once the second half of the year kicked in, they would 
 
 ## 3. Have Fun
 
