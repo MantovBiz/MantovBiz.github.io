@@ -27,5 +27,4 @@ Fast forward to my junior year, and I am a part of 2 executive boards. It has al
 
 ## 3. Have Fun
 
-You are only at college for about 4 years! It is a new chapter in your life! You have access to many different resources on campus through organizations![DePaul University School Photo](https://github.com/user-attachments/assets/a5c7ed73-06ee-4d1f-8431-57c9a3797b8a)
- and the school. 
+You are only at college for about 4 years! It is a new chapter in your life! You have access to many different resources on campus throughout the school! Even today, I am learning about new rooms and clubs that I have not heard of.  
