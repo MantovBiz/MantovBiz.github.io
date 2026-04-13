@@ -13,15 +13,17 @@ Here are my top 3 tips for a college freshman.
 
 That might sound a bit confusing, but let me explain. You are obviously going to school to get your degree, but there will be classes that are difficult. You might bomb an exam or a quiz, but I want you to know that it is not the end of the world. In fact, I think you learn more when you fail than when you succeed.
 
+
+
 ## 2. Get Involved
 <img width="500" height="300" alt="ALFPA Logo" src="https://github.com/user-attachments/assets/fe13b231-6a76-4e94-82b0-9f62a7d72551" />
 ![shpe-logo](https://github.com/user-attachments/assets/4e52fc9a-95c7-4318-85da-386f4f2bbc9d)
 
 I promise you that getting involved on campus will make your experience 10x better. Everyone I visited, that is what the current students said. Find two different types of clubs at your school. A social and a professional one. 
 
+Let me tell you about some of my expeirinces 
 
 
-Fast forward to my junior year, and I am a part of 2 executive boards. It has allowed me to make new friends and be a part of something that helps other students. At first it was awkward, but over time I can say confidently say that I have made lifelong friends. 
 
 
 ## 3. Have Fun
