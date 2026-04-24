@@ -38,9 +38,7 @@ permalink: /projects/
   .project-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
   .project-tools { display: flex; flex-wrap: wrap; gap: 0.3rem; }
   .tool-tag { font-size: 0.62rem; letter-spacing: 0.07em; text-transform: uppercase; font-weight: 500; background: var(--tag-bg); color: var(--muted); padding: 0.15rem 0.45rem; border-radius: 1px; }
-  .status-badge { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; padding: 0.2rem 0.5rem; border-radius: 1px; white-space: nowrap; flex-shrink: 0; }
-  .status-complete { background: #eaf6ee; color: #27ae60; }
-  .status-in-progress { background: #fff8e1; color: #e67e22; }
+
 
   .project-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; font-weight: 400; color: var(--ink); letter-spacing: -0.01em; line-height: 1.3; margin-bottom: 0.5rem; }
   .project-desc { font-size: 0.875rem; color: #555; font-weight: 300; line-height: 1.7; margin-bottom: 1rem; }
@@ -83,7 +81,6 @@ permalink: /projects/
           <div class="project-tools">
             <span class="tool-tag">R</span><span class="tool-tag">nflfastR</span><span class="tool-tag">nflreadr</span><span class="tool-tag">gt</span><span class="tool-tag">tidyverse</span>
           </div>
-          <span class="status-badge status-complete">Complete</span>
         </div>
         <div class="project-title">Chicago Bears Personnel &amp; Coverage Analysis (2025)</div>
         <p class="project-desc">Breakdown of the Bears' offensive personnel groupings, defensive coverage types, man vs zone usage, and defensive formations across the 2025 season — split by regular season and playoffs.</p>
@@ -107,7 +104,6 @@ permalink: /projects/
     <div class="project-tools">
       <span class="tool-tag">R</span><span class="tool-tag">Power BI</span><span class="tool-tag">SteamSpy API</span>
     </div>
-    <span class="status-badge status-complete">Complete</span>
   </div>
   <div class="project-title">Steam Game Market Analysis</div>
   <p class="project-desc">Analysis of the top 100 most played Steam games, exploring pricing trends, review patterns, and ownership distribution across free and paid titles. (Built with live SteamSpy API data and visualized in Power BI)</p>
