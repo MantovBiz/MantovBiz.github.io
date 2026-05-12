@@ -99,6 +99,21 @@ permalink: /projects/
           </a>
         </div>
       </li>
+<li class="project-item" data-title="Football Match Predictor Premier League" data-tools="Python NumPy Monte Carlo Simulation" data-desc="Poisson based Monte Carlo simulation predicting Premier League match outcomes using Dixon-Coles attack defense ratio modeling form weighting and injury adjustments across 10000 iterations">
+  <div class="project-card-top">
+    <div class="project-tools">
+      <span class="tool-tag">Python</span><span class="tool-tag">NumPy</span><span class="tool-tag">Monte Carlo</span>
+    </div>
+  </div>
+  <div class="project-title">Football Match Predictor — Premier League</div>
+  <p class="project-desc">Poisson-based Monte Carlo simulation (10,000 iterations) predicting Premier League match outcomes using Dixon-Coles attack/defense ratio modeling, recent form weighting, and injury adjustments.</p>
+  <div class="project-links">
+    <a href="https://github.com/MantovBiz/PL-Predictor-25-26" target="_blank" rel="noopener" class="project-link">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      GitHub repo
+    </a>
+  </div>
+</li>
 <li class="project-item" data-title="Steam Game Market Analysis" data-tools="R Power BI SteamSpy API" data-desc="Analysis of the top 100 most played Steam games exploring pricing trends review patterns and ownership distribution across free and paid titles using live API data">
   <div class="project-card-top">
     <div class="project-tools">
