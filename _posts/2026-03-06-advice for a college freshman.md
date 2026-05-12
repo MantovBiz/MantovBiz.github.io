@@ -15,7 +15,7 @@ That might sound a bit confusing, but let me explain. You are obviously going to
 
 A massive part of college is building your network because you are being taught by professionals who are actively working or have worked. As well as other students in various different fields along with their own networks. You never know when they might present you an opportunity or when you might be able to help them. It all starts with a simple conversation and being kind because if the relationship is genuinue then people will appreciate it and so will you. 
 
-One thing you can do is show up to the office hours of your professors. My first two years I didn't really do that but now in my junior year I have gone to quite a few. It doesn't have to be about the class, I think you showing up and just having a conversation goes a long way because it shows that you care enough to go out of your way to ask for help or just learn more about the professor. They have their own experinces that you can learn from and if they have any opportunites, they will most likely think of you because 
+One thing you can do is show up to the office hours of your professors. My first two years I didn't really do that but now in my junior year I have gone to quite a few. It doesn't have to be about the class, I think you showing up and just having a conversation goes a long way because it shows that you care enough to go out of your way to ask for help or just learn more about the professor. They have their own experiences that you can learn from and if they have any opportunities, they will most likely think of you because you took the time to build that relationship.
 
 
 ## 2. Get Involved
@@ -31,7 +31,7 @@ Let me tell you about some of my experiences at school. Freshman year I was afra
 
 Sophomore year, I got really involved by attending various events throughout the year. Got to build upon the relationships that I started freshman year. Got to meet more people who were leaders in their respective clubs. One of the clubs was the Society of Hispanic Engineers (SHPE). Once the second half of the year kicked in, they would announce upcoming elections to transition leadership. SHPE had applications, and I decided to apply since I knew the president from another club and wanted a leadership role. I ended up getting the External Affairs role, and that was exciting!
 
-Junior year, I am now on two executive boards (SHPE & FGD). I am a part of two amazing teams who try and help their fellow peers. Balacning professional and social events. THe goal is build a community and have the stuents have a space where they feel appreciated and are allowed to grow. 
+Junior year, I am now on two executive boards (SHPE & FGD). I am a part of two amazing teams who try and help their fellow peers. Balancing professional and social events. The goal is to build a community and have the students have a space where they feel appreciated and are allowed to grow.
 
 ## 3. Have Fun
 
