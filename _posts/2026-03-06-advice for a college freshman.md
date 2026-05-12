@@ -13,12 +13,13 @@ Here are my top 3 tips for a college freshman.
 
 That might sound a bit confusing, but let me explain. You are obviously going to school to get your degree, but there will be classes that are difficult. You might bomb an exam or a quiz, but I want you to know that it is not the end of the world. In fact, I think you learn more when you fail than when you succeed.
 
+A massive part of college is building your network because you are being taught by professionals who are actively working or have worked. As well as other students in various different fields along with their own networks. You never know when they might present you an opportunity or when you might be able to help them. It all starts with a simple conversation and being kind because if the relationship is genuinue then people will appreciate it and so will you. 
 
 
 ## 2. Get Involved
-<img width="500" height="300" alt="ALFPA Logo" src="https://github.com/user-attachments/assets/fe13b231-6a76-4e94-82b0-9f62a7d72551"/>
+<img width="200" alt="ALPFA Logo" src="https://github.com/user-attachments/assets/fe13b231-6a76-4e94-82b0-9f62a7d72551" style="float:left; margin:0 16px 16px 0; max-width:30%; height:auto;"/>
 
-![shpe-logo](https://github.com/user-attachments/assets/4e52fc9a-95c7-4318-85da-386f4f2bbc9d)
+<img width="200" alt="SHPE Logo" src="https://github.com/user-attachments/assets/4e52fc9a-95c7-4318-85da-386f4f2bbc9d" style="float:right; margin:0 0 16px 16px; max-width:30%; height:auto;"/>
 
 I promise you that getting involved on campus will make your experience 10x better. Everyone I visited, that is what the current students said. Find two different types of clubs at your school. A social and a professional one. 
 
