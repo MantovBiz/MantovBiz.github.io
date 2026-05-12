@@ -18,8 +18,10 @@ A massive part of college is building your network because you are being taught 
 
 ## 2. Get Involved
 <img width="200" alt="ALPFA Logo" src="https://github.com/user-attachments/assets/fe13b231-6a76-4e94-82b0-9f62a7d72551" style="float:left; margin:0 16px 16px 0; max-width:30%; height:auto;"/>
+<div style="clear:both;"></div>
 
 <img width="200" alt="SHPE Logo" src="https://github.com/user-attachments/assets/4e52fc9a-95c7-4318-85da-386f4f2bbc9d" style="float:right; margin:0 0 16px 16px; max-width:30%; height:auto;"/>
+<div style="clear:both;"></div>
 
 I promise you that getting involved on campus will make your experience 10x better. Everyone I visited, that is what the current students said. Find two different types of clubs at your school. A social and a professional one. 
 
