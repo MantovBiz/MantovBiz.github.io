@@ -411,17 +411,18 @@ permalink: /about/
         <span class="hero-name">Manuel Tovar</span>
         <span class="hero-role">MIS &amp; Business Analytics · DePaul University</span>
         <p class="hero-bio">
-          I study data because I've always wanted to understand the story behind the numbers — starting with soccer stats as a kid, now building analytics projects across sports, business, and culture. I pair that with a Sports Communication minor because data without storytelling is just noise.
+         I chose to study data because it was something that intersted me as a kid. Now I build porjects revolving sports, data and business. I am able to do this as I am studying Business Analytics & MIS with minors in Spanish & Sport Communication. 
+
         </p>
       </div>
-      <img class="hero-photo" src="/assets/images/headshot.jpg" alt="Manuel Tovar" loading="lazy" width="120" height="120"/>
+      <img class="hero-photo" <img width="3088" height="2316" alt="Manny Tovar Picture" src="https://github.com/user-attachments/assets/d25d1558-441f-4999-b525-5507c535e813" />" alt="Manuel Tovar" loading="lazy" width="120" height="120"/>
     </div>
 
     <div class="sec" id="s-why">
       <span class="sc-lbl">Why I study what I study</span>
       <div class="why">
-        <p>Ever since I was a kid, I loved watching sports and seeing the stats behind the game. Possession data, heatmaps, pass networks — the visuals that tell the story captivated me early. That curiosity is what pushed me toward Business Analytics.</p>
-        <p>I also love stories — reading, watching, telling them. Data and storytelling together is exactly where I want to be.</p>
+        <p>As I menitioned I loved numbers and patterns growing up because it helped understand a story. My favorite team is Manchester United, as I have grown up, they have struggling to win a lot and I like reading and learning why that is. Is it the players? Coach? Board? President? Each role has different KPIs that help understand their impact. Overall sports in general I love and with data it has helped me appreciate the athletes and sports even more. That is why I chose to study analytics.</p>
+        <p>I love stories, especially because they come in differnts forms. Reading, wathcing, listening and telling them. Data and storytelling is the place I want to be. </p>
       </div>
     </div>
 
@@ -440,10 +441,10 @@ permalink: /about/
     <div class="sec" id="s-int">
       <span class="sc-lbl">Interests — hover to learn more</span>
       <div class="tags">
-        <span class="tag" data-tip="Analyzing data behind the game is almost as fun as watching it.">Sports analytics</span>
-        <span class="tag" data-tip="Possession maps, heatmaps, pass networks — visuals that tell the story.">Data visualization</span>
-        <span class="tag" data-tip="Favorite film: Speed Racer. Find me on Letterboxd: Mantov09">Film &amp; cinema</span>
-        <span class="tag" data-tip="Bad Bunny, Kendrick Lamar, Dave — my top 3.">Music</span>
+        <span class="tag" data-tip="Analyzing  the game makes you appreciate it more">Sports analytics</span>
+        <span class="tag" data-tip="Helps understand the data being presented in a visual medium">Data visualization</span>
+        <span class="tag" data-tip="My favorite film is Speed Racer. Find me on Letterboxd: Mantov09">Film &amp; cinema</span>
+        <span class="tag" data-tip="Dave, Bad Bunny, Kendrick are my top 3 favorite artists.">Music</span>
         <span class="tag" data-tip="Sci-Fi and Greek Mythology. Percy Jackson, Project Hail Mary, Michael Vey.">Books</span>
         <span class="tag" data-tip="The Last of Us, Dispatch, Spider-Man PS4.">Video games</span>
         <span class="tag" data-tip="Few things beat a good game with good people.">Board games</span>
