@@ -8,7 +8,7 @@ tags: [Sports, Golf]
 I want to say that I swung my first golf club on a course in the fall of 2024. To say I didn't know what I was doing is an understatement, but it sparked something in me. A desire to learn and understand a new sport because it was so different from what I was used to. And as I continue to play the game, it has improved my mental strength because of how bad I have been and how determined I am to improve both physically and mentally.
 
 ## Something New
-  There is something special about being bad at something you enjoy. It gives you a sense of stubbornness that you can't shake off, especially if it looks simple. Recently played Binho(!https://binhoboard.com/) and the game is simple: flick the ball into your opponent's net while avoiding the poles. It can get frustrating very quickly because you are really trying but it just won't go in for whatever reason but because it is a simple and quick game. It can be addictive because it is also competitive; you immediately want to play again 
+  There is something special about being bad at something you enjoy. It gives you a sense of stubbornness that you can't shake off, especially if it looks simple. Recently played [Binho]([https://binhoboard.com/]) and the game is simple: flick the ball into your opponent's net while avoiding the poles. It can get frustrating very quickly because you are really trying but it just won't go in for whatever reason but because it is a simple and quick game. It can be addictive because it is also competitive; you immediately want to play again 
 
 ## Individual Sport
   Growing up, I played team sports, soccer, basketball, kickball, etc. There were always external factors that could affect your performance, and sometimes it is just a good day or a bad day at the office. In other words, you might be feeling like the best player on the planet, and no one can stop you, but you also might be on the other end of that, where you are trying everything, and you can't compete that day. In golf, the performance is on you, and I really enjoy that because you can't shift the blame to anyone else. 
@@ -18,5 +18,5 @@ I want to say that I swung my first golf club on a course in the fall of 2024. T
   There are plenty of great examples but I want t
 
 ## Perfection
-  Recently, I saw a TikTok of a speaker named Jayden Rosario, where I really liked what he was saying. One of his quotes that stood out was, "Perfection is a state where we will never reach. Therefore, growth is everlasting." I had to let that sink in because I think that is a beautiful line, because we are never going to know everything.
+  Recently, I saw a [TikTok]([url](https://www.tiktok.com/@caterpillar908/video/7639888326115265805)) of a speaker named Jayden Rosario, where I really liked what he was saying. One of his quotes that stood out was, "Perfection is a state where we will never reach. Therefore, growth is everlasting." I had to let that sink in because I think that is a beautiful line, because we are never going to know everything.
 
