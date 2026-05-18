@@ -9,7 +9,7 @@ I want to say that I swung my first golf club on a course in the fall of 2024. T
 
 ## Something New
 
-There is something special about being bad at something you enjoy. It gives you a sense of stubbornness that you can't shake off, especially if it looks simple. Recently played [Binho](https://binhoboard.com/) and the game is simple: flick the ball into your opponent's net while avoiding the poles. It can get frustrating very quickly because you are really trying, but it just won't go in for whatever reason, but because it is a simple and quick game. It can be addictive because it is also competitive; you immediately want to play again. Same thing with golf because once you hit a good shot, you want to do it again. So you go again, and again, and you want to keep learning and improving because it is fun, especially because you are bad and you can progressively see yourself improve.
+There is something special about being bad at something you enjoy. It gives you a sense of stubbornness that you can't shake off, especially if it looks simple. Recently played [Binho](https://binhoboard.com/) and the game is simple: flick the ball into your opponent's net while avoiding the poles. It can get frustrating very quickly because you are really trying, but it just won't go in for whatever reason, but because it is a simple and quick game. It is addictive because it is also competitive; you immediately want to play again. Same thing with golf because once you hit a good shot, you want to do it again. So you go again, and again, and you want to keep learning and improving because it is fun, especially because you are bad and you can progressively see yourself improve.
 
 ## Individual Sport
 
