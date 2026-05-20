@@ -35,4 +35,10 @@ Another thing I learned reading Golf Is Not A Game Of Perfect is how everyone's 
 
 ## The People
 
-Even though it is seen as an individual sport, it is better to play with friends or even meet new people. The Ryder Cup, which happens every two years, is USA vs Europe, and that environment is electric on both sides. Playing with a partner or as a team working to collectively achieve something, as I mentioned earlier, can help you improve your game. There is less pressure to hit a great shot every time because you are with someone else who can bail you out, and if they are hitting well, it can rub off on you and give you more confidence to hit well. And you celebrate together, which is more exciting than celebrating by yourself. 
+It is an individual sport but everything is more fun with people. You can celebrate a good shot with someone and motivate and help the other stay composed througout the round. Or if you want to face a friend, it gives you a strong compeititve spirit and drive to want to succeed and beat your friend. After the round go and get some food or some drinks. What my friends and I do is bet on food, so the losing team has to buy the winning team their food. 
+
+I have met some people while on the range that were more than willing to give out some tips and tricks to help improve my golf game. From getting a ball machine to collect balls and use them at the range instead of having to buy a bucket each time. Different philophies of how to approach and hit a ball. Overall just a great experince with people. Others have given us free balls, and reccomendaitons on different courses to play and practice on. 
+
+## Play it
+
+After reading my reasons as to why I play golf, I hope it has motivated you to try the sport or another individual sport. 
