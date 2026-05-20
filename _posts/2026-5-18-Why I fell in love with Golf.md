@@ -41,4 +41,4 @@ I have met some people while on the range that were more than willing to give ou
 
 ## Play it
 
-After reading why I play golf, I hope you can think about why you play the sport that you play in a different way and appreciate it a bit more. And if you decided to pick up golf, I hope you have as much fun as my friends and I do and enjoy the sport. 
+After reading why I play golf, I hope you can think about why you play the sport that you play in a different way and appreciate it a bit more. And if you decided to pick up golf, I hope you have as much fun as my friends and I do.
