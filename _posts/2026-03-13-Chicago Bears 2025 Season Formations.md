@@ -82,6 +82,8 @@ This table is more of a look at how tendencies transferred from the regular seas
 ### Man vs Zone
 <img width="1022" height="830" alt="chi_man_vs_zone" src="https://github.com/user-attachments/assets/4b7cf139-977e-4500-85ec-21365e7edd8d" />
 
+Man vszZone breakdown of the Chicago Bears regular seaosn vs playoffs. During the regualr season they ran a little under 100 more plays in zone than man coverage going from 328 to 235. Comparing that the playoffs the almso were iditentical howver it was more man than zone.
+
 ### Defense Formations
 <img width="1480" height="788" alt="chi_defense_formations" src="https://github.com/user-attachments/assets/0a13e8d3-9b8e-4fa5-a990-454bc9274cff" />
 
