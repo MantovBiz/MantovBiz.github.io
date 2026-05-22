@@ -41,7 +41,7 @@ Here are some football terms that will be mentioned throughout the article.
 
 NFL offensive personnel is described using a two-digit shorthand based on the number of running backs and tight ends on the field. The first digit represents the number of RBs (including fullbacks), and the second represents the number of TEs. The remaining skill players are wide receivers.
 
-![Personnel Groupings Chart](https://github.com/user-attachments/assets/43a6524f-ff83-4a97-9637-3f01afb9d3c7)
+<img width="400" alt="Personnel Groupings Chart" src="https://github.com/user-attachments/assets/43a6524f-ff83-4a97-9637-3f01afb9d3c7" />
 
 For example, **11 personnel** means 1 RB, 1 TE, and 3 WRs. **12 personnel** means 1 RB, 2 TEs, and 2 WRs.
 
