@@ -27,12 +27,6 @@ Why do you do the things that you do? This question is something personal to me 
 
 I will give you my why towards why I play golf. It is because it tests my own patience and willpower that I want to transfer into other areas of my life. How can I prevent one mistake or bad moment from ruining my day? How can I instead recover and bounce back mentally to have a stronger impact the next time? These questions drive me to become a better golfer, and hopefully it can help me become a better human being.
 
-## Perfection
-
-Recently, I saw a [TikTok](https://www.tiktok.com/@caterpillar908/video/7639888326115265805) of a speaker named Jayden Rosario, where I really liked what he was saying. One of his quotes that stood out was, "Perfection is a state where we will never reach. Therefore, growth is everlasting." I had to let that sink in because I think that is a beautiful line, because we are never going to know everything. That is why learning something feels special because we don't know a lot.
-
-I learned reading Golf Is Not A Game Of Perfect is how everyone's swing is different and how golf training sessions are kind of a scam because there is no "perfect" way of swinging. Yes, there are fundamentals that everyone should follow, but at the end of the day, it is whatever works for you. Cameron Young pauses at the top of his swing. The recent PGA Championship winner, Aaron Rai, has iron covers, and Bryson DeChambeau uses the same length shaft on his clubs. Golf is about whatever works for you, and you shouldn't let anyone tell you otherwise; it is about feel and conviction. However you play golf, have full confidence and trust in yourself because that is how you will have the most enjoyment.
-
 ## The People
 
 It is an individual sport but everything is more fun with people. You can celebrate a good shot with someone and motivate and help the other stay composed throughout the round. Or if you want to face a friend, it gives you a strong competitive spirit and drive to want to succeed and beat your friend. After the round go and get some food or some drinks. What my friends and I do is bet on food, so the losing team has to buy the winning team their food.
