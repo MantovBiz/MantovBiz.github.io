@@ -30,12 +30,11 @@ Here are some football terms that will be mentioned throughout the article.
 
 | Position | Players |
 |---|---|
-| QB | Caleb Williams, Tyson Bagent, Case Keenum |
-| RB | D'Andre Swift, Kyle Monangai, Roschon Johnson |
-| WR | DJ Moore, Rome Odunze, Luther Burden III, Olamide Zaccheaus, Devin Duvernay  |
-| TE | Colston Loveland, Cole Kmet |
-
----
+| QB | Caleb Williams, Tyson Bagent |
+| RB | D'Andre Swift, Kyle Monangai, Roschon Johnson, Travis Homer, Brittain Brown |
+| WR | D.J. Moore, Rome Odunze, Luther Burden, Olamide Zaccheaus, Devin Duvernay, Maurice Alexander, Jahdae Walker, JP Richardson |
+| TE | Colston Loveland, Cole Kmet, Durham Smythe, Stephen Carlson, Nikola Kalinic |
+| OL | Drew Dalman, Joe Thuney, Jonah Jackson, Darnell Wright, Braxton Jones, Ryan Bates, Theo Benedet, Ozzy Trapilo, Jordan McFadden, Luke Newman |
 
 ### Personnel Groups
 
@@ -57,6 +56,30 @@ The Chicago Bears' 12-personnel grouping had the highest success rate at 46.96% 
 After looking at the overall season, I wanted to see if there was a difference in their approach in the playoffs versus the regular season. A few things stood out: 11 personnel usage dropped by about 9%, and the 12-personnel success rate improved by over 10%. That said, the sample sizes are significantly different, so keep that in mind when looking at the averages because a few big plays can skew the yards per play, which is wh you see a number like 8.71.
 
 This table is more of a look at how tendencies transferred from the regular season to the playoffs across the three most commonly used personnel groups. A direct comparison is difficult given both the difference in sample size and the elevated stakes of playoff football.
+
+## Defense
+
+### Playcaller & Roster
+
+**Defensive Playcaller:** Dennis Allen
+
+| Position | Players |
+|---|---|
+| DL/DT | Montez Sweat, Andrew Billings, Gervon Dexter, Grady Jarrett, Dayo Odeyingbo, Austin Booker, Daniel Hardy, Dominique Robinson, Jonathan Ford, Joe Tryon-Shoyinka, Shemar Turner, Chris Williams |
+| LB | Tremaine Edmunds, T.J. Edwards, Noah Sewell, D'Marco Jackson, Ruben Hyppolite, Amen Ogbongbemiga, Carl Jones |
+| CB | Jaylon Johnson, Nahshon Wright, Nick McCloud, Kyler Gordon, Josh Blackwell, Jaylon Jones |
+| S | Jaquan Brisker, Kevin Byard, C.J. Gardner-Johnson, Elijah Hicks, Jonathan Owens, Tyrique Stevenson, Dallis Flowers |
+
+### Man vs Zone
+<img width="1022" height="830" alt="chi_man_vs_zone" src="https://github.com/user-attachments/assets/4b7cf139-977e-4500-85ec-21365e7edd8d" />
+
+### Defense Formations
+<img width="1480" height="788" alt="chi_defense_formations" src="https://github.com/user-attachments/assets/0a13e8d3-9b8e-4fa5-a990-454bc9274cff" />
+
+
+### Defense Coverage
+<img width="1462" height="1076" alt="chi_defense_coverage" src="https://github.com/user-attachments/assets/bc18f635-1f1d-4e88-a98a-9b43b8eb6ba8" />
+
 
 
 
