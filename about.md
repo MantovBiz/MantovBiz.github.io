@@ -411,7 +411,7 @@ permalink: /about/
         <span class="hero-name">Manuel Tovar</span>
         <span class="hero-role">MIS &amp; Business Analytics · DePaul University</span>
         <p class="hero-bio">
-         I chose to study data because it was something that intersted me as a kid. Now I build porjects revolving sports, data and business. I am able to do this as I am studying Business Analytics & MIS with minors in Spanish & Sport Communication. 
+         I chose to study data because it was something that intersted me as a kid. Now I build porjects revolving sports, data and business. I am able to do this as I am studying Business Analytics & MIS with a minor in Spanish. 
 
         </p>
       </div>
