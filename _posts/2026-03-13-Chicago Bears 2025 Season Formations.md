@@ -54,7 +54,7 @@ The Chicago Bears' 12-personnel grouping had the highest success rate at 46.96% 
 ### Regular Season vs Playoffs
 <img width="774" height="799" alt="chi_offense_reg_vs_playoffs" src="https://github.com/user-attachments/assets/9a91905b-6a3e-454b-8817-025aa24b9e39" />
 
-After looking at the overall season, I wanted to see if there was a difference in their approach in the playoffs versus the regular season. A few things stood out: 11 personnel usage dropped by about 9%, and the 12-personnel success rate improved by over 10%. That said, the sample sizes are significantly different, so keep that in mind when looking at the averages — a few big plays can easily skew yards per play, which is why you see a number like 8.71.
+After looking at the overall season, I wanted to see if there was a difference in their approach in the playoffs versus the regular season. A few things stood out: 11 personnel usage dropped by about 9%, and the 12-personnel success rate improved by over 10%. That said, the sample sizes are significantly different, so keep that in mind when looking at the averages because a few big plays can skew the yards per play, which is wh you see a number like 8.71.
 
 This table is more of a look at how tendencies transferred from the regular season to the playoffs across the three most commonly used personnel groups. A direct comparison is difficult given both the difference in sample size and the elevated stakes of playoff football.
 
