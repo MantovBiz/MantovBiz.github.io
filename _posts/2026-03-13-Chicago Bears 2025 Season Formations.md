@@ -26,7 +26,7 @@ Here are some football terms that will be mentioned throughout the article.
 
 ### Playcaller and Roster
 
-**Offensive Coordinator:** Ben Johnson
+**Offensive Playcaller:** Ben Johnson
 
 | Position | Players |
 |---|---|
@@ -47,7 +47,13 @@ For example, **11 personnel** means 1 RB, 1 TE, and 3 WRs. **12 personnel** mean
 
 <img width="1466" height="980" alt="chi_offense_personnel" src="https://github.com/user-attachments/assets/635935e0-6520-4195-8fa5-dde789fe9ca6" />
 
-The Chicago Bears were a heavy 11-personnel team with 663 of their plays being run in that group. 
+The Chicago Bears were a heavy 11-personnel team with 663 of their plays being run in that group. Then 428 plays in 12 personnel and 120 in 13 personnel. After seeing those numbers I decided to look into the snap counts of the tight ends by using PFF. Kmet had 768, Loveland had 701, Smythe had 293 and Carlson had 14 which amounts to 1776. After adding up the plays from R it came out to be (1*685) + (2*439) + (3*122) = 1929 total TE snaps on R. Which I think is a significant differnce and it is important to note that PFF says snap counts are unofficial. After reaserching into this I learned that offesnive linemen can come in as one of hte tight ends. This is typically done in short yard situations to help bring a bigger body. 
+
+The Chicago Bears 12 man personeel had the highest success rate with 46.96% (min of 10 plays) and the most yards per play at 6.04.
+
+### Regular Season vs Playoffs
+<img width="1548" height="1598" alt="chi_offense_reg_vs_playoffs" src="https://github.com/user-attachments/assets/9a91905b-6a3e-454b-8817-025aa24b9e39" />
+
 
 
 
